@@ -1,12 +1,24 @@
-import LoginForm from 'modules/LoginForm/LoginForm';
+import { useDispatch } from 'react-redux';
+import LoginForm from '../../modules/LoginForm/LoginForm';
+import { login } from '../../redux/auth/auth-operations';
 
-// import css from './login-page.module.scss';
+import logo from '../../images/svg/Group.png';
+import css from './login-page.module.scss';
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+
+  const onLogin = data => {
+    dispatch(login(data));
+  };
+
   return (
     <div className="container">
-      <div>Logo Wallet</div>
-      <LoginForm />
+      <div className={css.logoBox}>
+        <img src={logo} alt="logo" />
+        <p className={css.wallet}>WALLET</p>
+      </div>
+      <LoginForm onSubmit={onLogin} />
     </div>
   );
 };

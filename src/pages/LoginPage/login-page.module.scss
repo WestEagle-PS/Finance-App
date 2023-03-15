@@ -1,1 +1,21 @@
+.logoBox {
+  display: flex;
+  gap: 15.5px;
+  margin-top: 107px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+}
 
+.wallet {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}

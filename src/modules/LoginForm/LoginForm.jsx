@@ -18,8 +18,10 @@ const LoginForm = ({ onSubmit }) => {
     <form onSubmit={handleSubmit} className={css.form}>
       <TextField value={email} onChange={handleChange} {...fields.email} />
       <TextField value={password} onChange={handleChange} {...fields.password} />
-      <Button>Login</Button>
-      <Link to="/register">REGISTER</Link>
+      <Button>log in</Button>
+      <Link className={css.link} to="/register">
+        REGISTER
+      </Link>
     </form>
   );
 };
