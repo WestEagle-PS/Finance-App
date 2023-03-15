@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-// import PrivateRouter from 'modules/PrivateRouter/PrivateRouter';
-// import PublicRoute from 'modules/PublicRoute/PublicRoute';
+import PrivateRoute from './modules/PrivateRoute/PrivateRoute';
+import PublicRoute from './modules/PublicRoute/PublicRoute';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const StatisticPage = lazy(() => import('./pages/StatisticPage/StatisticPage'));
@@ -15,15 +15,15 @@ const UserRoutes = () => {
     <>
       <Suspense fallback={<p>.....Loading page, please wait</p>}>
         <Routes>
-          {/* <Route element={<PublicRoute />}> */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          {/* </Route> */}
+          <Route element={<PublicRoute />}>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Route>
 
-          {/* <Route element={<PrivateRouter />}> */}
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/statistic" element={<StatisticPage />} />
-          {/* </Route> */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/statistic" element={<StatisticPage />} />
+          </Route>
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

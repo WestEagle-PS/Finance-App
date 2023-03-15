@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import RegisterForm from 'modules/RegisterForm/RegisterForm';
 import { register } from '../../redux/auth/auth-operations';
 
-// import css from './register-page.module.scss';
+import logo from '../../images/svg/Group.png';
+import css from './register-page.module.scss';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,10 @@ const RegisterPage = () => {
 
   return (
     <div className="container">
-      <div>Logo Wallet</div>
+      <div className={css.logoBox}>
+        <img src={logo} alt="logo" />
+        <p className={css.wallet}>WALLET</p>
+      </div>
       <RegisterForm onSubmit={onRegister} />
     </div>
   );

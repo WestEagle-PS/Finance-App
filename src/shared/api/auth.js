@@ -23,6 +23,12 @@ export const login = async data => {
   return result;
 };
 
+export const logout = async () => {
+  const { data } = await instanceAuth.delete('/auth/sign-out');
+  setToken();
+  return data;
+};
+
 export const getCurrent = async token => {
   try {
     setToken(token);
