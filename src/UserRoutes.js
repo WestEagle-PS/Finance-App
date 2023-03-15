@@ -28,7 +28,6 @@ const UserRoutes = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-      ;
     </>
   );
 };
