@@ -1,8 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-const transactionsInstance = axios.create({
-  baseURL: 'https://wallet.goit.ua/api',
-});
+// const transactionsInstance = axios.create({
+//   baseURL: 'https://wallet.goit.ua/api',
+// });
 
 // const addTransaction = () => { }
 
