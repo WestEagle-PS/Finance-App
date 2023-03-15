@@ -20,7 +20,7 @@ const RegisterForm = ({ onSubmit }) => {
       <TextField value={password} onChange={handleChange} {...fields.password} />
       <TextField value={confirm_password} onChange={handleChange} {...fields.confirm_password} />
       <TextField value={name} onChange={handleChange} {...fields.name} />
-      <Button>LOG IN</Button>
+      <Button>REGISTER</Button>
       <Link to="/login">LOG IN</Link>
     </form>
   );
