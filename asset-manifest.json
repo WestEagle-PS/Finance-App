@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/wallet/static/css/main.bde0d2f5.css",
-    "main.js": "/wallet/static/js/main.4811d49c.js",
+    "main.css": "/wallet/static/css/main.13090a02.css",
+    "main.js": "/wallet/static/js/main.9c031e7f.js",
     "static/css/961.4ed43827.chunk.css": "/wallet/static/css/961.4ed43827.chunk.css",
     "static/js/961.5ae104da.chunk.js": "/wallet/static/js/961.5ae104da.chunk.js",
     "static/css/72.bebccdac.chunk.css": "/wallet/static/css/72.bebccdac.chunk.css",
@@ -17,8 +17,10 @@
     "static/media/Poppins-Regular.ttf": "/wallet/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Bold.ttf": "/wallet/static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
     "index.html": "/wallet/index.html",
-    "main.bde0d2f5.css.map": "/wallet/static/css/main.bde0d2f5.css.map",
-    "main.4811d49c.js.map": "/wallet/static/js/main.4811d49c.js.map",
+    "static/media/exit.svg": "/wallet/static/media/exit.a6d43e7324bb992a08fee9626088c055.svg",
+    "static/media/Vector.svg": "/wallet/static/media/Vector.4197971255a4c6a047f2d568d14b817e.svg",
+    "main.13090a02.css.map": "/wallet/static/css/main.13090a02.css.map",
+    "main.9c031e7f.js.map": "/wallet/static/js/main.9c031e7f.js.map",
     "961.4ed43827.chunk.css.map": "/wallet/static/css/961.4ed43827.chunk.css.map",
     "961.5ae104da.chunk.js.map": "/wallet/static/js/961.5ae104da.chunk.js.map",
     "72.bebccdac.chunk.css.map": "/wallet/static/css/72.bebccdac.chunk.css.map",
@@ -31,7 +33,7 @@
     "312.0ba8cb42.chunk.js.map": "/wallet/static/js/312.0ba8cb42.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bde0d2f5.css",
-    "static/js/main.4811d49c.js"
+    "static/css/main.13090a02.css",
+    "static/js/main.9c031e7f.js"
   ]
 }
