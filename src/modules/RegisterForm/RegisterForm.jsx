@@ -21,7 +21,9 @@ const RegisterForm = ({ onSubmit }) => {
       <TextField value={confirm_password} onChange={handleChange} {...fields.confirm_password} />
       <TextField value={name} onChange={handleChange} {...fields.name} />
       <Button>REGISTER</Button>
-      <Link to="/login">LOG IN</Link>
+      <Link className={css.link} to="/login">
+        LOG IN
+      </Link>
     </form>
   );
 };
