@@ -1,19 +1,18 @@
-import { useState } from 'react';
 import DatePicker from 'react-datepicker';
+import addDays from 'date-fns/addDays';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const AddTransactionCalendar = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    return (
-      <DatePicker
-        showIcon
-        selected={startDate}
-        onChange={date => setStartDate(date)}
-        dateFormat="dd/MM/yyyy"
-        // maxDate={addDays(new Date(), 5)}
-        // placeholderText="Select a date before 5 days in the future"
-      />
-    );
-  };
+const AddTransactionCalendar = ({ onChange }) => {
+  const startDate = new Date();
+  return (
+    <DatePicker
+      showIcon
+      selected={startDate}
+      onChange={date => onChange(date.toDateString())}
+      dateFormat="dd.MM.yyyy"
+      maxDate={addDays(new Date(), 0)}
+    />
+  );
+};
 
-  export default AddTransactionCalendar;
+export default AddTransactionCalendar;

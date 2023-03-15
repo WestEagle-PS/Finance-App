@@ -16,13 +16,18 @@ const HomePage = () => {
     setShowModal(false);
   }
 
+  const onAddFormSubmit = (data) => {
+    console.log('formData', data);
+    setShowModal(false);
+  }
+
   return (
     <div className="container">
       <Header />
       <h2 className={css.title}>Hello! It`s Home page</h2>
       <Currency/>
       <button type="button" onClick={handleAddBtnClick}>+</button>
-      {showModal && <Modal onClose={onCloseModal}><AddTransactionForm/></Modal>}
+      {showModal && <Modal onClose={onCloseModal}><AddTransactionForm onSubmit={onAddFormSubmit}/></Modal>}
     </div>
   );
 };

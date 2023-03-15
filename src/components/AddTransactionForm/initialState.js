@@ -3,7 +3,7 @@ const initialState = {
   type: '',
   categoryId: '',
   comment: '',
-  amount: null,
+  amount: '',
 };
 
 export default initialState;
