@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { getAuth } from 'redux/auth/auth-selectors';
 
-const PrivateRoute = () => {
+const PrivateRouter = () => {
   const { isLogin, token } = useSelector(getAuth);
 
   if (!isLogin && token) {
@@ -17,4 +17,4 @@ const PrivateRoute = () => {
   return <Outlet />;
 };
 
-export default PrivateRoute;
+export default PrivateRouter;

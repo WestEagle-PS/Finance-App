@@ -16,6 +16,7 @@ const UserRoutes = () => {
       <Suspense fallback={<p>.....Loading page, please wait</p>}>
         <Routes>
           <Route element={<PublicRoute />}>
+            <Route path="/" element={<LoginPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
           </Route>
