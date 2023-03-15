@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.logoBox {
+  display: flex;
+}
+
+.exitBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wallet {
+  margin-left: 20px;
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.button {
+  margin-left: 8px;
+  background-color: transparent;
+  border: none;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #bdbdbd;
+}
+
+.name {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: right;
+
+  color: #bdbdbd;
+}
+.exit {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vector {
+  margin: 0 12px;
+}
