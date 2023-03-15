@@ -10,20 +10,19 @@ const Currency = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-          const { data } = await getMoney();
-        //   console.log(data)
+        const { data } = await getMoney();
         const newArr = data.slice(0, 2);
         setState({ newArr });
       } catch (response) {
-        setError(response.message || 'Oops sothing wrong');
+        setError(response.message || 'Oops something wrong');
       } finally {
       }
     };
 
     fetchData();
   }, []);
-    if (!state.newArr) {
-      return
+  if (!state.newArr) {
+    return;
   }
 
   const elements = state.newArr.map(item => (
@@ -35,8 +34,8 @@ const Currency = () => {
   ));
 
   return (
-      <div className={styles.box}>
-           {error && <p>{error}</p>}
+    <div className={styles.box}>
+      {error && <p>{error}</p>}
       <div className={styles.upperBox}>
         <p className={styles.text}>Currency</p>
         <p className={styles.text}>Purchase</p>
