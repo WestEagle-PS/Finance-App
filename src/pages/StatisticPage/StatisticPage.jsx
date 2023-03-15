@@ -1,4 +1,4 @@
-import css from './home-page.module.scss';
+import css from './statistic-page.module.scss';
 
 const StatisticPage = () => {
   return (
