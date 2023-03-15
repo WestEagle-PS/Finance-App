@@ -1,17 +1,17 @@
-import axios from "axios";
+import axios from 'axios';
 
 const transactionsInstance = axios.create({
-    baseURL:"https://wallet.goit.ua/api"
-})
+  baseURL: 'https://wallet.goit.ua/api',
+});
 
-const addTransaction = () => { }
+// const addTransaction = () => { }
 
-const getAllTransactions = () => { }
+// const getAllTransactions = () => { }
 
-const updateTranscation = () => { }
+// const updateTranscation = () => { }
 
-const deleteTransaction = () => { }
+// const deleteTransaction = () => { }
 
-const getTransactionCategories = () => { }
+// const getTransactionCategories = () => { }
 
-const getTransactionSummary =()=>{}
+// const getTransactionSummary =()=>{}
