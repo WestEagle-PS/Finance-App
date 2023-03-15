@@ -1,9 +1,13 @@
-import css from './register-page.module.scss';
+import RegisterForm from 'modules/RegisterForm/RegisterForm';
+// import css from './register-page.module.scss';
 
 const RegisterPage = () => {
-  <div className="container">
-    return <h2 className={css.title}>Registered page</h2>;
-  </div>;
+  return (
+    <div className="container">
+      <div>Logo Wallet</div>
+      <RegisterForm />
+    </div>
+  );
 };
 
 export default RegisterPage;
