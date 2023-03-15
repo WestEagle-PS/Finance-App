@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Finance-App/static/css/main.3204174b.css",
-    "main.js": "/Finance-App/static/js/main.60412f97.js",
-    "index.html": "/Finance-App/index.html",
-    "main.3204174b.css.map": "/Finance-App/static/css/main.3204174b.css.map",
-    "main.60412f97.js.map": "/Finance-App/static/js/main.60412f97.js.map"
+    "main.css": "/wallet/static/css/main.3204174b.css",
+    "main.js": "/wallet/static/js/main.60412f97.js",
+    "index.html": "/wallet/index.html",
+    "main.3204174b.css.map": "/wallet/static/css/main.3204174b.css.map",
+    "main.60412f97.js.map": "/wallet/static/js/main.60412f97.js.map"
   },
   "entrypoints": [
     "static/css/main.3204174b.css",
