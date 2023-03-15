@@ -16,7 +16,6 @@ export const App = () => {
         <PersistGate loading={null} persistor={persistor}>
           <AuthLayout>
             <BrowserRouter basename="/wallet">
-              <Header />
               <UserRoutes />
             </BrowserRouter>
           </AuthLayout>
