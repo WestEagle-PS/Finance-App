@@ -4,10 +4,11 @@ import AddTransactionCalendar from 'shared/components/Calendar/Calendar';
 import initialState from './initialState';
 
 const AddTransactionForm = ({ onSubmit }) => {
-  const { state, setState, handleChange, handleSubmit } = useForm({ initialState, onSubmit });
+  const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit });
 
-  const { transactionDate, type, categoryId, comment, amount } = state;
-
+  const { comment, amount } = state;
+// transactionDate, type, categoryId
+  
   return (
     <>
       <p>Add transaction</p>
