@@ -5,16 +5,17 @@ import exit from '../../images/svg/exit.svg'
 import styles from './Header.module.scss'
 
 
+
 const Header = () => {
     
 
     return (
         
-        <header class = "container">
-            <div className={styles.container}>
+        <header >
+            <div className={styles.containerInner}>
                 <div className={styles.logoBox}>
-                    <img src={logo} alt="" />
-                    <p className={styles.wallet}>WALLET</p>
+                    <img src={logo} width="40" height="40" alt="" />
+                    <p className={styles.wallet}>Wallet</p>
                 </div>
                 <div className={styles.exitBox}>
                     <p className={styles.name}>Name</p> 
@@ -23,6 +24,7 @@ const Header = () => {
                     <button className={styles.button} type="sybmit">Exit</button>
                 </div>
             </div>
+            
         </header>)
 
 }
