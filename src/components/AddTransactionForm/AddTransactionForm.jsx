@@ -1,44 +1,49 @@
 import { useState } from 'react';
 import useForm from 'shared/hooks/useForm';
 import ToggleButton from 'shared/components/ToggleButton/ToggleButton';
+// import Dropdown from 'shared/components/Dropdown/Dropdown';
 import Button from 'shared/components/Button/Button';
 import AddTransactionCalendar from 'shared/components/Calendar/Calendar';
 import initialState from './initialState';
-import css from './add-transaction-form.module.scss'
-// import styles from '../../shared/components/ToggleButton/toggle-button.module.css';
-
+import styles from './add-transaction-form.module.scss';
 
 const AddTransactionForm = ({ onSubmit }) => {
   const [checked, setChecked] = useState(false);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
-  // const labelClasses = checked
-  // ? `${styles.switch} ${styles.checked}`
-  // : styles.switch;
   const { comment, amount } = state;
-// type, categoryId
-console.log('checked', checked)
+  // type, categoryId
+  // console.log('checked', checked)
 
   return (
     <>
-      <p>Add transaction</p>
-      <form onSubmit={handleSubmit} className={css.form}>
-      {/* <div className={styles.wrapper}>
-      <label className={labelClasses}>
+      <p className={styles.title}>Add transaction</p>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <ToggleButton cheked={checked} setChecked={() => setChecked()} onClick={handleDataChange} />
+        {/* <Dropdown /> */}
+        <div className={styles.wrapper}>
+          <input
+            className={styles.field}
+            name="amount"
+            type="text"
+            value={amount}
+            placeholder="0.00"
+            required
+            onChange={handleChange}
+          />
+          <AddTransactionCalendar onChange={handleDataChange} />
+        </div>
         <input
-          className={styles.checkbox}
-          type="checkbox"
-          checked={checked}
-          onChange={({target}) => handleChange(target.checked)}
+          className={styles.field}
+          name="comment"
+          type="text"
+          value={comment}
+          placeholder="Comment"
+          onChange={handleChange}
         />
-        <span className={styles.slider + ' ' + styles.round}></span>
-      </label>
-    </div> */}
-    <ToggleButton cheked={checked} setChecked={()=>setChecked()}  onClick={handleDataChange}/>
-        <input name="amount" type="text" value={amount} placeholder="0.00" required onChange={handleChange} />
-        <AddTransactionCalendar onChange={handleDataChange}/>
-        <input name="comment" type="text" value={comment} placeholder="Comment" onChange={handleChange} />
+        <div className={styles.box}>
         <Button>Add</Button>
         <Button>Cancel</Button>
+        </div>
       </form>
     </>
   );

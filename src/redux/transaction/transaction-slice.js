@@ -6,7 +6,8 @@ import {
   deleteTransaction,
   updateTranscation,
   getTransactionSummary,
-} from 'shared/api/transactions';
+  getAllCategories,
+} from './transaction-operations';
 
 
 
@@ -68,12 +69,12 @@ const transactionSlice = createSlice({
         state.summary = payload;
       })
       .addCase(getTransactionSummary.rejected, handleRejected)
-      .addCase(getTransactionSummary.pending, handlePending)
-      .addCase(getTransactionSummary.fulfilled, (state, { payload }) => {
+      .addCase(getAllCategories.pending, handlePending)
+      .addCase(getAllCategories.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.categories = payload;
       })
-      .addCase(getTransactionSummary.rejected, handleRejected)
+      .addCase(getAllCategories.rejected, handleRejected)
   },
 });
 

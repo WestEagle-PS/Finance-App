@@ -1,4 +1,6 @@
-import Select, { components } from 'react-select';
+import { components } from 'react-select';
+import Select from 'react-select';
+
 
 const DropdownIndicator = props => {
   return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getCategories } from 'redux/transaction/transaction-operations';
+import { getAllCategories } from 'redux/transaction/transaction-operations';
 import AddButton from 'shared/components/AddButton/ButtonPlus';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
@@ -13,7 +13,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCategories());
+    dispatch(getAllCategories());
   }, [dispatch]);
 
   const handleAddBtnClick = () => {
