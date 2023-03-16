@@ -1,17 +1,27 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const transactionsInstance = axios.create({
-//   baseURL: 'https://wallet.goit.ua/api',
-// });
+const transactionsInstance = axios.create({
+  baseURL: 'https://wallet.goit.ua/api',
+});
 
-// const addTransaction = () => { }
+export const getAllTransactions = () => {
+  return transactionsInstance.get('/transactions');
+};
 
-// const getAllTransactions = () => { }
+export const addTransaction = data => {
+  return transactionsInstance.post('/transactions', data);
+};
 
-// const updateTranscation = () => { }
+export const deleteTransaction = id => {
+  return transactionsInstance.delete(`/transactions/${id}`);
+};
 
-// const deleteTransaction = () => { }
+export const updateTranscation = id => {
+  return transactionsInstance.patch('/transactions', { id });
+};
 
-// const getTransactionCategories = () => { }
+// const getTransactionCategories = () => {};
 
-// const getTransactionSummary =()=>{}
+export const getTransactionSummary = () => {
+  return transactionsInstance.get('/transactions-summary');
+};
