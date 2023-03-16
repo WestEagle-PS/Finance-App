@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartStat from './ChartStat/ChartStat';
+// import ChartStat from './ChartStat/ChartStat';
 import SideBar from './SideBar/SideBar';
 import s from './DashBoard.module.scss';
 import PieChartComponent from './ChartDiagram/ChartDiagram';
