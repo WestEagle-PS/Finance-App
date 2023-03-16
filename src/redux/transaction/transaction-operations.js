@@ -49,3 +49,14 @@ export const getTransactionSummary = createAsyncThunk(
     }
   }
 );
+
+export const getAllCategories = createAsyncThunk('transaction/getCategories',
+async(_, {rejectWithValue}) => {
+  try {
+    const {data} = await api.getTransactionCategories();
+    return data;
+  } catch ({response}) {
+    return rejectWithValue(response);
+  }
+}
+)

@@ -8,7 +8,9 @@ export const deleteTransaction = id => instanceAuth.delete(`/transactions/${id}`
 
 export const updateTranscation = id => instanceAuth.patch('/transactions', { id });
 
-export const getTransactionCategories = () => instanceAuth.get('/transaction-categories');
+export const getTransactionCategories = async () => {
+  const data = await instanceAuth.get('/transaction-categories');
+  return data;
+};
 
 export const getTransactionSummary = () => instanceAuth.get('/transactions-summary');
-

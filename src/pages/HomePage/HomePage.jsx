@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAllCategories } from 'redux/transaction/transaction-operations';
+import AddButton from 'shared/components/AddButton/ButtonPlus';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 import css from './home-page.module.scss';
@@ -11,6 +14,11 @@ import Balance from 'components/Balance/Balance';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCategories());
+  }, [dispatch]);
 
   const handleAddBtnClick = () => {
     setShowModal(true);
@@ -34,10 +42,7 @@ const HomePage = () => {
       <Currency />
       <ChartStat />
       <PieChartComponent />
-
-      <button type="button" onClick={handleAddBtnClick}>
-        +
-      </button>
+      <AddButton type="button" onBtnClick={handleAddBtnClick} />
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm onSubmit={onAddFormSubmit} />

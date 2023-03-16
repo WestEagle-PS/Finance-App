@@ -1,6 +1,6 @@
 const initialState = {
   transactionDate: '',
-  type: '',
+  type: 'INCOME',
   categoryId: '',
   comment: '',
   amount: '',

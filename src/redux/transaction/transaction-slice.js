@@ -6,12 +6,27 @@ import {
   deleteTransaction,
   updateTranscation,
   getTransactionSummary,
-} from 'shared/api/transactions';
+  getAllCategories,
+} from './transaction-operations';
+
+
 
 const initialState = {
   items: [],
   loading: false,
   error: null,
+  summary: {},
+  categories: [],
+};
+
+const handlePending = state => {
+  state.loading = true;
+  state.error = null;
+};
+
+const handleRejected = (state, { payload }) => {
+  state.loading = false;
+  state.error = payload;
 };
 
 const transactionSlice = createSlice({
@@ -19,71 +34,47 @@ const transactionSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(getAllTransactions.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
+      .addCase(getAllTransactions.pending, handlePending)
       .addCase(getAllTransactions.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items = payload;
       })
-      .addCase(getAllTransactions.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
-      })
+      .addCase(getAllTransactions.rejected, handleRejected)
 
-      .addCase(addTransaction.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
+      .addCase(addTransaction.pending, handlePending)
       .addCase(addTransaction.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items.push(payload);
       })
-      .addCase(addTransaction.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
-      })
+      .addCase(addTransaction.rejected, handleRejected)
 
-      .addCase(deleteTransaction.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
+      .addCase(deleteTransaction.pending, handlePending)
       .addCase(deleteTransaction.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items = state.items.filter(({ id }) => id !== payload);
       })
-      .addCase(deleteTransaction.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
-      })
+      .addCase(deleteTransaction.rejected, handleRejected)
 
-      .addCase(updateTranscation.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
+      .addCase(updateTranscation.pending, handlePending)
       .addCase(updateTranscation.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.error = null;
         state.items = state.items.map(transaction => (transaction.id === payload.id ? payload : transaction));
       })
-      .addCase(updateTranscation.rejected, (state, { payload }) => {
-        state.contacts.isLoading = false;
-        state.contacts.error = payload;
-      })
+      .addCase(updateTranscation.rejected, handleRejected)
 
-      .addCase(getTransactionSummary.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
+      .addCase(getTransactionSummary.pending, handlePending)
       .addCase(getTransactionSummary.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.items = payload;
+        state.summary = payload;
       })
-      .addCase(getTransactionSummary.rejected, (state, { payload }) => {
+      .addCase(getTransactionSummary.rejected, handleRejected)
+      .addCase(getAllCategories.pending, handlePending)
+      .addCase(getAllCategories.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.error = payload;
-      });
+        state.categories = payload;
+      })
+      .addCase(getAllCategories.rejected, handleRejected)
   },
 });
 

@@ -13,8 +13,8 @@
 
   .modal {
     width: 540px;
-    height: 508px;
-    padding: 40px 80px;
+    min-height: 508px;
+    padding: 40px 73px;
     display: flex;
     flex-direction: column;
     gap: 20px;
