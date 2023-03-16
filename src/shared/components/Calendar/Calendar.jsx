@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import addDays from 'date-fns/addDays';
 import { toDateString } from 'shared/utils/toDateString';
-import calendarIcon from 'images/svg/calendary.svg'
+// import calendarIcon from 'images/svg/calendary.svg'
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './calendar.module.scss'
 
