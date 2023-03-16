@@ -1,27 +1,14 @@
-import axios from 'axios';
+import instanceAuth from './auth';
 
-const transactionsInstance = axios.create({
-  baseURL: 'https://wallet.goit.ua/api',
-});
+export const getAllTransactions = () => instanceAuth.get('/transactions');
 
-export const getAllTransactions = () => {
-  return transactionsInstance.get('/transactions');
-};
+export const addTransaction = data => instanceAuth.post('/transactions', data);
 
-export const addTransaction = data => {
-  return transactionsInstance.post('/transactions', data);
-};
+export const deleteTransaction = id => instanceAuth.delete(`/transactions/${id}`);
 
-export const deleteTransaction = id => {
-  return transactionsInstance.delete(`/transactions/${id}`);
-};
+export const updateTranscation = id => instanceAuth.patch('/transactions', { id });
 
-export const updateTranscation = id => {
-  return transactionsInstance.patch('/transactions', { id });
-};
+export const getTransactionCategories = () => instanceAuth.get('/transaction-categories');
 
-// const getTransactionCategories = () => {};
+export const getTransactionSummary = () => instanceAuth.get('/transactions-summary');
 
-export const getTransactionSummary = () => {
-  return transactionsInstance.get('/transactions-summary');
-};
