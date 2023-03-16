@@ -11,6 +11,7 @@ import ChartStat from 'components/ChartStat/ChartStat';
 import PieChartComponent from 'components/ChartDiagram/ChartDiagram';
 import NavigationDashboard from 'components/NavigationDashboard/NavigationDashboard';
 import Balance from 'components/Balance/Balance';
+// import Dropdown from 'shared/components/Dropdown/Dropdown';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -42,6 +43,7 @@ const HomePage = () => {
       <Currency />
       <ChartStat />
       <PieChartComponent />
+      {/* <Dropdown/> */}
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
       {showModal && (
         <Modal onClose={onCloseModal}>
