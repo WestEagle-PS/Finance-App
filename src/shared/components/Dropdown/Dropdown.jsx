@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Select, { components } from 'react-select';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
@@ -11,8 +12,9 @@ const DropdownIndicator = props => {
   );
 };
 
-const Dropdown = ({ options = [], value = '', onChange }) => {
+const Dropdown = ({ options = [], onChange }) => {
   const isTabletOrDesctop = useMediaQuery('(min-width: 479px)');
+  const [value, setValue] = useState({ label: 'Select category', value: '' });
 
   return (
     <Select
@@ -20,7 +22,11 @@ const Dropdown = ({ options = [], value = '', onChange }) => {
       maxMenuHeight={157}
       components={{ DropdownIndicator }}
       value={value}
-      onChange={onChange}
+      onChange={value => {
+        console.log("value", value)
+        setValue(value);
+        onChange({type: "category", data: value.value});
+      }}
       styles={{
         control: baseStyles => ({
           ...baseStyles,

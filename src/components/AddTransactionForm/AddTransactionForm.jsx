@@ -1,25 +1,31 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCategories } from 'redux/transaction/transaction-selectors';
 import useForm from 'shared/hooks/useForm';
 import ToggleButton from 'shared/components/ToggleButton/ToggleButton';
-// import Dropdown from 'shared/components/Dropdown/Dropdown';
+import Dropdown from 'shared/components/Dropdown/Dropdown';
 import Button from 'shared/components/Button/Button';
 import AddTransactionCalendar from 'shared/components/Calendar/Calendar';
 import initialState from './initialState';
 import styles from './add-transaction-form.module.scss';
 
 const AddTransactionForm = ({ onSubmit }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
   const { comment, amount } = state;
-  // type, categoryId
-  // console.log('checked', checked)
+  const categories = useSelector(selectCategories);
+  const options = categories.map(({ id,name }) => ({ label: name, value: id }));
+
+  const handleChecked = data => {
+    setChecked(data);
+  };
 
   return (
     <>
       <p className={styles.title}>Add transaction</p>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <ToggleButton cheked={checked} setChecked={() => setChecked()} onClick={handleDataChange} />
-        {/* <Dropdown /> */}
+        <ToggleButton getChecked={handleChecked} onClick={handleDataChange} />
+        {!checked && <Dropdown options={options} onChange={handleDataChange} />}
         <div className={styles.wrapper}>
           <input
             className={styles.field}
@@ -41,8 +47,8 @@ const AddTransactionForm = ({ onSubmit }) => {
           onChange={handleChange}
         />
         <div className={styles.box}>
-        <Button>Add</Button>
-        <Button>Cancel</Button>
+          <Button>Add</Button>
+          <Button>Cancel</Button>
         </div>
       </form>
     </>

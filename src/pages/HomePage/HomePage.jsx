@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllCategories } from 'redux/transaction/transaction-operations';
+import { addTransaction, getAllCategories } from 'redux/transaction/transaction-operations';
 import AddButton from 'shared/components/AddButton/ButtonPlus';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
-// import css from './home-page.module.scss';
+import css from './home-page.module.scss';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -24,11 +24,12 @@ const HomePage = () => {
 
   const onAddFormSubmit = data => {
     console.log('formData', data);
+    dispatch(addTransaction(data));
     setShowModal(false);
   };
 
   return (
-    <div>
+    <div className={css.wrapper}>
       <p>Home page</p>
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
       {showModal && (

@@ -9,8 +9,6 @@ import {
   getAllCategories,
 } from './transaction-operations';
 
-
-
 const initialState = {
   items: [],
   loading: false,

@@ -29,7 +29,7 @@ export const deleteTransaction = createAsyncThunk('transaction/del', async (id, 
   }
 });
 
-export const updateTranscation = createAsyncThunk('transaction/patchTransaction', async (id, { rejectWithValue }) => {
+export const updateTranscation = createAsyncThunk('transaction/update', async (id, { rejectWithValue }) => {
   try {
     const { data } = await api.updateTranscation(id);
     return data;
@@ -50,10 +50,10 @@ export const getTransactionSummary = createAsyncThunk(
   }
 );
 
-export const getAllCategories = createAsyncThunk('transaction/getCategories',
+export const getAllCategories = createAsyncThunk('transaction/getAllCategories',
 async(_, {rejectWithValue}) => {
   try {
-    const {data} = await api.getTransactionCategories();
+    const data = await api.getTransactionCategories();
     return data;
   } catch ({response}) {
     return rejectWithValue(response);

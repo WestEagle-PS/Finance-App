@@ -1,5 +1,5 @@
 const initialState = {
-  transactionDate: '',
+  transactionDate: new Date(),
   type: 'INCOME',
   categoryId: '',
   comment: '',
