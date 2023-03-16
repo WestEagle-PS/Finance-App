@@ -38,7 +38,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <Header />
-      <h2 className={css.title}>Hello! It`s Home page</h2>
+      <h2 className={css.title}>Home page</h2>
       <DashBoard />
       <ChartStat />
       {/* <PieChartComponent /> */}
