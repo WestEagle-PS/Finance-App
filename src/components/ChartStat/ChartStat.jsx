@@ -13,8 +13,6 @@ const ChartStat = () => {
     const fetchData = async () => {
       try {
           const { data } = await getTransactionCategories();
-          // console.log(data)
-        
         setState({ data });
       } catch (response) {
         setError(response.message || 'Oops something wrong');
