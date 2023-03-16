@@ -9,13 +9,13 @@ const fields = {
     name: 'email',
     type: 'email',
     required: true,
-    placeholder: 'User email',
+    placeholder: 'E-mail',
   },
   password: {
     name: 'password',
     type: 'password',
     required: true,
-    placeholder: 'User password',
+    placeholder: 'Password',
   },
   confirm_password: {
     name: 'confirm_password',
