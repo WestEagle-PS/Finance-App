@@ -16,7 +16,7 @@ const RegisterPage = () => {
   return (
     <div className="container">
       <div className={css.logoBox}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" width="30" />
         <p className={css.wallet}>Wallet</p>
       </div>
       <RegisterForm onSubmit={onRegister} />
