@@ -1,0 +1,1 @@
+export const selectCategories = ({transaction}) => transaction.categories

@@ -23,7 +23,14 @@ const useForm = ({ initialState, onSubmit }) => {
     if (type === 'type') {
       setState(prevState => {
         console.log('transactType prevState', prevState);
+        console.log("type", type)
         return { ...prevState, type: data };
+      });
+    }
+    if (type === 'category') {
+      setState(prevState => {
+        console.log('categoryType prevState', prevState);
+        return { ...prevState, categoryId: data };
       });
     }
   };

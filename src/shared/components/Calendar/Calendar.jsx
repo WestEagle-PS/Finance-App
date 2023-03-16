@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import addDays from 'date-fns/addDays';
+import { toDateString } from 'shared/utils/toDateString';
+import calendarIcon from 'images/svg/calendary.svg'
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './calendar.module.scss'
 
@@ -20,7 +22,7 @@ const AddTransactionCalendar = ({ onChange }) => {
       onChange={date => {
         console.log(date)
         setStartDate(date)
-        onChange({type: "date", data: date.toDateString()})}}
+        onChange({type: "date", data: toDateString(date)})}}
         customInput={<CustomInput />}
       dateFormat="dd.MM.yyyy"
       maxDate={addDays(new Date(), 0)}
