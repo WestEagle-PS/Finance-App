@@ -3,12 +3,16 @@
 
 .field {
   width: 280px;
+  height: 40px;
   border: none;
   border-bottom: 1px solid #e0e0e0;
   display: block;
   margin-bottom: 40px;
+  padding-bottom: 8px;
 
   font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 27px;
   color: #bdbdbd;

@@ -3,8 +3,8 @@
   height: 50px;
   padding-top: 13px;
   padding-bottom: 13px;
-  background-color: #24CCA7;
-  font-family: 'Circe';
+  background-color: #24cca7;
+  font-family: 'CirceRegular';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -26,6 +26,6 @@
 
 @media screen and (min-width: 479px) {
   .button {
-    width: 300px
+    width: 300px;
   }
 }

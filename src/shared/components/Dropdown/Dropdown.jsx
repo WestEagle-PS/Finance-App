@@ -11,7 +11,7 @@ const DropdownIndicator = props => {
   );
 };
 
-const Dropdown = ({ options = [], value = '', onChange }) => {
+const Dropdown = ({ options = [], selected = '', onSelected }) => {
   const isTabletOrDesctop = useMediaQuery('(min-width: 479px)');
 
   return (
@@ -19,8 +19,8 @@ const Dropdown = ({ options = [], value = '', onChange }) => {
       options={options}
       maxMenuHeight={157}
       components={{ DropdownIndicator }}
-      value={value}
-      onChange={onChange}
+      value={selected}
+      onChange={onSelected}
       styles={{
         control: baseStyles => ({
           ...baseStyles,
@@ -51,9 +51,9 @@ const Dropdown = ({ options = [], value = '', onChange }) => {
         }),
         singleValue: baseStyles => ({
           ...baseStyles,
-          fontFamily: 'Circe',
+          fontFamily: 'CirceRegular',
           fontSize: '16px',
-          lineHeight: 'calc(24px / 16px)',
+          lineHeight: 'calc(24 / 16)',
         }),
         menu: () => ({
           width: isTabletOrDesctop ? '160px' : '100%',
@@ -67,9 +67,9 @@ const Dropdown = ({ options = [], value = '', onChange }) => {
           paddingTop: '8px',
           paddingBottom: '8px',
           paddingLeft: '20px',
-          fontFamily: 'Circe',
+          fontFamily: 'CirceRegular',
           fontSize: '16px',
-          lineHeight: 'calc(24px / 16px)',
+          lineHeight: 'calc(24 / 16)',
           cursor: 'pointer',
           ':hover': {
             backgroundColor: state.isSelected ? '' : 'white',

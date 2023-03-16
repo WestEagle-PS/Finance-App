@@ -1,11 +1,7 @@
-// import { useState } from 'react';
-import styles from './toggle-button.module.css';
+import styles from './toggle-button.module.scss';
 
-const ToggleButton = ({checked, setChecked, onClick }) => {
-  // const [checked, setChecked] = useState(false);
-  const labelClasses = checked
-    ? `${styles.switch} ${styles.checked}`
-    : styles.switch;
+const ToggleButton = ({ checked = false, onChecked }) => {
+  const labelClasses = checked ? `${styles.switch} ${styles.checked}` : styles.switch;
 
   return (
     <div className={styles.wrapper}>
@@ -14,19 +10,8 @@ const ToggleButton = ({checked, setChecked, onClick }) => {
           className={styles.checkbox}
           type="checkbox"
           checked={checked}
-          // onChange={e => {
-          //   console.log("target", e.target)
-          //   onClick(e.target.checked);
-          // }}
-          onChange={()=>{
-            setChecked(prevState=>{
-              console.log("prevState", prevState)
-              return !prevState});
-            // console.log('checked', checked)
-            if(checked) {
-              onClick({type: "type", data: 'EXPENSE'});
-            }
-            onClick({type: "type", data: 'INCOME'});
+          onChange={() => {
+            onChecked(!checked);
           }}
         />
         <span className={styles.slider + ' ' + styles.round}></span>
