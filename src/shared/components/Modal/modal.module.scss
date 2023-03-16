@@ -12,10 +12,12 @@
   }
 
   .modal {
-    width: 300px;
-    height: 360px;
-    padding: 36px 48px;
+    width: 540px;
+    height: 508px;
+    padding: 40px 80px;
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
