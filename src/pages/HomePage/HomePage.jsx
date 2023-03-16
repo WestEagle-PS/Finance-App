@@ -7,10 +7,11 @@ import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm
 import css from './home-page.module.scss';
 import Header from 'components/Header/Header';
 import Currency from 'components/Currency/Currency';
-import ChartStat from 'components/ChartStat/ChartStat';
+// import ChartStat from 'components/ChartStat/ChartStat';
 import PieChartComponent from 'components/ChartDiagram/ChartDiagram';
 import NavigationDashboard from 'components/NavigationDashboard/NavigationDashboard';
 import Balance from 'components/Balance/Balance';
+import ExpensesList from 'components/ExpensesList/ExpensesList';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -40,7 +41,8 @@ const HomePage = () => {
       <NavigationDashboard />
       <Balance />
       <Currency />
-      <ChartStat />
+      {/* <ChartStat /> */}
+      <ExpensesList />
       <PieChartComponent />
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
       {showModal && (
