@@ -9,6 +9,8 @@ import Header from 'components/Header/Header';
 import Currency from 'components/Currency/Currency';
 import ChartStat from 'components/ChartStat/ChartStat';
 import PieChartComponent from 'components/ChartDiagram/ChartDiagram';
+import NavigationDashboard from 'components/NavigationDashboard/NavigationDashboard';
+import Balance from 'components/Balance/Balance';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -35,6 +37,8 @@ const HomePage = () => {
     <div className="container">
       <Header />
       <h2 className={css.title}>Hello! It`s Home page</h2>
+      <NavigationDashboard />
+      <Balance />
       <Currency />
       <ChartStat />
       <PieChartComponent />
