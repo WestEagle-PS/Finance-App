@@ -23,7 +23,8 @@ const ChartStat = () => {
     fetchData();
   }, []);
 
-
+  console.log(state)
+  console.log(error)
 
 
   return (
