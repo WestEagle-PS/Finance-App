@@ -3,10 +3,10 @@
   outline-offset: -2px;
 
   max-width: 320px;
+  min-height: 568px;
   padding-right: 20px;
   padding-left: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
