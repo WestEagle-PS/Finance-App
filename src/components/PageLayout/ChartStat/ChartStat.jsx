@@ -1,27 +1,31 @@
-import { useState, useEffect } from 'react';
-import { getTransactionCategories } from 'shared/api/transactions';
+// import { useState, useEffect } from 'react';
 
-const ChartStat = () => {
-  const [state, setState] = useState([]);
-  const [error, setError] = useState('');
+// import { getTransactionCategories } from 'shared/api/transactions';
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await getTransactionCategories();
-        setState({ data });
-      } catch (response) {
-        setError(response.message || 'Oops something wrong');
-      } finally {
-      }
-    };
+// const ChartStat = () => {
+//   const [state, setState] = useState([]);
+//   const [error, setError] = useState('');
 
-    fetchData();
-  }, []);
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//           const { data } = await getTransactionCategories();
+//         setState({ data });
+//       } catch (response) {
+//         setError(response.message || 'Oops something wrong');
+//       } finally {
+//       }
+//     };
 
-  console.log(state);
-  console.log(error);
-  return <div></div>;
-};
+//     fetchData();
+//   }, []);
 
-export default ChartStat;
+//   console.log(state)
+//   console.log(error)
+
+//   return (
+//   <div></div>
+//   );
+// };
+
+// export default ChartStat;
