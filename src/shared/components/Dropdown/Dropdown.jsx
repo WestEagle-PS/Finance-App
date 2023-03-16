@@ -1,96 +1,88 @@
 import Select, { components } from 'react-select';
+import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 const DropdownIndicator = props => {
   return (
     <components.DropdownIndicator {...props}>
-      <svg
-        width="20"
-        height="11"
-        viewBox="0 0 20 11"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 1L10 10L19 1" stroke="black" />
       </svg>
     </components.DropdownIndicator>
   );
 };
 
-const Dropdown = ({ items = [], value = '', onChange }) => {
-  const options = items.map(label => {
-    const normalizedItem = label.toLowerCase();
-    return { value: normalizedItem, label };
-  });
+const Dropdown = ({ options = [], value = '', onChange }) => {
+  const isTabletOrDesctop = useMediaQuery('(min-width: 479px)');
 
   return (
     <Select
       options={options}
-      defaultInputValue={options[0].label}
+      maxMenuHeight={157}
       components={{ DropdownIndicator }}
-      // value={value}
+      value={value}
       onChange={onChange}
       styles={{
-        control: (baseStyles, state) => ({
+        control: baseStyles => ({
           ...baseStyles,
-          minWidth: '160px',
-          width: '100%',
+          width: isTabletOrDesctop ? '160px' : '100%',
           height: '50px',
           border: '1px solid #000000',
           borderRadius: '30px',
           cursor: 'pointer',
           transition: 'background-color 400ms',
           backgroundColor: 'transparent',
-          color: 'black',
           '&:hover': null,
-          outline: 'none',
-          mediaquery: {
-            width: '400px',
-          },
+          boxShadow: 'none',
         }),
-        indicatorSeparator: (baseStyles, state) => ({
+        indicatorSeparator: () => ({
           display: 'none',
         }),
-        indicatorsContainer: (baseStyles, state) => ({
+        indicatorsContainer: () => ({
           paddingRight: '10px',
         }),
         dropdownIndicator: (baseStyles, state) => ({
           ...baseStyles,
-          color: state.isFocused ? 'red' : 'blue',
           transform: state.isFocused ? 'rotate(180deg)' : '',
           transition: 'transform 400ms',
         }),
-        valueContainer: (baseStyles, state) => ({
+        valueContainer: baseStyles => ({
           ...baseStyles,
           paddingLeft: '16px',
         }),
-        menu: (baseStyles, state) => ({
-          maxWidth: '160px',
-          maxHeight: '157px',
-          overflowY: 'scroll',
-          overflowBlock: 'none',
+        singleValue: baseStyles => ({
+          ...baseStyles,
+          fontFamily: 'Circe',
+          fontSize: '16px',
+          lineHeight: 'calc(24px / 16px)',
+        }),
+        menu: () => ({
+          width: isTabletOrDesctop ? '160px' : '100%',
+          padding: '12px 0',
           backgroundColor: 'rgba(255, 255, 255, 0.7)',
           boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
           backdropFilter: 'blur(25px)',
           borderRadius: '20px',
         }),
-        option: (baseStyles, state) => ({
+        option: (_, state) => ({
+          paddingTop: '8px',
+          paddingBottom: '8px',
           paddingLeft: '20px',
           fontFamily: 'Circe',
-          fontStyle: 'normal',
-          fontWeight: '400',
           fontSize: '16px',
-          lineHeight: '24px',
-          color: '#000000',
+          lineHeight: 'calc(24px / 16px)',
           cursor: 'pointer',
-          paddingTop: '2px',
-          paddingBottom: '2px',
           ':hover': {
-            backgroundColor: 'white',
+            backgroundColor: state.isSelected ? '' : 'white',
           },
+          backgroundColor: state.isSelected ? '#24CCA7' : '',
+          color: state.isSelected ? '#ffffff' : '#000000',
         }),
-        menuList: (baseStyles, state) => ({
-          ...baseStyles,
-          // paddingLeft: '16px',
+        menuList: base => ({
+          ...base,
+          '::-webkit-scrollbar': {
+            width: '0px',
+            height: '0px',
+          },
         }),
       }}
     />
@@ -99,25 +91,16 @@ const Dropdown = ({ items = [], value = '', onChange }) => {
 
 export default Dropdown;
 
-// clearIndicator;
-// container;
-// control;
-// dropdownIndicator;
-// group;
-// groupHeading;
-// indicatorsContainer;
-// indicatorSeparator;
-// input;
-// loadingIndicator;
-// loadingMessage;
-// menu;
-// menuList;
-// menuPortal;
-// multiValue;
-// multiValueLabel;
-// multiValueRemove;
-// noOptionsMessage;
-// option;
-// placeholder;
-// singleValue;
-// valueContainer;
+// Приклад використання
+// const [value, setValue] = useState({ label: 'One', value: 'one' });
+
+// <Dropdown
+//   options={[
+//     { label: 'One', value: 'one' },
+//     { label: 'Two', value: 'two' },
+//     { label: 'Three', value: 'three' },
+//   ]}
+//   value={value}
+//   onChange={setValue}
+//   defaultValue={value}
+// />;
