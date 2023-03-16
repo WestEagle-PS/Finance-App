@@ -1,9 +1,13 @@
-import css from './statistic-page.module.scss';
+// import PieChartComponent from 'components/PageLayout/ChartDiagram/ChartDiagram';
+import ChartStat from 'components/PageLayout/ChartStat/ChartStat';
+// import css from './statistic-page.module.scss';
 
 const StatisticPage = () => {
   return (
-    <div className="container">
-      <h2 className={css.title}>Hello! It`s Statistic page</h2>
+    <div>
+      <p>statistics page</p>
+      <ChartStat />
+      {/* <PieChartComponent /> */}
     </div>
   );
 };

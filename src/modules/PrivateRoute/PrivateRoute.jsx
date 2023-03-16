@@ -2,6 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { getAuth } from 'redux/auth/auth-selectors';
+import PageLayout from 'components/PageLayout/PageLayout';
 
 const PrivateRouter = () => {
   const { isLogin, token } = useSelector(getAuth);
@@ -14,7 +15,11 @@ const PrivateRouter = () => {
     return <Navigate to="/login" />;
   }
 
-  return <Outlet />;
+  return (
+    <PageLayout>
+      <Outlet />
+    </PageLayout>
+  );
 };
 
 export default PrivateRouter;
