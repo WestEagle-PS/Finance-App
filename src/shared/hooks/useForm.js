@@ -4,7 +4,6 @@ const useForm = ({ initialState, onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
 
   const handleChange = ({ target }) => {
-    console.log('target', target);
     setState(prevState => {
       const { name, value, checked, type } = target;
       const newValue = type === 'checkbox' ? checked : value;
@@ -13,10 +12,20 @@ const useForm = ({ initialState, onSubmit }) => {
     });
   };
 
-  const handleDateChange = date => {
-    setState(prevState => {
-      return { ...prevState, transactionDate: date };
-    });
+  const handleDataChange = ({ type, data }) => {
+    console.log('type', type);
+    if (type === 'date') {
+      setState(prevState => {
+        console.log('dateType prevState', prevState);
+        return { ...prevState, transactionDate: data };
+      });
+    }
+    if (type === 'type') {
+      setState(prevState => {
+        console.log('transactType prevState', prevState);
+        return { ...prevState, type: data };
+      });
+    }
   };
 
   const handleSubmit = e => {
@@ -25,7 +34,7 @@ const useForm = ({ initialState, onSubmit }) => {
     setState({ ...initialState });
   };
 
-  return { state, setState, handleChange, handleDateChange, handleSubmit };
+  return { state, setState, handleChange, handleDataChange, handleSubmit };
 };
 
 export default useForm;

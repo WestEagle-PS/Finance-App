@@ -1,33 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getCategories } from 'redux/transaction/transaction-operations';
+import AddButton from 'shared/components/AddButton/ButtonPlus';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 import css from './home-page.module.scss';
 import Header from 'components/Header/Header';
-import Currency from 'components/Currency/Currency'
+import Currency from 'components/Currency/Currency';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   const handleAddBtnClick = () => {
     setShowModal(true);
-  }
+  };
 
   const onCloseModal = () => {
     setShowModal(false);
-  }
+  };
 
-  const onAddFormSubmit = (data) => {
+  const onAddFormSubmit = data => {
     console.log('formData', data);
     setShowModal(false);
-  }
+  };
 
   return (
     <div className="container">
       <Header />
       <h2 className={css.title}>Hello! It`s Home page</h2>
-      <Currency/>
-      <button type="button" onClick={handleAddBtnClick}>+</button>
-      {showModal && <Modal onClose={onCloseModal}><AddTransactionForm onSubmit={onAddFormSubmit}/></Modal>}
+      <Currency />
+      <AddButton type="button" onBtnClick={handleAddBtnClick} />
+      {showModal && (
+        <Modal onClose={onCloseModal}>
+          <AddTransactionForm onSubmit={onAddFormSubmit} />
+        </Modal>
+      )}
     </div>
   );
 };

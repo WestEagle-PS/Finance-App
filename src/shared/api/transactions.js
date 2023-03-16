@@ -20,8 +20,11 @@ export const updateTranscation = id => {
   return transactionsInstance.patch('/transactions', { id });
 };
 
-// const getTransactionCategories = () => {};
+export const getTransactionCategories = () => {
+  return transactionsInstance.get('/transactions-categories')
+};
 
-export const getTransactionSummary = () => {
-  return transactionsInstance.get('/transactions-summary');
+export const getTransactionSummary = async() => {
+  const data = await transactionsInstance.get('/transactions-summary');
+  return data;
 };
