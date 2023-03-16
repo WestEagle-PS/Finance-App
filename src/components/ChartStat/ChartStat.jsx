@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import { getAllTransactions } from 'shared/api/transactions';
+
 import { getTransactionCategories } from 'shared/api/transactions';
-import { getTransactionSummary } from 'shared/api/transactions';
+
 
 
 const ChartStat = () => {
@@ -12,9 +12,9 @@ const ChartStat = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-          const { data } = await getTransactionSummary();
-          console.log(data)
-        // const newArr = data.slice(0, 2);
+          const { data } = await getTransactionCategories();
+          // console.log(data)
+        
         setState({ data });
       } catch (response) {
         setError(response.message || 'Oops something wrong');
@@ -24,14 +24,12 @@ const ChartStat = () => {
 
     fetchData();
   }, []);
-//   if (!state.newArr) {
-//     return;
-//   }
+
 
 
 
   return (
-  <div>CHART</div>
+  <div></div>
   );
 };
 

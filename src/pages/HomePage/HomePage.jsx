@@ -4,6 +4,8 @@ import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm
 import css from './home-page.module.scss';
 import Header from 'components/Header/Header';
 import Currency from 'components/Currency/Currency'
+import ChartStat from 'components/ChartStat/ChartStat';
+import PieChartComponent from 'components/ChartDiagram/ChartDiagram';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -25,7 +27,10 @@ const HomePage = () => {
     <div className="container">
       <Header />
       <h2 className={css.title}>Hello! It`s Home page</h2>
-      <Currency/>
+      <Currency />
+      <ChartStat />
+      <PieChartComponent />
+      
       <button type="button" onClick={handleAddBtnClick}>+</button>
       {showModal && <Modal onClose={onCloseModal}><AddTransactionForm onSubmit={onAddFormSubmit}/></Modal>}
     </div>
