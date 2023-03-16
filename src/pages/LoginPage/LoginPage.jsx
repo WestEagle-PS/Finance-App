@@ -16,7 +16,7 @@ const LoginPage = () => {
     <div className="container">
       <div className={css.logoBox}>
         <img src={logo} alt="logo" />
-        <p className={css.wallet}>WALLET</p>
+        <p className={css.wallet}>Wallet</p>
       </div>
       <LoginForm onSubmit={onLogin} />
     </div>
