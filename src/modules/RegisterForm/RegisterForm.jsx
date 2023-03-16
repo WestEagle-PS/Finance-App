@@ -12,14 +12,14 @@ import css from './register-form.module.scss';
 const RegisterForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit });
 
-  const { name, email, password, confirm_password } = state;
+  const { username, email, password, confirm_password } = state;
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
       <TextField value={email} onChange={handleChange} {...fields.email} />
       <TextField value={password} onChange={handleChange} {...fields.password} />
       <TextField value={confirm_password} onChange={handleChange} {...fields.confirm_password} />
-      <TextField value={name} onChange={handleChange} {...fields.name} />
+      <TextField value={username} onChange={handleChange} {...fields.username} />
       <Button>REGISTER</Button>
       <Link className={css.link} to="/login">
         LOG IN

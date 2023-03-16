@@ -1,6 +1,6 @@
 const fields = {
-  name: {
-    name: 'name',
+  username: {
+    name: 'username',
     type: 'text',
     required: true,
     placeholder: 'First name',
@@ -21,7 +21,7 @@ const fields = {
     name: 'confirm_password',
     type: 'password',
     required: true,
-    placeholder: 'Confirm_ password',
+    placeholder: 'Confirm password',
   },
 };
 
