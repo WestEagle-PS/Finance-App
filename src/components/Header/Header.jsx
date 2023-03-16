@@ -3,7 +3,6 @@ import { getUser } from '../../redux/auth/auth-selectors';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/auth-operations';
 import Modal from 'shared/components/Modal/Modal';
-
 import logo from '../../images/svg/Group.png';
 import vector from '../../images/svg/Vector.svg';
 import exit from '../../images/svg/exit.svg';
@@ -24,11 +23,11 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className={styles.header__container}>
       <div className={styles.containerInner}>
         <div className={styles.logoBox}>
-          <img src={logo} width="40" height="40" alt="" />
-          <p className={styles.wallet}>Wallet</p>
+          <img className={styles.img__wallet} src={logo} width="30" height="30" alt="" />
+          <p className={styles.text__wallet}>Wallet</p>
         </div>
         <div className={styles.exitBox}>
           <p className={styles.name}>{user.username}</p>
@@ -37,23 +36,23 @@ const Header = () => {
           <button onClick={toggleModal} className={styles.button} type="button">
             Exit
           </button>
-          {showModal && (
-            <Modal onClose={toggleModal}>
-              <div className={styles.modal__wrapper}>
-                <p className={styles.question}> Are you sure you want to exit ?</p>
-                <div className={styles.button__wrapper}>
-                  <button className={styles.button__question} onClick={onLogout}>
-                    yes
-                  </button>
-
-                  <button className={styles.button__question} onClick={toggleModal}>
-                    no
-                  </button>
-                </div>
-              </div>
-            </Modal>
-          )}
         </div>
+        {showModal && (
+          <Modal onClose={toggleModal}>
+            <div className={styles.modal__wrapper}>
+              <p className={styles.question}> Are you sure you want to exit ?</p>
+              <div className={styles.button__wrapper}>
+                <button className={styles.button__question} onClick={onLogout}>
+                  yes
+                </button>
+
+                <button className={styles.button__question} onClick={toggleModal}>
+                  no
+                </button>
+              </div>
+            </div>
+          </Modal>
+        )}
       </div>
     </header>
   );
