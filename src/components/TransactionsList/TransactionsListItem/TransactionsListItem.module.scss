@@ -1,0 +1,100 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 0 20px;
+  width: 715px;
+  border-bottom: 1px solid #dcdcdf;
+}
+.leftBox {
+  width: 565px;
+
+  display: flex;
+  //   justify-content: space-between;
+  align-items: center;
+  //   padding: 8px 0 8px 20px;
+}
+.rightBox {
+  display: flex;
+  align-items: center;
+  padding: 15px 8px 15px 0;
+}
+.svg {
+  margin-right: 8px;
+}
+.comment {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  /* or 112% */
+
+  color: #000000;
+
+  display: block;
+  margin-right: 50px;
+  width: 500px;
+  //   padding: 0+ 50px;
+}
+.sum {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #000000;
+
+  display: block;
+  //   margin-right: 50px;
+  width: 100px;
+  //   padding: 0 50px;
+}
+.type {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #000000;
+
+  text-align: center;
+  display: block;
+  margin-right: 100px;
+  width: 50px;
+  //   padding: 0 50px;
+}
+.category {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #000000;
+
+  display: block;
+  margin-right: 50px;
+  width: 400px;
+
+  //   padding: 0 50px;
+}
+.date {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #000000;
+
+  display: block;
+  margin-right: 70px;
+  width: 150px;
+}
