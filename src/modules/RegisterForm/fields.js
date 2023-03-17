@@ -10,6 +10,7 @@ const fields = {
     type: 'email',
     required: true,
     placeholder: 'E-mail',
+    autoFocus: true,
   },
   password: {
     name: 'password',

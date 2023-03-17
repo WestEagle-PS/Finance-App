@@ -1,19 +1,74 @@
 .formGroup {
+  position: relative;
+}
+
+.formGroup svg {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+}
+
+.formGroup svg * {
+  fill: #e0e0e0;
+  transition: fill 400ms;
 }
 
 .field {
-  width: 280px;
+  width: 100%;
   height: 40px;
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
-  display: block;
-  margin-bottom: 40px;
-  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 
   font-family: CirceRegular;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
+  color: #000000;
+
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+
+  transition: border-color 400ms;
+}
+
+.field:focus {
+  border-color: #000000;
+}
+
+.field::placeholder {
   color: #bdbdbd;
+}
+
+.iconField {
+  padding-left: 54px;
+}
+
+.iconField:focus + svg * {
+  fill: #000000;
+}
+
+.iconField:valid + svg *,
+.field:valid {
+  color: #000000;
+  fill: #000000;
+  border-color: #000000;
+}
+
+.iconField:invalid + svg *,
+.field:invalid {
+  color: #f45454;
+  fill: #f45454;
+  border-color: #f45454;
+}
+
+.iconField:not(:focus):invalid + svg *,
+.field:not(:focus):invalid {
+  color: #bdbdbd;
+  fill: #e0e0e0;
+  border-color: #e0e0e0;
 }

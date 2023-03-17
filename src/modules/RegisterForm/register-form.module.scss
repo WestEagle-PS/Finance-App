@@ -8,13 +8,15 @@
   width: 280px;
   height: 50px;
   padding: 13px 15px;
-  margin-bottom: 0 auto;
+  margin-bottom: auto;
 
   background-color: #ffffff;
   border: 1px solid #4a56e2;
   border-radius: 20px;
 
   font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 27px;
   text-align: center;
@@ -22,4 +24,14 @@
   text-transform: uppercase;
   text-decoration: none;
   color: #4a56e2;
+}
+
+.fieldsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.buttonsWrapper {
+  margin-top: 40px;
 }

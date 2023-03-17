@@ -1,6 +1,8 @@
 .form {
   width: 280px;
   margin: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
 }
 
 .link {
@@ -24,4 +26,14 @@
   text-transform: uppercase;
   text-decoration: none;
   color: #4a56e2;
+}
+
+.fieldsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.buttonsWrapper {
+  margin-top: 40px;
 }

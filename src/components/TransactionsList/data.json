@@ -1,0 +1,62 @@
+[
+    {
+        "id":1,
+        "date":"01.01.23",
+        "type":"income",
+        "category":"Products",
+        "comment":"watever",
+        "sum":100
+    },
+     {
+        "id":2,
+        "date":"01.01.23",
+        "type":"EXPENSE",
+        "category":"Products",
+        "comment":"watever",
+        "sum":1000
+    },
+     {
+        "id":3,
+        "date":"01.01.23",
+        "type":"EXPENSE",
+        "category":"Other",
+        "comment":"Gift for your wife",
+        "sum":5000000000
+    },
+     {
+        "id":4,
+        "date":"01.01.23",
+        "type":"income",
+        "category":"Car",
+        "comment":"Watever",
+        "sum":1000
+    },
+     {
+        "id":5,
+       "date":"01.01.23",
+        "type":"income",
+        "category":"Products",
+        "comment":"Vagetables for the week",
+        "sum":1000
+    },
+     {
+        "id":6,
+        "date":"01.01.23",
+        "type":"income",
+        "category":"Car for you and me",
+        "comment":"watever",
+        "sum":1000
+    },
+     {
+        "id":7,
+        "date":"01.01.23",
+        "type":"income",
+        "category":"Car",
+        "comment":"watever",
+        "sum":1000
+    }
+    
+
+    
+
+]

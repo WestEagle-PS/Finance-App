@@ -8,6 +8,7 @@ import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm
 import css from './home-page.module.scss';
 import { selectAllTransactions, selectCategories } from 'redux/transaction/transaction-selectors';
 import DeleteButton from 'shared/components/DeleteButton/DeleteButton';
+import TransactionsList from 'components/TransactionsList/TransactionsList';
 
 const HomePage = () => {
 
@@ -73,6 +74,7 @@ const HomePage = () => {
       <p>Home page</p>
       <TransactionList setTransaction={setTransaction} setIsEdit={setIsEdit} setShowModal={setShowModal} />
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
+      <TransactionsList />
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm
