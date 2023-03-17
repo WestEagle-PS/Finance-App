@@ -1,10 +1,12 @@
 import css from './text-field.module.scss';
 
-const TextField = ({ label, ...props }) => {
+const TextField = ({ label = '', icon = null, ...props }) => {
+  const fieldClasses = icon ? `${css.field} ${css.iconField}` : css.field;
+
   return (
     <div className={css.formGroup}>
-      <label>{label}</label>
-      <input className={css.field} {...props} />
+      <input className={fieldClasses} placeholder={label} {...props} />
+      {icon}
     </div>
   );
 };

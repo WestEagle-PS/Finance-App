@@ -34,7 +34,7 @@ const HomePage = () => {
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
       {showModal && (
         <Modal onClose={onCloseModal}>
-          <AddTransactionForm onSubmit={onAddFormSubmit} />
+          <AddTransactionForm onSubmit={onAddFormSubmit} setShowModal={setShowModal} />
         </Modal>
       )}
     </div>
