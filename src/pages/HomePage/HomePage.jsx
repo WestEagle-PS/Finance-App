@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTransaction, getAllCategories } from 'redux/transaction/transaction-operations';
-import AddButton from 'shared/components/AddButton/ButtonPlus';
+import AddButton from 'shared/components/AddButton/AddButton';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 import css from './home-page.module.scss';

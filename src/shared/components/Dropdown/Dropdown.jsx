@@ -1,4 +1,5 @@
 import Select, { components } from 'react-select';
+import { useState } from 'react';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 const DropdownIndicator = props => {
@@ -60,7 +61,8 @@ const Dropdown = ({ options = [], onChange }) => {
           fontSize: '16px',
           lineHeight: 'calc(24 / 16)',
         }),
-        menu: () => ({
+        menu: base => ({
+          ...base,
           width: isTabletOrDesctop ? '160px' : '100%',
           padding: '12px 0',
           backgroundColor: 'rgba(255, 255, 255, 0.7)',
