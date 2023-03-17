@@ -1,6 +1,6 @@
 import { ProgressBar } from 'react-loader-spinner';
 
-const Spinner = () => {
+const Loader = () => {
   return (
     <ProgressBar
       height="50vh"
@@ -14,4 +14,4 @@ const Spinner = () => {
   );
 };
 
-export default Spinner;
+export default Loader;

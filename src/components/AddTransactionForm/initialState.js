@@ -1,5 +1,7 @@
+import { toDateString } from "shared/utils/toDateString";
+
 const initialState = {
-  transactionDate: new Date(),
+  transactionDate: toDateString(new Date()),
   type: 'INCOME',
   categoryId: '',
   comment: '',
