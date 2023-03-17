@@ -6,12 +6,7 @@ export const addTransaction = data => instanceAuth.post('/transactions', data);
 
 export const deleteTransaction = id => instanceAuth.delete(`/transactions/${id}`);
 
-export const updateTranscation = async(id, data) => {
-  // console.log("id", id);
-  // console.log("data", data)
-  const result = await instanceAuth.patch(`/transactions/${id}`, { data })
-  return result;
-};
+export const updateTranscation = (id, data) => instanceAuth.patch(`/transactions/${id}`, data);
 
 export const getTransactionCategories = async () => {
   const data = await instanceAuth.get('/transaction-categories');
