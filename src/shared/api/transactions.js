@@ -1,6 +1,6 @@
 import instanceAuth from './auth';
 
-export const getAllTransactions = () => instanceAuth.get('/transactions');
+export const getAllTransactions = async () => instanceAuth.get('/transactions');
 
 export const addTransaction = data => instanceAuth.post('/transactions', data);
 

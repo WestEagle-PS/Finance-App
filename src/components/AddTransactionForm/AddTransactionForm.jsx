@@ -14,7 +14,7 @@ const AddTransactionForm = ({ onSubmit, setShowModal }) => {
   const [checked, setChecked] = useState(true);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
   const categories = useSelector(selectCategories);
-  const options = categories.map(({ id,name }) => ({ label: name, value: id }));
+  const options = categories.map(({ id, name }) => ({ label: name, value: id }));
 
   const handleChecked = data => {
     setChecked(data);
@@ -22,7 +22,7 @@ const AddTransactionForm = ({ onSubmit, setShowModal }) => {
 
   const handleCancelBtnClick = () => {
     setShowModal(false);
-  }
+  };
 
   const { comment, amount } = state;
 

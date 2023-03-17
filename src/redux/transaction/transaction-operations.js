@@ -16,7 +16,6 @@ export const addTransaction = createAsyncThunk('transaction/add', async (data, {
     if (data.type === 'EXPENSE') {
       data.amount = '-' + data.amount
     }
-    console.log("data", data)
     const { data: result } = await api.addTransaction(data);
     return result;
   } catch ({ response }) {
