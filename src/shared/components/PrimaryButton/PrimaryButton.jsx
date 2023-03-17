@@ -1,4 +1,4 @@
-import styles from './primary-button.module.css';
+import styles from './primary-button.module.scss';
 
 const PrimaryButton = ({ children, ...props }) => {
   return (

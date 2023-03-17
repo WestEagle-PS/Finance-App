@@ -21,7 +21,6 @@ const ToggleButton = ({ getChecked, onClick }) => {
             }
             onClick({ type: 'type', data: 'EXPENSE' });
             setChecked(prevState => !prevState);
-
           }}
         />
         <span className={styles.slider + ' ' + styles.round}></span>
