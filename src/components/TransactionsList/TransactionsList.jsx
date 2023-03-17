@@ -49,7 +49,6 @@ const TransactionsList = () => {
   const dispatch = useDispatch();
   const transactions = useSelector(selectAllTransactions);
   const categories = useSelector(selectCategories);
-  console.log(categories)
 
   const handleEditBtnClick = id => {
     setIsEdit(true);
