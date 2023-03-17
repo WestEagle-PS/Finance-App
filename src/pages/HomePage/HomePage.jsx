@@ -6,6 +6,7 @@ import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 import css from './home-page.module.scss';
 import TransactionsList from 'components/TransactionsList/TransactionsList';
+import TransactionListMobile from 'components/TransactionsListMobile/TransactionsListMobile';
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const HomePage = () => {
       <p>Home page</p>
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
       <TransactionsList />
+      <TransactionListMobile />
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm onSubmit={onAddFormSubmit} setShowModal={setShowModal} />
