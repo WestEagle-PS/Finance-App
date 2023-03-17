@@ -41,14 +41,10 @@ export const updateTranscation = createAsyncThunk('transaction/update', async (t
       categoryId: transaction.categoryId,
       comment: transaction.comment,
       amount: Number(transaction.amount),
-      // amount: transaction.amount,
     };
     if (data.type === 'EXPENSE') {
       data.amount = Number('-' + data.amount)
-      // data.amount = '-' + data.amount;
     }
-    // console.log("id", id)
-    // console.log("data", data)
     const { data: result } = await api.updateTranscation(id, data);
     return result;
   } catch ({ response }) {
