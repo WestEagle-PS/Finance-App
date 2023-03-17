@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Loader from './shared/components/Loader/Loader'
 
 import PrivateRoute from './modules/PrivateRoute/PrivateRoute';
 import PublicRoute from './modules/PublicRoute/PublicRoute';
@@ -13,7 +14,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const UserRoutes = () => {
   return (
     <>
-      <Suspense fallback={<p>.....Loading page, please wait</p>}>
+      <Suspense fallback={<Loader/>}>
         <Routes>
           <Route element={<PublicRoute />}>
             <Route path="/" element={<LoginPage />} />
