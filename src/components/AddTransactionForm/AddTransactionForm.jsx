@@ -4,21 +4,27 @@ import { selectCategories } from 'redux/transaction/transaction-selectors';
 import useForm from 'shared/hooks/useForm';
 import ToggleButton from 'shared/components/ToggleButton/ToggleButton';
 import Dropdown from 'shared/components/Dropdown/Dropdown';
-import Button from 'shared/components/Button/Button';
 import AddTransactionCalendar from 'shared/components/Calendar/Calendar';
+import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
+import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
 import initialState from './initialState';
 import styles from './add-transaction-form.module.scss';
 
-const AddTransactionForm = ({ onSubmit }) => {
+const AddTransactionForm = ({ onSubmit, setShowModal }) => {
   const [checked, setChecked] = useState(true);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
-  const { comment, amount } = state;
   const categories = useSelector(selectCategories);
   const options = categories.map(({ id,name }) => ({ label: name, value: id }));
 
   const handleChecked = data => {
     setChecked(data);
   };
+
+  const handleCancelBtnClick = () => {
+    setShowModal(false);
+  }
+
+  const { comment, amount } = state;
 
   return (
     <>
@@ -47,8 +53,8 @@ const AddTransactionForm = ({ onSubmit }) => {
           onChange={handleChange}
         />
         <div className={styles.box}>
-          <Button>Add</Button>
-          <Button>Cancel</Button>
+          <PrimaryButton>Add</PrimaryButton>
+          <SecondaryButton onBtnClick={handleCancelBtnClick}>Cancel</SecondaryButton>
         </div>
       </form>
     </>

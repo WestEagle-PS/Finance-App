@@ -23,7 +23,6 @@ const Dropdown = ({ options = [], onChange }) => {
       components={{ DropdownIndicator }}
       value={value}
       onChange={value => {
-        console.log('value', value);
         setValue(value);
         onChange({ type: 'category', data: value.value });
       }}

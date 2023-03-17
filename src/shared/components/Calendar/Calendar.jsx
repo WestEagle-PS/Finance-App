@@ -3,16 +3,20 @@ import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import addDays from 'date-fns/addDays';
 import { toDateString } from 'shared/utils/toDateString';
-// import calendarIcon from 'images/svg/calendary.svg'
+import calendarIcon from 'images/svg/calendary.svg'
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './calendar.module.scss';
 
 const AddTransactionCalendar = ({ onChange }) => {
   const [startDate, setStartDate] = useState(new Date());
+
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className={styles.field} onClick={onClick} ref={ref}>
-      {value}
-    </button>
+    <div className={styles.inputBox}>
+      <img className={styles.icon} src={calendarIcon} alt="Calendar icon" />
+      <button className={styles.field} type="button" onClick={onClick} ref={ref}>
+        {value}
+      </button>
+    </div>
   ));
 
   return (
@@ -20,7 +24,6 @@ const AddTransactionCalendar = ({ onChange }) => {
       showIcon
       selected={startDate}
       onChange={date => {
-        console.log(date);
         setStartDate(date);
         onChange({ type: 'date', data: toDateString(date) });
       }}
