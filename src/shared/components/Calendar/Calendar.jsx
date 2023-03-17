@@ -3,12 +3,11 @@ import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import addDays from 'date-fns/addDays';
 import { toDateString } from 'shared/utils/toDateString';
-import calendarIcon from 'images/svg/calendary.svg'
+import calendarIcon from 'images/svg/calendary.svg';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './calendar.module.scss';
 
 const AddTransactionCalendar = ({ stateDate, onChange }) => {
-console.log("stateDate", stateDate)
   const [startDate, setStartDate] = useState(new Date(stateDate));
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (

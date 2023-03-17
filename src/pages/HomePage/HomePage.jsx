@@ -9,7 +9,6 @@ import TransactionsList from 'components/TransactionsList/TransactionsList';
 // import TransactionListMobile from 'components/TransactionsListMobile/TransactionsListMobile';
 
 const HomePage = () => {
-
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -33,15 +32,12 @@ const HomePage = () => {
 
   return (
     <div className={css.wrapper}>
-      <TransactionsList setShowModal={setShowModal}/>
+      <TransactionsList setShowModal={setShowModal} />
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
       {/* <TransactionListMobile /> */}
       {showModal && (
         <Modal onClose={onCloseModal}>
-          <AddTransactionForm
-            onSubmit={onAddFormSubmit}
-            setShowModal={setShowModal}
-          />
+          <AddTransactionForm onSubmit={onAddFormSubmit} setShowModal={setShowModal} />
         </Modal>
       )}
     </div>
