@@ -5,7 +5,13 @@ import * as api from 'shared/api/transactions';
 export const getAllTransactions = createAsyncThunk('transaction/get', async (_, { rejectWithValue }) => {
   try {
     const { data } = await api.getAllTransactions();
-    return data;
+    const result = data.map(item => {
+      if(item.amount < 0) {
+        item.amount = item.amount * -1;
+      }
+      return item;
+    })
+    return result;
   } catch ({ response }) {
     return rejectWithValue(response);
   }
