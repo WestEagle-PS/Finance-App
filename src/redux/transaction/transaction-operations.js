@@ -14,9 +14,8 @@ export const getAllTransactions = createAsyncThunk('transaction/get', async (_, 
 export const addTransaction = createAsyncThunk('transaction/add', async (data, { rejectWithValue }) => {
   try {
     if (data.type === 'EXPENSE') {
-      data.amount = '-' + data.amount
+      data.amount = '-' + data.amount;
     }
-    console.log("data", data)
     const { data: result } = await api.addTransaction(data);
     return result;
   } catch ({ response }) {
@@ -33,10 +32,25 @@ export const deleteTransaction = createAsyncThunk('transaction/del', async (id, 
   }
 });
 
-export const updateTranscation = createAsyncThunk('transaction/update', async (id, { rejectWithValue }) => {
+export const updateTranscation = createAsyncThunk('transaction/update', async (transaction, { rejectWithValue }) => {
   try {
-    const { data } = await api.updateTranscation(id);
-    return data;
+    const id = transaction.id;
+    const data = {
+      transactionDate: transaction.transactionDate,
+      type: transaction.type,
+      categoryId: transaction.categoryId,
+      comment: transaction.comment,
+      amount: Number(transaction.amount),
+      // amount: transaction.amount,
+    };
+    if (data.type === 'EXPENSE') {
+      data.amount = Number('-' + data.amount)
+      // data.amount = '-' + data.amount;
+    }
+    // console.log("id", id)
+    // console.log("data", data)
+    const { data: result } = await api.updateTranscation(id, data);
+    return result;
   } catch ({ response }) {
     return rejectWithValue(response);
   }

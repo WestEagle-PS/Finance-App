@@ -1,6 +1,6 @@
 import { toDateString } from "shared/utils/toDateString";
 
-const initialState = {
+const INITIAL_STATE = {
   transactionDate: toDateString(new Date()),
   type: 'INCOME',
   categoryId: '063f1132-ba5d-42b4-951d-44011ca46262',
@@ -8,4 +8,4 @@ const initialState = {
   amount: '',
 };
 
-export default initialState;
+export default INITIAL_STATE;
