@@ -35,7 +35,7 @@ const HomePage = () => {
     <div className={css.wrapper}>
       <TransactionsList setShowModal={setShowModal}/>
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
-      <TransactionListMobile />
+      {/* <TransactionListMobile /> */}
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm
