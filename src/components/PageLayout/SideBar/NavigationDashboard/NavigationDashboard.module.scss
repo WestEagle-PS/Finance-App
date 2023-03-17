@@ -8,10 +8,13 @@
   .item {
     &:not(:last-child) {
       margin-right: 33px;
+      margin-bottom: 16px;
     }
 
     @media (min-width: 768px) {
-      margin-bottom: 16px;
+      &:nth-child(2) {
+        margin-bottom: 0;
+      }
     }
   }
 
