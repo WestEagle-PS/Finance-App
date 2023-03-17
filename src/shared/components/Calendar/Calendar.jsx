@@ -7,8 +7,9 @@ import calendarIcon from 'images/svg/calendary.svg'
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './calendar.module.scss';
 
-const AddTransactionCalendar = ({ onChange }) => {
-  const [startDate, setStartDate] = useState(new Date());
+const AddTransactionCalendar = ({ stateDate, onChange }) => {
+console.log("stateDate", stateDate)
+  const [startDate, setStartDate] = useState(new Date(stateDate));
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <div className={styles.inputBox}>

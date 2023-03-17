@@ -7,10 +7,10 @@ import Dropdown from 'shared/components/Dropdown/Dropdown';
 import AddTransactionCalendar from 'shared/components/Calendar/Calendar';
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
 import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
-import initialState from './initialState';
+import INITIAL_STATE from './initialState';
 import styles from './add-transaction-form.module.scss';
 
-const AddTransactionForm = ({ onSubmit, setShowModal }) => {
+const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSubmit, setShowModal }) => {
   const [checked, setChecked] = useState(true);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
   const categories = useSelector(selectCategories);
@@ -24,14 +24,22 @@ const AddTransactionForm = ({ onSubmit, setShowModal }) => {
     setShowModal(false);
   };
 
-  const { comment, amount } = state;
+  const { transactionDate, type, comment, amount } = state;
 
   return (
     <>
       <p className={styles.title}>Add transaction</p>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <ToggleButton getChecked={handleChecked} onClick={handleDataChange} />
-        {!checked && <Dropdown options={options} onChange={handleDataChange} />}
+        {isEdit ? (
+          <p className={styles.type}>
+            <span className={type === "INCOME" && styles.income}>Income</span> / <span className={type === "EXPENSE" && styles.expense}>Expense</span>
+          </p>
+        ) : (
+          <>
+            <ToggleButton getChecked={handleChecked} onClick={handleDataChange} />
+            {!checked && <Dropdown options={options} onChange={handleDataChange} />}
+          </>
+        )}
         <div className={styles.wrapper}>
           <input
             className={styles.field}
@@ -42,7 +50,13 @@ const AddTransactionForm = ({ onSubmit, setShowModal }) => {
             required
             onChange={handleChange}
           />
-          <AddTransactionCalendar onChange={handleDataChange} />
+          {isEdit ? <input
+            className={styles.field}
+            name="transactionDate"
+            type="text"
+            value={transactionDate}
+            disabled
+          />  : <AddTransactionCalendar stateDate={transactionDate} onChange={handleDataChange} />}
         </div>
         <input
           className={styles.field}
@@ -53,7 +67,7 @@ const AddTransactionForm = ({ onSubmit, setShowModal }) => {
           onChange={handleChange}
         />
         <div className={styles.box}>
-          <PrimaryButton>Add</PrimaryButton>
+          <PrimaryButton>{isEdit ? 'Edit' : 'Add'}</PrimaryButton>
           <SecondaryButton onBtnClick={handleCancelBtnClick}>Cancel</SecondaryButton>
         </div>
       </form>

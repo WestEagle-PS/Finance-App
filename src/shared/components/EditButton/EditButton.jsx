@@ -4,7 +4,7 @@ const EditButton = ({ id, onClick }) => {
   return (
     <button
       className={styles.button}
-      onClick={e => {
+      onClick={() => {
         onClick(id);
       }}
     >
