@@ -49,7 +49,6 @@ const TransactionsList = () => {
   const dispatch = useDispatch();
   const transactions = useSelector(selectAllTransactions);
   const categories = useSelector(selectCategories);
-  console.log(categories)
 
   const handleEditBtnClick = id => {
     setIsEdit(true);
@@ -67,13 +66,14 @@ const TransactionsList = () => {
   };
 
   const onAddFormSubmit = data => {
-    console.log('data', data);
     dispatch(updateTranscation(data));
     setShowModal(false);
   };
 
   const element = transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
     const categoryName = categories.find(item => item.id === categoryId);
+    console.log('categoryName: ', categoryName);
+
     return (
       <TransactionsListItem
         key={id}

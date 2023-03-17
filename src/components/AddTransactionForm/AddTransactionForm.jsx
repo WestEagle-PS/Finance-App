@@ -32,7 +32,8 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
       <form onSubmit={handleSubmit} className={styles.form}>
         {isEdit ? (
           <p className={styles.type}>
-            <span className={type === "INCOME" && styles.income}>Income</span> / <span className={type === "EXPENSE" && styles.expense}>Expense</span>
+            <span className={type === 'INCOME' && styles.income}>Income</span> /{' '}
+            <span className={type === 'EXPENSE' && styles.expense}>Expense</span>
           </p>
         ) : (
           <>
@@ -50,13 +51,11 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
             required
             onChange={handleChange}
           />
-          {isEdit ? <input
-            className={styles.field}
-            name="transactionDate"
-            type="text"
-            value={transactionDate}
-            disabled
-          />  : <AddTransactionCalendar stateDate={transactionDate} onChange={handleDataChange} />}
+          {isEdit ? (
+            <input className={styles.field} name="transactionDate" type="text" value={transactionDate} disabled />
+          ) : (
+            <AddTransactionCalendar stateDate={transactionDate} onChange={handleDataChange} />
+          )}
         </div>
         <input
           className={styles.field}

@@ -72,7 +72,7 @@ const transactionSlice = createSlice({
         state.loading = false;
         state.categories = payload;
       })
-      .addCase(getAllCategories.rejected, handleRejected)
+      .addCase(getAllCategories.rejected, handleRejected);
   },
 });
 
