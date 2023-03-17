@@ -25,6 +25,8 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
   };
 
   const { transactionDate, type, comment, amount } = state;
+  const income = type === 'INCOME' ? styles.income : styles.type;
+  const expense = type === 'EXPENSE' ? styles.expense : styles.type;
 
   return (
     <>
@@ -32,8 +34,7 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
       <form onSubmit={handleSubmit} className={styles.form}>
         {isEdit ? (
           <p className={styles.type}>
-            <span className={type === 'INCOME' && styles.income}>Income</span> /{' '}
-            <span className={type === 'EXPENSE' && styles.expense}>Expense</span>
+            <span className={income}>Income</span> / <span className={expense}>Expense</span>
           </p>
         ) : (
           <>
