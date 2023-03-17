@@ -1,4 +1,4 @@
-import styles from './edit-button.module.css';
+import styles from './edit-button.module.scss';
 
 const EditButton = ({ id, onClick }) => {
   return (

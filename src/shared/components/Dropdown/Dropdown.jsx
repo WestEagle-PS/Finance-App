@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import Select, { components } from 'react-select';
+import { useState } from 'react';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 const DropdownIndicator = props => {
@@ -23,9 +23,9 @@ const Dropdown = ({ options = [], onChange }) => {
       components={{ DropdownIndicator }}
       value={value}
       onChange={value => {
-        console.log("value", value)
+        console.log('value', value);
         setValue(value);
-        onChange({type: "category", data: value.value});
+        onChange({ type: 'category', data: value.value });
       }}
       styles={{
         control: baseStyles => ({
@@ -57,11 +57,12 @@ const Dropdown = ({ options = [], onChange }) => {
         }),
         singleValue: baseStyles => ({
           ...baseStyles,
-          fontFamily: 'Circe',
+          fontFamily: 'CirceRegular',
           fontSize: '16px',
-          lineHeight: 'calc(24px / 16px)',
+          lineHeight: 'calc(24 / 16)',
         }),
-        menu: () => ({
+        menu: base => ({
+          ...base,
           width: isTabletOrDesctop ? '160px' : '100%',
           padding: '12px 0',
           backgroundColor: 'rgba(255, 255, 255, 0.7)',
@@ -73,9 +74,9 @@ const Dropdown = ({ options = [], onChange }) => {
           paddingTop: '8px',
           paddingBottom: '8px',
           paddingLeft: '20px',
-          fontFamily: 'Circe',
+          fontFamily: 'CirceRegular',
           fontSize: '16px',
-          lineHeight: 'calc(24px / 16px)',
+          lineHeight: 'calc(24 / 16)',
           cursor: 'pointer',
           ':hover': {
             backgroundColor: state.isSelected ? '' : 'white',

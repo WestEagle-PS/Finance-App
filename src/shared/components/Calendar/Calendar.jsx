@@ -5,10 +5,10 @@ import addDays from 'date-fns/addDays';
 import { toDateString } from 'shared/utils/toDateString';
 // import calendarIcon from 'images/svg/calendary.svg'
 import 'react-datepicker/dist/react-datepicker.css';
-import styles from './calendar.module.scss'
+import styles from './calendar.module.scss';
 
 const AddTransactionCalendar = ({ onChange }) => {
-  const [startDate, setStartDate]= useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className={styles.field} onClick={onClick} ref={ref}>
       {value}
@@ -20,10 +20,11 @@ const AddTransactionCalendar = ({ onChange }) => {
       showIcon
       selected={startDate}
       onChange={date => {
-        console.log(date)
-        setStartDate(date)
-        onChange({type: "date", data: toDateString(date)})}}
-        customInput={<CustomInput />}
+        console.log(date);
+        setStartDate(date);
+        onChange({ type: 'date', data: toDateString(date) });
+      }}
+      customInput={<CustomInput />}
       dateFormat="dd.MM.yyyy"
       maxDate={addDays(new Date(), 0)}
     />

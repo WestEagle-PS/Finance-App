@@ -1,4 +1,4 @@
-import styles from './delete-button.module.css';
+import styles from './delete-button.module.scss';
 
 const DeleteButton = ({ id, onClick }) => {
   return (
