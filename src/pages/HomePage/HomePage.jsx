@@ -6,6 +6,7 @@ import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 import css from './home-page.module.scss';
 import TransactionsList from 'components/TransactionsList/TransactionsList';
+import TransactionListMobile from 'components/TransactionsListMobile/TransactionsListMobile';
 
 const HomePage = () => {
 
@@ -32,9 +33,9 @@ const HomePage = () => {
 
   return (
     <div className={css.wrapper}>
-      <p>Home page</p>
       <TransactionsList setShowModal={setShowModal}/>
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
+      <TransactionListMobile />
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm
