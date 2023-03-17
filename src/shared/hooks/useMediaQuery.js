@@ -21,7 +21,9 @@ export default useMediaQuery;
 // Приклад використання
 // function App() {
 //   // You can use any @media property
-//   const isDesktop = useMediaQuery('(min-width: 960px)');
+//   const isDesktop = useMediaQuery('(min-width: 1280px)');
+// const isTablet = useMediaQuery('(min-width:768px)');
+// const isMobile = useMediaQuery('(min-width: 320px)');
 
 //   return (
 //     <div className="App">
