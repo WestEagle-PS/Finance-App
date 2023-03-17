@@ -1,8 +1,8 @@
-import styles from './secondary-button.module.css';
+import styles from './secondary-button.module.scss';
 
-const SecondaryButton = ({ children, ...props }) => {
+const SecondaryButton = ({ children, onBtnClick, ...props }) => {
   return (
-    <button className={styles.button} {...props}>
+    <button className={styles.button} onClick={onBtnClick} {...props}>
       {children}
     </button>
   );
