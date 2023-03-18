@@ -5,7 +5,6 @@ import * as api from 'shared/api/transactions';
 export const getAllTransactions = createAsyncThunk('transaction/get', async (_, { rejectWithValue }) => {
   try {
     const { data } = await api.getAllTransactions();
-    console.log("transactions", data)
     const result = data.map(item => {
       if (item.amount < 0) {
         item.amount = item.amount * -1;
