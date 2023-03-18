@@ -79,8 +79,7 @@ function useRegisterValidation() {
   const setEmail = value => {
     const normalizedValue = value.trim();
 
-    const re =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+    const re = /^(([^<>()[\],;:\s@]+([^<>()[\],;:\s@]+)*)|(.+))@(([^<>()[\],;:\s@]+)+[^<>()[\],;:\s@]{2,})$/;
 
     if (!re.test(normalizedValue)) {
       _setLocalEmailError('Invalid email');
