@@ -10,10 +10,21 @@ const data = [
   { name: 'F', value: 6000 },
   { name: 'G', value: 7000 },
   { name: 'J', value: 8000 },
-    { name: 'K', value: 9000 },
-   { name: 'L', value: 8000 },
+  { name: 'K', value: 9000 },
+  { name: 'L', value: 8000 },
 ];
-const COLORS = ['#ffad90','#fed057', '#ffd8d0', '#fd9498', '#c5baff', '#6e78e8', '#4a56e2', '#81e1ff', '#24cca7', '#00ad84',];
+const COLORS = [
+  '#ffad90',
+  '#fed057',
+  '#ffd8d0',
+  '#fd9498',
+  '#c5baff',
+  '#6e78e8',
+  '#4a56e2',
+  '#81e1ff',
+  '#24cca7',
+  '#00ad84',
+];
 
 const PieChartComponent = () => {
   return (

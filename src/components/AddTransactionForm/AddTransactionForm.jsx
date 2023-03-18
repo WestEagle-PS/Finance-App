@@ -67,7 +67,7 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
           onChange={handleChange}
         />
         <div className={styles.box}>
-          <PrimaryButton>{isEdit ? 'Edit' : 'Add'}</PrimaryButton>
+          <PrimaryButton>{isEdit ? 'Save' : 'Add'}</PrimaryButton>
           <SecondaryButton onBtnClick={handleCancelBtnClick}>Cancel</SecondaryButton>
         </div>
       </form>
