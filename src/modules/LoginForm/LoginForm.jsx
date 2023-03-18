@@ -5,6 +5,8 @@ import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
 import useForm from '../../shared/hooks/useForm';
 import initialState from './initialState';
 import fields from './fields';
+import logo from '../../images/svg/Group.png';
+
 import css from './login-form.module.scss';
 import { ReactComponent as Email } from '../../images/svg/email.svg';
 import { ReactComponent as Password } from '../../images/svg/password.svg';
@@ -21,6 +23,10 @@ const LoginForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
+      <div className={css.logoBox}>
+        <img src={logo} alt="logo" width="30" />
+        <p className={css.wallet}>Wallet</p>
+      </div>
       <div className={css.fieldsWrapper}>
         <TextField value={email} onChange={handleChange} icon={<Email />} {...fields.email} />
         <TextField value={password} onChange={handleChange} icon={<Password />} {...fields.password} />
