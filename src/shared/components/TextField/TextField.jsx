@@ -1,12 +1,25 @@
 import css from './text-field.module.scss';
 
-const TextField = ({ label = '', icon = null, ...props }) => {
-  const fieldClasses = icon ? `${css.field} ${css.iconField}` : css.field;
+const TextField = ({ value = '', label = '', icon = null, error = null, ...props }) => {
+  let fieldClasses = css.field;
+
+  if (icon) {
+    fieldClasses = fieldClasses + ' ' + css.iconField;
+  }
+
+  if (error) {
+    fieldClasses = fieldClasses + ' ' + css.invalid;
+  } else if (value.length) {
+    fieldClasses = fieldClasses + ' ' + css.filled;
+  }
 
   return (
-    <div className={css.formGroup}>
-      <input className={fieldClasses} placeholder={label} {...props} />
-      {icon}
+    <div className={css.wrapper}>
+      <div className={css.formGroup}>
+        <input className={fieldClasses} value={value} placeholder={label} {...props} />
+        {icon}
+      </div>
+      {error && <p className={css.hint}>! {error}</p>}
     </div>
   );
 };
