@@ -72,7 +72,7 @@ const TransactionsList = () => {
 
   const element = transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
     const categoryName = categories.find(item => item.id === categoryId);
-    console.log('categoryName: ', categoryName);
+    // console.log('categoryName: ', categoryName);
 
     return (
       <TransactionsListItem
