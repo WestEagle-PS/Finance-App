@@ -1,15 +1,19 @@
 import ExpensesListItem from './ExpensesListItem/ExpensesListItem';
 
-import {  selectCategories } from 'redux/transaction/transaction-selectors';
+import { selectCategories } from 'redux/transaction/transaction-selectors';
 
+ 
 
-import { useSelector,  } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 
 import styles from './ExpensesList.module.scss';
 
 const ExpensesList = () => {
 
   
+
+
   const categories = useSelector(selectCategories);
 
   const arrwithoutIncome = categories.slice(0, -1)
