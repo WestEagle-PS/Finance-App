@@ -2,6 +2,13 @@
   display: flex;
   width: 100vw;
   height: 100vh;
+  gap: 15.5px;
+  padding-top: 107px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .leftSide {
@@ -41,4 +48,6 @@
 .formBox {
   background-color: #fff;
   border-radius: 20px;
+  display: flex;
 }
+

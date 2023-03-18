@@ -5,8 +5,8 @@ import AddButton from 'shared/components/AddButton/AddButton';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 import css from './home-page.module.scss';
-import TransactionsList from 'components/TransactionsList/TransactionsList';
-// import TransactionListMobile from 'components/TransactionsListMobile/TransactionsListMobile';
+// import TransactionsList from 'components/TransactionsList/TransactionsList';
+
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -32,9 +32,9 @@ const HomePage = () => {
 
   return (
     <div className={css.wrapper}>
-      <TransactionsList setShowModal={setShowModal} />
+      {/* <TransactionsList setShowModal={setShowModal} /> */}
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
-      {/* <TransactionListMobile /> */}
+     
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm onSubmit={onAddFormSubmit} setShowModal={setShowModal} />

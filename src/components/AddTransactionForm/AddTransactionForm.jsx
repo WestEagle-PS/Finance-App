@@ -14,7 +14,8 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
   const [checked, setChecked] = useState(true);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
   const categories = useSelector(selectCategories);
-  const options = categories.map(({ id, name }) => ({ label: name, value: id }));
+  const filteredCategories = categories.filter(item => item.id !== '063f1132-ba5d-42b4-951d-44011ca46262');
+  const options = filteredCategories.map(({ id, name }) => ({ label: name, value: id }));
 
   const handleChecked = data => {
     setChecked(data);

@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .formGroup {
   position: relative;
 }
@@ -51,23 +55,29 @@
   fill: #000000;
 }
 
-.iconField:valid + svg *,
-.field:valid {
+.invalid {
+  border-color: #ff6596;
+}
+
+.invalid + svg * {
+  fill: #ff6596;
+}
+
+.filled {
   color: #000000;
-  fill: #000000;
   border-color: #000000;
 }
 
-.iconField:invalid + svg *,
-.field:invalid {
-  color: #f45454;
-  fill: #f45454;
-  border-color: #f45454;
+.filled + svg * {
+  fill: #000000;
 }
 
-.iconField:not(:focus):invalid + svg *,
-.field:not(:focus):invalid {
-  color: #bdbdbd;
-  fill: #e0e0e0;
-  border-color: #e0e0e0;
+.hint {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  font-family: CirceRegular;
+  font-size: 14px;
+  color: #ff6596;
 }

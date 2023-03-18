@@ -12,9 +12,9 @@ const DropdownIndicator = props => {
   );
 };
 
-const DropdownCalendar = ({ options = [], onChange }) => {
-  const isTabletOrDesctop = useMediaQuery('(min-width: 479px)');
-  const [value, setValue] = useState({ label: 'Select category', value: '' });
+const DropdownCalendar = ({ options = [], startValue, onChange }) => {
+  const isTabletOrDesctop = useMediaQuery('(min-width: 768px)');
+  const [value, setValue] = useState(startValue);
 
   return (
     <Select
@@ -24,7 +24,7 @@ const DropdownCalendar = ({ options = [], onChange }) => {
       value={value}
       onChange={value => {
         setValue(value);
-        onChange({ type: 'category', data: value.value });
+        onChange( value.value );
       }}
       styles={{
         control: baseStyles => ({

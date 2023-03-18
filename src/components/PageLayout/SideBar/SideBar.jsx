@@ -2,6 +2,7 @@ import React from 'react';
 import Balance from './Balance/Balance';
 import Currency from './Currency/Currency';
 import NavigationDashboard from './NavigationDashboard/NavigationDashboard';
+import TransactionListMobile from 'components/TransactionsListMobile/TransactionsListMobile';
 import s from './SideBar.module.scss';
 
 const SideBar = () => {
@@ -10,6 +11,7 @@ const SideBar = () => {
       <NavigationDashboard />
       <Balance />
       <Currency />
+      <TransactionListMobile />
     </div>
   );
 };
