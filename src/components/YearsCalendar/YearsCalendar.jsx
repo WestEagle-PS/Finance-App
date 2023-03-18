@@ -1,15 +1,20 @@
-import DropdownCalendar from "shared/components/DropdownCalendar/DropdownCalendar";
-import { options } from "./options";
+import { useDispatch } from 'react-redux';
+import { getTransactionSummary } from 'redux/summary/summary-operations';
+import DropdownCalendar from 'shared/components/DropdownCalendar/DropdownCalendar';
+import { options } from './options';
 
-const initialValue = { label: 'Select year', value: '' }
+export const year = new Date().getFullYear();
+const initialValue = { label: year, value: year };
 const yearsValue = options();
 
 const YearsCalendar = () => {
-    const handleChange = (value) => {
-        console.log("year value", value);
-    }
+  const dispatch = useDispatch();
 
-    return <DropdownCalendar options={yearsValue} startValue={initialValue} onChange={handleChange}/>
-}
+  const handleChange = value => {
+    dispatch(getTransactionSummary({year: value}))
+  };
+
+  return <DropdownCalendar options={yearsValue} startValue={initialValue} onChange={handleChange} />;
+};
 
 export default YearsCalendar;

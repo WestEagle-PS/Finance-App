@@ -22,6 +22,7 @@
 
 .field {
   width: 394px;
+  padding: 8px, 12px;
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline: none;
@@ -57,4 +58,16 @@
 
 .expense {
   color: getColor('secondary-color');
+}
+
+.inputBox {
+  position: relative;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
 }

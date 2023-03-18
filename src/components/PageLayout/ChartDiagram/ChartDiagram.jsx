@@ -1,18 +1,8 @@
 import React from 'react';
+import { selectorCategoriesSummary, selectorPeriodTotal } from 'redux/summary/summary-selectors';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Label } from 'recharts';
+import { useSelector } from 'react-redux';
 
-const data = [
-  { name: 'A', value: 10000 },
-  { name: 'B', value: 2000 },
-  { name: 'C', value: 3000 },
-  { name: 'D', value: 4000 },
-  { name: 'E', value: 5000 },
-  { name: 'F', value: 6000 },
-  { name: 'G', value: 7000 },
-  { name: 'J', value: 8000 },
-  { name: 'K', value: 9000 },
-  { name: 'L', value: 8000 },
-];
 const COLORS = [
   '#ffad90',
   '#fed057',
@@ -27,6 +17,12 @@ const COLORS = [
 ];
 
 const PieChartComponent = () => {
+  const categoriesSummary = useSelector(selectorCategoriesSummary);
+  const periodTotal = useSelector(selectorPeriodTotal);
+
+  const filteredCategoriesSummary = categoriesSummary.filter(item => item.type !== 'INCOME');
+  const data = filteredCategoriesSummary.map(item => ({ name: item.name, value: item.total * -1 }));
+
   return (
     <ResponsiveContainer width="100%" height={400}>
       <PieChart>
@@ -34,7 +30,7 @@ const PieChartComponent = () => {
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
-          <Label value="Ваш Баланс" position="center" />
+          <Label value={periodTotal} position="center" />
         </Pie>
         <Tooltip />
       </PieChart>
