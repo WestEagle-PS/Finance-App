@@ -1,25 +1,20 @@
-import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import TextField from '../../shared/components/TextField/TextField';
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
-import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
 import useForm from '../../shared/hooks/useForm';
 import initialState from './initialState';
 import fields from './fields';
-import logo from '../../images/svg/Group.png';
 
-import css from './login-form.module.scss';
+import logo from '../../images/svg/Group.png';
 import { ReactComponent as Email } from '../../images/svg/email.svg';
 import { ReactComponent as Password } from '../../images/svg/password.svg';
-import { useState } from 'react';
+
+import css from './login-form.module.scss';
 
 const LoginForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit });
   const { email, password } = state;
-  const [redirect, setRedirect] = useState(false);
-
-  if (redirect) {
-    return <Navigate to="/register" />;
-  }
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
@@ -33,9 +28,9 @@ const LoginForm = ({ onSubmit }) => {
       </div>
       <div className={css.buttonsWrapper}>
         <PrimaryButton>log in</PrimaryButton>
-        <SecondaryButton onBtnClick={e => setRedirect(true)} type="button">
+        <Link className={css.link} to="/register">
           register
-        </SecondaryButton>
+        </Link>
       </div>
     </form>
   );

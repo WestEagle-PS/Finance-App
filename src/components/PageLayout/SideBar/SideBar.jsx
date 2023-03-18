@@ -2,16 +2,18 @@ import React from 'react';
 import Balance from './Balance/Balance';
 import Currency from './Currency/Currency';
 import NavigationDashboard from './NavigationDashboard/NavigationDashboard';
-import TransactionListMobile from 'components/TransactionsListMobile/TransactionsListMobile';
 import s from './SideBar.module.scss';
 
+import useMediaQuery from 'shared/hooks/useMediaQuery';
+
 const SideBar = () => {
+  const isMobile = useMediaQuery('(max-width: 767px)');
   return (
     <div className={s.wrapper}>
-      <NavigationDashboard />
-      <Balance />
-      <Currency />
-      <TransactionListMobile />
+     <div className={s.navPlusBalanceBox}> <NavigationDashboard />
+      <Balance /></div>
+      {!isMobile && <Currency />}
+      
     </div>
   );
 };

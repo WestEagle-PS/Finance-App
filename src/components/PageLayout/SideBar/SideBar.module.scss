@@ -1,4 +1,31 @@
 .wrapper {
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    flex-direction: row;
+  }
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
+
   width: 480px;
+  @media screen and (max-width: 1279px) {
+    width: 100%;
+  }
   border-right: 1px solid #e7e5f2;
+  @media (max-width: 1279px) {
+    margin-bottom: 20px;
+  }
+}
+.navPlusBalanceBox {
+  @media screen and (min-width: 768px) {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: block;
+  }
 }
