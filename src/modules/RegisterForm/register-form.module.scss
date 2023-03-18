@@ -1,19 +1,23 @@
 .form {
-  width: 533px;
-  height: 616px;
-  margin-top: 52px;
-  margin-bottom: 52px;
-  margin-left: 99px;
-  margin-right: 99px;
+  width: 100%;
+  margin: 52px 99px;
+  padding: 32px 20px 36px 20px;
   background-color: #ffffff;
   border-radius: 20px;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 533px;
+    padding: 40px 65px 65px 65px;
+  }
 }
 
 .logoBox {
   display: flex;
-  gap: 15.5px;
-  padding-top: 40px;
-  margin-bottom: 60px;
+  gap: 15px;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
@@ -21,6 +25,7 @@
 }
 
 .fieldsWrapper {
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -28,9 +33,14 @@
 }
 
 .buttonsWrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
   margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wallet {
@@ -70,8 +80,14 @@
   background-color: #ececec;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .link {
     width: 300px;
   }
 }
+
+// @media screen and (min-width: 768px) {
+//   .link {
+//     width: 300px;
+//   }
+// }
