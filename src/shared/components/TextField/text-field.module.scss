@@ -6,8 +6,8 @@
   width: 24px;
   height: 24px;
   position: absolute;
-  top: 50%;
-  left: 10px;
+  top: 25%;
+  left: 70px;
   transform: translate(0, -50%);
 }
 
@@ -17,14 +17,14 @@
 }
 
 .field {
-  width: 100%;
+  width: 410px;
   height: 40px;
   padding-left: 8px;
   padding-right: 8px;
+  margin-left: 65px;
+  margin-bottom: 40px;
 
   font-family: CirceRegular;
-  font-style: normal;
-  font-weight: 400;
   font-size: 18px;
   line-height: 27px;
   color: #000000;
@@ -32,7 +32,6 @@
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline: none;
-
   transition: border-color 400ms;
 }
 
