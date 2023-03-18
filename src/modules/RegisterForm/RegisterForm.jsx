@@ -1,32 +1,82 @@
-import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import TextField from '../../shared/components/TextField/TextField';
-import Button from '../../shared/components/Button/Button';
-import useForm from '../../shared/hooks/useForm';
-import initialState from './initialState';
+import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
+import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
 import fields from './fields';
 import css from './register-form.module.scss';
-import { ReactComponent as Email } from '../../images/svg/email.svg';
-import { ReactComponent as Password } from '../../images/svg/password.svg';
-import { ReactComponent as User } from '../../images/svg/user.svg';
+import useRegisterValidation from 'shared/hooks/useRegisterValidation';
+import PasswordField from 'shared/components/PasswordField/PasswordField';
+import { ReactComponent as EmailIcon } from '../../images/svg/email.svg';
+import { ReactComponent as PasswordIcon } from '../../images/svg/password.svg';
+import { ReactComponent as UserIcon } from '../../images/svg/user.svg';
+import { useState } from 'react';
 
 const RegisterForm = ({ onSubmit }) => {
-  const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit });
+  const {
+    email,
+    password,
+    confirmationPassword,
+    username,
+    passwordReliability,
+    emailError,
+    passwordError,
+    confirmationPasswordError,
+    usernameError,
+    setEmail,
+    setPassword,
+    setConfirmationPassword,
+    setUsername,
+    validate,
+  } = useRegisterValidation();
+  const [redirect, setRedirect] = useState(false);
 
-  const { username, email, password, confirm_password } = state;
+  const handleSubmit = event => {
+    event.preventDefault();
+    validate();
+  };
+
+  if (redirect) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
       <div className={css.fieldsWrapper}>
-        <TextField value={email} onChange={handleChange} icon={<Email />} {...fields.email} />
-        <TextField value={password} onChange={handleChange} icon={<Password />} {...fields.password} />
-        <TextField value={confirm_password} onChange={handleChange} icon={<Password />} {...fields.confirm_password} />
-        <TextField value={username} onChange={handleChange} icon={<User />} {...fields.username} />
+        <TextField
+          value={email}
+          error={emailError}
+          onChange={e => setEmail(e.target.value)}
+          icon={<EmailIcon />}
+          {...fields.email}
+        />
+        <PasswordField
+          value={password}
+          error={passwordError}
+          passwordReliability={passwordReliability}
+          onChange={e => setPassword(e.target.value)}
+          icon={<PasswordIcon />}
+          {...fields.password}
+        />
+        <TextField
+          value={confirmationPassword}
+          error={confirmationPasswordError}
+          onChange={e => setConfirmationPassword(e.target.value)}
+          icon={<PasswordIcon />}
+          {...fields.confirm_password}
+        />
+        <TextField
+          value={username}
+          error={usernameError}
+          onChange={e => setUsername(e.target.value)}
+          icon={<UserIcon />}
+          {...fields.username}
+        />
       </div>
       <div className={css.buttonsWrapper}>
-        <Button>REGISTER</Button>
-        <Link className={css.link} to="/login">
-          LOG IN
-        </Link>
+        <PrimaryButton>register</PrimaryButton>
+        <SecondaryButton onBtnClick={e => setRedirect(true)} type={'button'}>
+          log in
+        </SecondaryButton>
       </div>
     </form>
   );
