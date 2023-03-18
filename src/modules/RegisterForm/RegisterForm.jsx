@@ -1,15 +1,19 @@
-import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import TextField from '../../shared/components/TextField/TextField';
-import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
-import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
 import fields from './fields';
-import css from './register-form.module.scss';
+
+import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
+
 import useRegisterValidation from 'shared/hooks/useRegisterValidation';
 import PasswordField from 'shared/components/PasswordField/PasswordField';
+
 import { ReactComponent as EmailIcon } from '../../images/svg/email.svg';
 import { ReactComponent as PasswordIcon } from '../../images/svg/password.svg';
 import { ReactComponent as UserIcon } from '../../images/svg/user.svg';
-import { useState } from 'react';
+import logo from '../../images/svg/Group.png';
+
+import css from './register-form.module.scss';
 
 const RegisterForm = ({ onSubmit }) => {
   const {
@@ -28,8 +32,6 @@ const RegisterForm = ({ onSubmit }) => {
     setUsername,
     validate,
   } = useRegisterValidation();
-  const [redirect, setRedirect] = useState(false);
-
   const handleSubmit = event => {
     event.preventDefault();
     if (validate()) {
@@ -37,12 +39,13 @@ const RegisterForm = ({ onSubmit }) => {
     }
   };
 
-  if (redirect) {
-    return <Navigate to="/login" />;
-  }
-
   return (
     <form onSubmit={handleSubmit} className={css.form}>
+      <div className={css.logoBox}>
+        <img src={logo} alt="logo" width="30" />
+        <p className={css.wallet}>Wallet</p>
+      </div>
+
       <div className={css.fieldsWrapper}>
         <TextField
           value={email}
@@ -76,9 +79,9 @@ const RegisterForm = ({ onSubmit }) => {
       </div>
       <div className={css.buttonsWrapper}>
         <PrimaryButton>register</PrimaryButton>
-        <SecondaryButton onBtnClick={e => setRedirect(true)} type={'button'}>
+        <Link className={css.link} to="/login">
           log in
-        </SecondaryButton>
+        </Link>
       </div>
     </form>
   );
