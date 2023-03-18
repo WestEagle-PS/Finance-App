@@ -5,12 +5,13 @@ import * as api from 'shared/api/transactions';
 export const getAllTransactions = createAsyncThunk('transaction/get', async (_, { rejectWithValue }) => {
   try {
     const { data } = await api.getAllTransactions();
+    console.log("transactions", data)
     const result = data.map(item => {
-      if(item.amount < 0) {
+      if (item.amount < 0) {
         item.amount = item.amount * -1;
       }
       return item;
-    })
+    });
     return result;
   } catch ({ response }) {
     return rejectWithValue(response);
@@ -23,7 +24,7 @@ export const addTransaction = createAsyncThunk('transaction/add', async (data, {
       data.amount = '-' + data.amount;
     }
     const { data: result } = await api.addTransaction(data);
-    if(result.amount < 0) {
+    if (result.amount < 0) {
       result.amount = result.amount * -1;
     }
     return result;
@@ -52,10 +53,10 @@ export const updateTranscation = createAsyncThunk('transaction/update', async (t
       amount: Number(transaction.amount),
     };
     if (data.type === 'EXPENSE') {
-      data.amount = Number('-' + data.amount)
+      data.amount = Number('-' + data.amount);
     }
     const { data: result } = await api.updateTranscation(id, data);
-    if(result.amount < 0) {
+    if (result.amount < 0) {
       result.amount = result.amount * -1;
     }
     return result;
