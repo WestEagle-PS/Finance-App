@@ -1,8 +1,10 @@
 import { useDispatch } from 'react-redux';
+
 import LoginForm from '../../modules/LoginForm/LoginForm';
 import { login } from '../../redux/auth/auth-operations';
 
-import logo from '../../images/svg/Group.png';
+import imgMan from '../../images/svg/desktop-man.png';
+
 import css from './login-page.module.scss';
 
 const LoginPage = () => {
@@ -13,12 +15,16 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container">
-      <div className={css.logoBox}>
-        <img src={logo} alt="logo" width="30" />
-        <p className={css.wallet}>Wallet</p>
+    <div className={`container ${css.box}`}>
+      <div className={css.leftSide}>
+        <img className={css.imgLeft} src={imgMan} alt="man" width="435" height="420" />
+        <p className={css.text}>Finance App</p>
       </div>
-      <LoginForm onSubmit={onLogin} />
+
+      <div className={css.rightSide}>
+        <span className={css.ellipse}></span>
+        <LoginForm onSubmit={onLogin} />
+      </div>
     </div>
   );
 };

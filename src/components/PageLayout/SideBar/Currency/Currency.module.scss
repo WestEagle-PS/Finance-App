@@ -1,4 +1,8 @@
 .box {
+  @media screen and (max-width: 1279px) {
+    width: 336px;
+    height: 182px;
+  }
   position: relative;
   width: 393px;
   height: 331px;

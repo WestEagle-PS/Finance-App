@@ -19,7 +19,7 @@ const TextField = ({ value = '', label = '', icon = null, error = null, ...props
         <input className={fieldClasses} value={value} placeholder={label} {...props} />
         {icon}
       </div>
-      {error && <p className={css.hint}>! {error}</p>}
+      {error && <p className={css.hint}>{error}</p>}
     </div>
   );
 };
