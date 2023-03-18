@@ -2,6 +2,7 @@ import PieChartComponent from 'components/PageLayout/ChartDiagram/ChartDiagram';
 import MonthCalendar from 'components/MonthCalendar/MonthCalendar';
 import YearsCalendar from 'components/YearsCalendar/YearsCalendar';
 
+
 import css from './statistic-page.module.scss';
 import ExpensesList from 'components/ExpensesList/ExpensesList';
 

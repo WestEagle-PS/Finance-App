@@ -1,5 +1,7 @@
-.logoBox {
+.box {
   display: flex;
+  width: 100vw;
+  height: 100vh;
   gap: 15.5px;
   padding-top: 107px;
   margin-bottom: 60px;
@@ -7,17 +9,45 @@
   margin-right: auto;
   align-items: center;
   justify-content: center;
-  
 }
 
-.wallet {
-  font-family: PoppinsBold;
+.leftSide {
+  min-width: 557px;
+  background-color: #e7eaf2;
+  background-image: url(../../images/svg/ellipse-blue.png);
+  background-size: 111%;
+  background-position: bottom left -123px;
+  background-repeat: no-repeat;
+}
+
+.rightSide {
+  flex-grow: 1;
+  min-width: 731px;
+  background-color: #e7eaf2;
+  background-image: url(../../images/svg/ellipse-rose.png);
+  // background-size: 111%;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.imgLeft {
+  margin-top: 150px;
+  margin-bottom: 28px;
+  margin-left: 76px;
+  margin-right: 38px;
+}
+
+.text {
+  font-family: PoppinsRegular;
   font-size: 30px;
   line-height: 45px;
-  display: flex;
-  align-items: center;
+  text-align: center;
   color: #000000;
-  display: flex;
+}
 
+.formBox {
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
 }
 
