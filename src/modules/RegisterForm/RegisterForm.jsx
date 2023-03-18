@@ -32,7 +32,9 @@ const RegisterForm = ({ onSubmit }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    validate();
+    if (validate()) {
+      onSubmit({ email, username, password });
+    }
   };
 
   if (redirect) {
