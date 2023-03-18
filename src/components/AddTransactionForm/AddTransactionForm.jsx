@@ -8,6 +8,7 @@ import AddTransactionCalendar from 'shared/components/Calendar/Calendar';
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
 import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
 import INITIAL_STATE from './initialState';
+import calendarIcon from 'images/svg/calendary.svg';
 import styles from './add-transaction-form.module.scss';
 
 const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSubmit, setShowModal }) => {
@@ -54,7 +55,10 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
             onChange={handleChange}
           />
           {isEdit ? (
+            <div className={styles.inputBox}>
+            <img className={styles.icon} src={calendarIcon} alt="Calendar icon" />
             <input className={styles.field} name="transactionDate" type="text" value={transactionDate} disabled />
+            </div>
           ) : (
             <AddTransactionCalendar stateDate={transactionDate} onChange={handleDataChange} />
           )}

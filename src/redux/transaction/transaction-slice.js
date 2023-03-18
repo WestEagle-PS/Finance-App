@@ -5,7 +5,6 @@ import {
   addTransaction,
   deleteTransaction,
   updateTranscation,
-  getTransactionSummary,
   getAllCategories,
 } from './transaction-operations';
 
@@ -61,12 +60,6 @@ const transactionSlice = createSlice({
       })
       .addCase(updateTranscation.rejected, handleRejected)
 
-      .addCase(getTransactionSummary.pending, handlePending)
-      .addCase(getTransactionSummary.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        state.summary = payload;
-      })
-      .addCase(getTransactionSummary.rejected, handleRejected)
       .addCase(getAllCategories.pending, handlePending)
       .addCase(getAllCategories.fulfilled, (state, { payload }) => {
         state.loading = false;

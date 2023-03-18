@@ -64,18 +64,6 @@ export const updateTranscation = createAsyncThunk('transaction/update', async (t
   }
 });
 
-export const getTransactionSummary = createAsyncThunk(
-  'transaction/patchTransaction',
-  async (_, { rejectWithValue }) => {
-    try {
-      const { data } = await api.getTransactionSummary();
-      return data;
-    } catch ({ response }) {
-      return rejectWithValue(response);
-    }
-  }
-);
-
 export const getAllCategories = createAsyncThunk('transaction/getAllCategories', async (_, { rejectWithValue }) => {
   try {
     const data = await api.getTransactionCategories();

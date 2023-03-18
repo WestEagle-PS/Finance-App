@@ -5,12 +5,12 @@ import styles from './TransactionsListMobileItem.module.scss';
 
 
 const TransactionsListMobileItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
-  console.log(type)
+  // console.log(type)
   const newSum = sum.toFixed(2)
   const Newdate = new Date(date);
 const day = Newdate.getDate().toString().padStart(2, '0');
-const month = (Newdate.getMonth() + 1).toString().padStart(2, '0'); 
-const year = Newdate.getFullYear().toString().slice(-2); 
+const month = (Newdate.getMonth() + 1).toString().padStart(2, '0');
+const year = Newdate.getFullYear().toString().slice(-2);
 const formattedDate = `${day}.${month}.${year}`;
   const typeOfTrans = type === 'INCOME' ? '+' : '-';
   return (
@@ -59,4 +59,3 @@ export default TransactionsListMobileItem;
 
 
 
-    
