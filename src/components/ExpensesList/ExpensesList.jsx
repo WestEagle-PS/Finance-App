@@ -1,15 +1,16 @@
 import ExpensesListItem from './ExpensesListItem/ExpensesListItem';
 // import data from '../ExpensesList/data.json';
-import { selectAllTransactions, selectCategories } from 'redux/transaction/transaction-selectors';
-
-import { useState } from 'react';
+import { selectCategories } from 'redux/transaction/transaction-selectors';
+//  selectAllTransactions
+ 
+// import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './ExpensesList.module.scss';
 
 const ExpensesList = () => {
 
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   console.log(categories)
   const arrwithoutIncome = categories.slice(0, -1)
