@@ -4,7 +4,8 @@ import { selectCategories } from 'redux/transaction/transaction-selectors';
 //  selectAllTransactions
  
 // import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+// useDispatch
 
 import styles from './ExpensesList.module.scss';
 
