@@ -1,14 +1,18 @@
 .title {
+  margin-left: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 715px;
+  width: 704px;
+  @media screen and (min-width: 1280px) {
+    width: 715px;
+  }
   height: 58px;
   padding: 15px 130px 15px 20px;
   background: #ffffff;
   border-radius: 30px;
 
-  outline: 1px solid red;
+  // outline: 1px solid red;
 }
 .title p {
   font-family: CirceRegular;
@@ -17,6 +21,31 @@
   font-size: 18px;
   line-height: 27px;
   /* identical to box height */
+
+  color: #000000;
+}
+.img {
+  margin: 0 auto;
+  display: block;
+}
+.titleText {
+  text-align: center;
+  font-family: CirceRegular;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.28;
+  margin-bottom: 20px;
+  text-transform: none;
+}
+.textLover {
+  text-align: center;
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
 
   color: #000000;
 }

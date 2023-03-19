@@ -8,7 +8,7 @@ const EditButton = ({ id, onClick }) => {
         onClick(id);
       }}
     >
-      <span className={styles.label}>Edit</span>
+      <span className={styles.label}></span>
     </button>
   );
 };
