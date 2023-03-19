@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
-
 import TextField from '../../shared/components/TextField/TextField';
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
+import CustomLink from 'shared/components/LinkButton/CustomLink';
 import useForm from '../../shared/hooks/useForm';
 import initialState from './initialState';
 import fields from './fields';
@@ -28,9 +27,7 @@ const LoginForm = ({ onSubmit }) => {
       </div>
       <div className={css.buttonsWrapper}>
         <PrimaryButton>log in</PrimaryButton>
-        <Link className={css.link} to="/register">
-          register
-        </Link>
+        <CustomLink to="/register">register</CustomLink>
       </div>
     </form>
   );

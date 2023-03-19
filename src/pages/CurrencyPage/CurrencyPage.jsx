@@ -1,14 +1,10 @@
-
-
-
-
+import Currency from 'components/PageLayout/SideBar/Currency/Currency';
 
 const CurrencyPage = () => {
   return (
-    <div >
-      <p>CURRENCY PAGE</p>
-      
-    </div>
+    <>
+      <Currency />
+    </>
   );
 };
 
