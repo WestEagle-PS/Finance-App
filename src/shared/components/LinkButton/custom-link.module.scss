@@ -1,9 +1,12 @@
-.button {
+.link {
+  display: block;
   width: 100%;
   height: 50px;
-  font-family: 'CirceRegular';
-  font-style: normal;
-  font-weight: 400;
+  margin: 0 auto;
+  padding: 13px;
+  text-decoration: none;
+
+  font-family: CirceRegular;
   font-size: 18px;
   line-height: 27px;
   text-align: center;
@@ -17,13 +20,13 @@
   transition: background-color 400ms;
 }
 
-.button:hover,
-.button:focus {
+.link:hover,
+.link:focus {
   background-color: #ececec;
 }
 
-@media screen and (min-width: 479px) {
-  .button {
+@media screen and (min-width: 480px) {
+  .link {
     width: 300px;
   }
 }
