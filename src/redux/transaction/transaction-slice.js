@@ -14,6 +14,7 @@ const initialState = {
   error: null,
   summary: {},
   categories: [],
+  // balance: 0,
 };
 
 const handlePending = state => {
@@ -35,6 +36,9 @@ const transactionSlice = createSlice({
       .addCase(getAllTransactions.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items = payload;
+        // state.balance = payload.reduce((total, elem) => {
+        //   return total += elem.amount;
+        // }, 0)
       })
       .addCase(getAllTransactions.rejected, handleRejected)
 
@@ -42,6 +46,7 @@ const transactionSlice = createSlice({
       .addCase(addTransaction.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items.push(payload);
+        // state.balance = state.balance + payload.amount;
       })
       .addCase(addTransaction.rejected, handleRejected)
 

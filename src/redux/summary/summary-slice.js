@@ -5,6 +5,7 @@ const initialState = {
   summary: {},
   loading: false,
   error: null,
+  balance: 0
 };
 
 const handlePending = state => {
@@ -26,6 +27,7 @@ const transactionSummary = createSlice ({
       .addCase(getTransactionSummary.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.summary = payload;
+        state.balance = payload.periodTotal;
       })
       .addCase(getTransactionSummary.rejected, handleRejected)
   },

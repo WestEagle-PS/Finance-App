@@ -72,8 +72,14 @@ const TransactionsList = () => {
     setShowModal(false);
   };
 
+    const sortedTransactions = transactions.sort((prev, next) => next.transactionDate.localeCompare(prev.transactionDate))
+  console.log("sortedTransactions", sortedTransactions)
   const element = transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
     const categoryName = categories.find(item => item.id === categoryId);
+    if(amount < 0) {
+      amount = amount * -1
+    }
+
 
     return (
       <TransactionsListItem
