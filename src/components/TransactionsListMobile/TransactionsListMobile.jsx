@@ -37,7 +37,15 @@ const TransactionListMobile = () => {
     setShowModal(false);
   };
 
-  const element = transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
+  const transactionsCopy = [...transactions];
+
+  transactionsCopy.sort((a, b) => {
+    const dateA = new Date(a.transactionDate);
+    const dateB = new Date(b.transactionDate);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  const element = transactionsCopy.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
     const categoryName = categories.find(item => item.id === categoryId);
 
     return (
@@ -50,21 +58,26 @@ const TransactionListMobile = () => {
         type={type}
         comment={comment}
         onEditBtnClick={handleEditBtnClick}
-        onDeleteBtnClick={handleDeleteBtnClick} />
+        onDeleteBtnClick={handleDeleteBtnClick}
+      />
     );
   });
 
   return (
-    <> {element}
+    <>
+      {' '}
+      {element}
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm
             initialState={transaction}
             isEdit={isEdit}
             onSubmit={onAddFormSubmit}
-            setShowModal={setShowModal}/>
+            setShowModal={setShowModal}
+          />
         </Modal>
-      )} </>
+      )}{' '}
+    </>
   );
 };
 export default TransactionListMobile;
