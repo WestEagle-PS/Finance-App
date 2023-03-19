@@ -19,7 +19,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getAllCategories());
     dispatch(getAllTransactions());
-    dispatch(getTransactionSummary({month, year}))
+    dispatch(getTransactionSummary({ month, year }));
   }, [dispatch]);
 
   const handleAddBtnClick = () => {
@@ -42,9 +42,8 @@ const HomePage = () => {
 
     <div className={css.wrapper}>
       {isTablet && <TransactionsList setShowModal={setShowModal} />}
-      {isMobile && <TransactionListMobile  />}
+      {isMobile && <TransactionListMobile />}
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
-
       {showModal && (
         <Modal onClose={onCloseModal}>
           <AddTransactionForm onSubmit={onAddFormSubmit} setShowModal={setShowModal} />
@@ -55,4 +54,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
 

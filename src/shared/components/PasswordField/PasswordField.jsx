@@ -12,7 +12,7 @@ const PasswordField = ({ passwordReliability = [], ...props }) => {
     <div className={css.wrapper}>
       <TextField {...props} />
       <span className={css.scale}>
-        <span className={css.filledScale} style={{ width: `${scaleWidth + 1}%` }}></span>
+        <span className={css.filledScale} style={{ width: `calc(${scaleWidth}% + 4px` }}></span>
       </span>
     </div>
   );

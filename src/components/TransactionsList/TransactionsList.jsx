@@ -6,8 +6,10 @@ import TransactionsListItem from './TransactionsListItem/TransactionsListItem';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 // import data from '../TransactionsList/data.json';
-
+import wallet from '../../images/wallett.png'
 import styles from './TransactionsList.module.scss';
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
 
 // const TransactionList = () => {
 //   const element = data.map(item => (
@@ -88,8 +90,11 @@ const TransactionsList = () => {
     );
   });
 
-  return (
-    <div>
+  const whatToShow = transactions.length ===0?<div className={styles.boxNotFound}>
+    <p className={styles.titleText}>No Transactions yet</p>
+    <p className={styles.textLover}>Start transactions with your wallet.All transactions made will be displayed here.</p>
+        <img src={wallet} alt="no transaction" className={styles.img} />
+      </div> : <div>
       <div className={styles.title}>
         <p>Date</p>
         <p>Type</p>
@@ -97,7 +102,7 @@ const TransactionsList = () => {
         <p>Comment</p>
         <p>Sum</p>
       </div>
-      <div className={styles.list_box}>
+    <SimpleBar style={{ maxHeight: 450 }}> <div className={styles.list_box}>
         <ul className={styles.list}>{element}</ul>
         {showModal && (
           <Modal onClose={onCloseModal}>
@@ -109,9 +114,12 @@ const TransactionsList = () => {
             />
           </Modal>
         )}
-      </div>
+      </div></SimpleBar>
     </div>
+  return (
+ <>  {whatToShow}</>
   );
 };
 
 export default TransactionsList;
+
