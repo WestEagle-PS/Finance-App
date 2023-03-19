@@ -15,8 +15,12 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
   const [checked, setChecked] = useState(true);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
   const categories = useSelector(selectCategories);
-  const filteredCategories = categories.filter(item => item.id !== '063f1132-ba5d-42b4-951d-44011ca46262');
+  const filteredCategories = categories.filter(item => item.name !== 'Income');
   const options = filteredCategories.map(({ id, name }) => ({ label: name, value: id }));
+  const { transactionDate, type, comment, amount, categoryId } = state;
+  const categoryName = filteredCategories.find(item => item.id === categoryId);
+  const income = type === 'INCOME' ? styles.income : styles.type;
+  const expense = type === 'EXPENSE' ? styles.expense : styles.type;
 
   const handleChecked = data => {
     setChecked(data);
@@ -26,18 +30,19 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
     setShowModal(false);
   };
 
-  const { transactionDate, type, comment, amount } = state;
-  const income = type === 'INCOME' ? styles.income : styles.type;
-  const expense = type === 'EXPENSE' ? styles.expense : styles.type;
-
   return (
     <>
       <p className={styles.title}>Add transaction</p>
       <form onSubmit={handleSubmit} className={styles.form}>
         {isEdit ? (
-          <p className={styles.type}>
-            <span className={income}>Income</span> / <span className={expense}>Expense</span>
-          </p>
+          <>
+            <p className={styles.type}>
+              <span className={income}>Income</span> / <span className={expense}>Expense</span>
+            </p>
+            {type === 'EXPENSE' && (
+              <input className={styles.field} name="categoryId" type="text" value={categoryName.name} disabled />
+            )}
+          </>
         ) : (
           <>
             <ToggleButton getChecked={handleChecked} onClick={handleDataChange} />
@@ -56,8 +61,8 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
           />
           {isEdit ? (
             <div className={styles.inputBox}>
-            <img className={styles.icon} src={calendarIcon} alt="Calendar icon" />
-            <input className={styles.field} name="transactionDate" type="text" value={transactionDate} disabled />
+              <img className={styles.icon} src={calendarIcon} alt="Calendar icon" />
+              <input className={styles.field} name="transactionDate" type="text" value={transactionDate} disabled />
             </div>
           ) : (
             <AddTransactionCalendar stateDate={transactionDate} onChange={handleDataChange} />

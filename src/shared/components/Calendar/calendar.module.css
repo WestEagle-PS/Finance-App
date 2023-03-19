@@ -1,0 +1,28 @@
+.field {
+  width: 181px;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  outline: none;
+  background-color: transparent;
+  font-family: CirceRegular;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.box {
+  display: flex;
+  gap: 20px;
+}
+
+.inputBox {
+  position: relative;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 8px;
+  bottom: 4px;
+}/*# sourceMappingURL=calendar.module.css.map */
