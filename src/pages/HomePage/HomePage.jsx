@@ -39,7 +39,7 @@ const HomePage = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   return (
-    
+
     <div className={css.wrapper}>
       {isTablet && <TransactionsList setShowModal={setShowModal} />}
       {isMobile && <TransactionListMobile  />}
@@ -56,4 +56,3 @@ const HomePage = () => {
 
 export default HomePage;
 
-    

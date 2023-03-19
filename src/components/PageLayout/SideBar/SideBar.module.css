@@ -1,0 +1,41 @@
+.wrapper {
+  width: 480px;
+  border-right: 1px solid #e7e5f2;
+}
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 767px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+@media (max-width: 1279px) {
+  .wrapper {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navPlusBalanceBox {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .navPlusBalanceBox {
+    display: block;
+  }
+}/*# sourceMappingURL=SideBar.module.css.map */

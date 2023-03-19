@@ -7,8 +7,8 @@ export const year = new Date().getFullYear();
 const initialValue = { label: year, value: year };
 const yearsValue = options();
 
-const YearsCalendar = () => {
-  const dispatch = useDispatch();
+const YearsCalendar = (value) => {
+  const dispatch = useDispatch({year: value});
 
   const handleChange = value => {
     dispatch(getTransactionSummary({year: value}))

@@ -1,0 +1,344 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+@font-face {
+  font-family: CirceRegular;
+  src: url(../../assets/fonts/Circe-Regular.woff);
+}
+@font-face {
+  font-family: CirceBold;
+  src: url(../../assets/fonts/Circe-Bold.woff);
+}
+@font-face {
+  font-family: PoppinsRegular;
+  src: url(../../assets/fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: PoppinsBold;
+  src: url(../../assets/fonts/Poppins-Bold.ttf);
+}
+body {
+  background-color: #e7eaf2;
+}
+
+.container {
+  max-width: 320px;
+  min-height: 100vh;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 auto;
+  background: url("../../images/svg/coverMobile.png");
+  background-repeat: no-repeat;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-right: 32px;
+    padding-left: 32px;
+    background: url("../../images/svg/coverTab.png");
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding: 0;
+    background: url("../../images/svg/cover.png");
+  }
+}
+
+.Main.expenses {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Main.expenses::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #fed057;
+}
+
+.Products {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Products::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #ffd8d0;
+}
+
+.Car {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Car::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #fd9498;
+}
+
+.Self.care {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Self.care::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #c5baff;
+}
+
+.Child.care {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Child.care::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #6e78e8;
+}
+
+.Household.products {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Household.products::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #4a56e2;
+}
+
+.Education {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Education::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #81e1ff;
+}
+
+.Leisure {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Leisure::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #24cca7;
+}
+
+.Other.expenses {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Other.expenses::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #00ad84;
+}
+
+.Entertainment {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.Entertainment::before {
+  content: "";
+  margin-right: 16px;
+  border-radius: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #2c3230;
+}/*# sourceMappingURL=styles.css.map */

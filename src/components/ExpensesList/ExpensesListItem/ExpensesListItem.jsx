@@ -1,10 +1,13 @@
 import styles from "./ExpensesListItem.module.scss";
 
-const ExpensesListItem = ({category, sum }) => {
+const ExpensesListItem = ({category, sum, color }) => {
   return (
     <li className={styles.item}>
-      <p className={category}>{category}</p>
-      <span className={styles.summ}>{sum}</span>
+      <div className={styles.box}>
+      <span className={styles.block} style={{backgroundColor: color }}></span>
+      <p className={styles.category}>{category}</p>
+      </div>
+      <span className={styles.sum}>{sum.toFixed(2)}</span>
     </li>
   );
 };

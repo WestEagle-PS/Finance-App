@@ -1,0 +1,21 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 715px;
+  height: 58px;
+  padding: 15px 130px 15px 20px;
+  background: #ffffff;
+  border-radius: 30px;
+  outline: 1px solid red;
+}
+
+.title p {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+  color: #000000;
+}/*# sourceMappingURL=TransactionsList.module.css.map */
