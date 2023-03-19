@@ -10,10 +10,11 @@ const SideBar = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   return (
     <div className={s.wrapper}>
-     <div className={s.navPlusBalanceBox}> <NavigationDashboard />
-      <Balance /></div>
+      <div className={s.navPlusBalanceBox}>
+        <NavigationDashboard />
+        {!isMobile && <Balance />}
+      </div>
       {!isMobile && <Currency />}
-      
     </div>
   );
 };

@@ -14,14 +14,14 @@
 
 .button:hover,
 .button:focus {
-  background-color: #ececec;
+  background-color: #ffffff;
 }
 
 .label {
   margin-left: 22px;
 }
 
-@media screen and (min-width: 279px) {
+@media screen and (min-width: 480px) {
   .button {
     width: 26px;
     border-radius: 1000px;

@@ -11,6 +11,7 @@ import css from './home-page.module.scss';
 import TransactionsList from 'components/TransactionsList/TransactionsList';
 import TransactionListMobile from 'components/TransactionsListMobile/TransactionsListMobile';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
+import Balance from 'components/PageLayout/SideBar/Balance/Balance';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -39,8 +40,9 @@ const HomePage = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   return (
-
     <div className={css.wrapper}>
+      {isMobile && <Balance />}
+
       {isTablet && <TransactionsList setShowModal={setShowModal} />}
       {isMobile && <TransactionListMobile />}
       <AddButton type="button" onBtnClick={handleAddBtnClick} />
@@ -54,5 +56,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-
