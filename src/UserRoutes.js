@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
+// import { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Loader from './shared/components/Loader/Loader';
 
