@@ -10,7 +10,7 @@ const PieChartComponent = ({data = [], totalSum = ''}) => {
           {data.map((item, index) => (
             <Cell key={`cell-${index}`} fill={item.color} />
           ))}
-          <Label className={styles.label} fill="#000000" value={totalSum.toFixed(2)} position="center" />
+          <Label className={styles.label} fill="#000000"  value={Number(totalSum).toFixed(2)} position="center" />
         </Pie>
         <Tooltip />
       </PieChart>
