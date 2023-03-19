@@ -24,6 +24,7 @@ import styles from './TransactionsListItem.module.scss';
 // export default TransactionsListItem;
 
 const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
+ 
 const newSum = sum.toFixed(2)
 const typeOfTrans = type === 'INCOME' ? '+' : '-';
 const Newdate = new Date(date);
@@ -36,7 +37,8 @@ const formattedDate = `${day}.${month}.${year}`;
       <div className={styles.leftBox}>
         <p className={styles.date}>{formattedDate}</p>
         <p className={styles.type}>{typeOfTrans}</p>
-        <p className={styles.category}>{category}</p>
+        <p className={styles.category}> {category.name ? category.name : 'Unknown'}</p>
+        
         <span className={styles.comment}>{comment}</span>
         <span className={typeOfTrans==='+'?styles.greenSum:styles.redSum}>{newSum}</span>
       </div>

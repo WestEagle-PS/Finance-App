@@ -17,12 +17,12 @@ const UserRoutes = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isMobile) {
-      navigate('/home');
-    }
+  // useEffect(() => {
+  //   if (!isMobile) {
+  //     navigate('/home');
+  //   }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile]);
+  // }, [isMobile]);
 
   return (
     <>

@@ -54,7 +54,7 @@ const TransactionsList = () => {
 
   const handleEditBtnClick = id => {
     setIsEdit(true);
-    const transaction = transactions.find(item => item.id === id);
+    const transaction =transactions && transactions.find(item => item.id === id);
     setTransaction(transaction);
     setShowModal(true);
   };
@@ -72,14 +72,15 @@ const TransactionsList = () => {
     setShowModal(false);
   };
 
-  const element = transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
-    const categoryName = categories.find(item => item.id === categoryId);
+  const element =transactions && transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
+    const categoryName = categories && categories.find(item => item.id === categoryId);
+    
 
     return (
       <TransactionsListItem
         key={id}
         id={id}
-        category={categoryName.name}
+        category={categoryName}
         sum={amount}
         date={transactionDate}
         type={type}
