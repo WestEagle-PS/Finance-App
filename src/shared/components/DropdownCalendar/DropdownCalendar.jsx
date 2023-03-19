@@ -1,35 +1,34 @@
-import Select, { components } from 'react-select';
+import Select from 'react-select';
 import { useState } from 'react';
+import DropdownIndicator from '../DropdownIndicator/DropdownIndicator';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
-const DropdownIndicator = props => {
-  return (
-    <components.DropdownIndicator {...props}>
-      <svg width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L10 10L19 1" stroke="black" />
-      </svg>
-    </components.DropdownIndicator>
-  );
-};
-
 const DropdownCalendar = ({ options = [], startValue, onChange }) => {
-  const isTabletOrDesctop = useMediaQuery('(min-width: 768px)');
+  const isTablet = useMediaQuery('(min-width: 768px)');
+  const isDesctop = useMediaQuery('(min-width: 1280px)');
   const [value, setValue] = useState(startValue);
+
+  let width = '100%';
+  if (isDesctop) {
+    width = '182px';
+  } else if (isTablet) {
+    width = '160px';
+  }
 
   return (
     <Select
       options={options}
-      maxMenuHeight={157}
+      // maxMenuHeight={157}
       components={{ DropdownIndicator }}
       value={value}
       onChange={value => {
         setValue(value);
-        onChange( value.value );
+        onChange(value.value);
       }}
       styles={{
         control: baseStyles => ({
           ...baseStyles,
-          width: isTabletOrDesctop ? '160px' : '100%',
+          width,
           height: '50px',
           border: '1px solid #000000',
           borderRadius: '30px',
@@ -62,12 +61,13 @@ const DropdownCalendar = ({ options = [], startValue, onChange }) => {
         }),
         menu: base => ({
           ...base,
-          width: isTabletOrDesctop ? '160px' : '100%',
-          padding: '12px 0',
+          margin: 0,
+          width,
           backgroundColor: 'rgba(255, 255, 255, 0.7)',
           boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
           backdropFilter: 'blur(25px)',
           borderRadius: '20px',
+          overflow: 'hidden',
         }),
         option: (_, state) => ({
           paddingTop: '8px',
@@ -78,10 +78,9 @@ const DropdownCalendar = ({ options = [], startValue, onChange }) => {
           lineHeight: 'calc(24 / 16)',
           cursor: 'pointer',
           ':hover': {
-            backgroundColor: state.isSelected ? '' : 'white',
+            backgroundColor: 'white',
           },
-          backgroundColor: state.isSelected ? '#24CCA7' : '',
-          color: state.isSelected ? '#ffffff' : '#000000',
+          color: state.isSelected ? '#FF6596' : '#000000',
         }),
         menuList: base => ({
           ...base,

@@ -10,9 +10,6 @@
   border-radius: 1000px;
   cursor: pointer;
   transition: transform 400ms;
-  @media screen and (max-width: 767px) {
-    position: fixed;
-  }
   position: absolute;
   right: 24px;
   bottom: 24px;
