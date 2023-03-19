@@ -6,7 +6,7 @@ import TransactionsListItem from './TransactionsListItem/TransactionsListItem';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
 // import data from '../TransactionsList/data.json';
-import wallet from '../../images/wallett.png'
+import wallet from '../../images/wallett.png';
 import styles from './TransactionsList.module.scss';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
@@ -54,7 +54,7 @@ const TransactionsList = () => {
 
   const handleEditBtnClick = id => {
     setIsEdit(true);
-    const transaction =transactions && transactions.find(item => item.id === id);
+    const transaction = transactions && transactions.find(item => item.id === id);
     setTransaction(transaction);
     setShowModal(true);
   };
@@ -71,56 +71,72 @@ const TransactionsList = () => {
     dispatch(updateTranscation(data));
     setShowModal(false);
   };
+  const transactionsCopy = [...transactions];
 
-  const element =transactions && transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
-    const categoryName = categories && categories.find(item => item.id === categoryId);
-    
-
-    return (
-      <TransactionsListItem
-        key={id}
-        id={id}
-        category={categoryName}
-        sum={amount}
-        date={transactionDate}
-        type={type}
-        comment={comment}
-        onEditBtnClick={handleEditBtnClick}
-        onDeleteBtnClick={handleDeleteBtnClick}
-      />
-    );
+  transactionsCopy.sort((a, b) => {
+    const dateA = new Date(a.transactionDate);
+    const dateB = new Date(b.transactionDate);
+    return dateB.getTime() - dateA.getTime();
   });
 
-  const whatToShow = transactions.length ===0?<div className={styles.boxNotFound}>
-    <p className={styles.titleText}>No Transactions yet</p>
-    <p className={styles.textLover}>Start transactions with your wallet.All transactions made will be displayed here.</p>
+  const element =
+    transactionsCopy &&
+    transactionsCopy.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
+      const categoryName = categories && categories.find(item => item.id === categoryId);
+
+      return (
+        <TransactionsListItem
+          key={id}
+          id={id}
+          category={categoryName}
+          sum={amount}
+          date={transactionDate}
+          type={type}
+          comment={comment}
+          onEditBtnClick={handleEditBtnClick}
+          onDeleteBtnClick={handleDeleteBtnClick}
+        />
+      );
+    });
+
+  const whatToShow =
+    transactionsCopy.length === 0 ? (
+      <div className={styles.boxNotFound}>
+        <p className={styles.titleText}>No Transactions yet</p>
+        <p className={styles.textLover}>
+          Start transactions with your wallet.All transactions made will be displayed here.
+        </p>
         <img src={wallet} alt="no transaction" className={styles.img} />
-      </div> : <div>
-      <div className={styles.title}>
-        <p>Date</p>
-        <p>Type</p>
-        <p>Category</p>
-        <p>Comment</p>
-        <p>Sum</p>
       </div>
-    <SimpleBar style={{ maxHeight: 450 }}> <div className={styles.list_box}>
-        <ul className={styles.list}>{element}</ul>
-        {showModal && (
-          <Modal onClose={onCloseModal}>
-            <AddTransactionForm
-              initialState={transaction}
-              isEdit={isEdit}
-              onSubmit={onAddFormSubmit}
-              setShowModal={setShowModal}
-            />
-          </Modal>
-        )}
-      </div></SimpleBar>
-    </div>
-  return (
- <>  {whatToShow}</>
-  );
+    ) : (
+      <div>
+        <div className={styles.title}>
+          <p>Date</p>
+          <p>Type</p>
+          <p>Category</p>
+          <p>Comment</p>
+          <p>Sum</p>
+        </div>
+        <SimpleBar style={{ maxHeight: 450 }}>
+          {' '}
+          <div className={styles.list_box}>
+            <ul className={styles.list}>{element}</ul>
+            {showModal && (
+              <Modal onClose={onCloseModal}>
+                <AddTransactionForm
+                  initialState={transaction}
+                  isEdit={isEdit}
+                  onSubmit={onAddFormSubmit}
+                  setShowModal={setShowModal}
+                />
+              </Modal>
+            )}
+          </div>
+        </SimpleBar>
+      </div>
+    );
+  return <> {whatToShow}</>;
+  return <></>;
 };
 
 export default TransactionsList;
-
