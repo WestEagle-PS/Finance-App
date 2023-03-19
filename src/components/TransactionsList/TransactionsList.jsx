@@ -136,7 +136,6 @@ const TransactionsList = () => {
       </div>
     );
   return <> {whatToShow}</>;
-  return <></>;
 };
 
 export default TransactionsList;
