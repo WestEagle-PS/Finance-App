@@ -1,6 +1,6 @@
 import TextField from '../../shared/components/TextField/TextField';
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
-import CustomLink from 'shared/components/LinkButton/CustomLink';
+import CustomLink from 'shared/components/CustomLink/CustomLink';
 import useForm from '../../shared/hooks/useForm';
 import initialState from './initialState';
 import fields from './fields';

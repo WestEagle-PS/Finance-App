@@ -2,7 +2,7 @@ import TextField from '../../shared/components/TextField/TextField';
 import fields from './fields';
 
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
-import CustomLink from 'shared/components/LinkButton/CustomLink';
+import CustomLink from 'shared/components/CustomLink/CustomLink';
 import useRegisterValidation from 'shared/hooks/useRegisterValidation';
 import PasswordField from 'shared/components/PasswordField/PasswordField';
 
