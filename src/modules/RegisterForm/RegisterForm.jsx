@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
-
 import TextField from '../../shared/components/TextField/TextField';
 import fields from './fields';
 
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
-
+import CustomLink from 'shared/components/LinkButton/CustomLink';
 import useRegisterValidation from 'shared/hooks/useRegisterValidation';
 import PasswordField from 'shared/components/PasswordField/PasswordField';
 
@@ -79,9 +77,7 @@ const RegisterForm = ({ onSubmit }) => {
       </div>
       <div className={css.buttonsWrapper}>
         <PrimaryButton>register</PrimaryButton>
-        <Link className={css.link} to="/login">
-          log in
-        </Link>
+        <CustomLink to="/login">log in</CustomLink>
       </div>
     </form>
   );

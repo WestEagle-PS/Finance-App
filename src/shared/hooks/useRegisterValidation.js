@@ -67,9 +67,12 @@ function useRegisterValidation() {
 
     if (normalizedValue.length < 6 || normalizedValue.length > 12) {
       _setLocalPasswordError('Password must contain 6 to 12 characters');
-      _setPasswordReliability([0, 0, 0]);
     } else {
       _setLocalPasswordError(null);
+    }
+
+    if (!/^[a-z0-9-!@#$&*%]+$/.test(normalizedValue.toLowerCase())) {
+      _setLocalPasswordError('The password can contain symbols !@#$&*%, latin letters and numbers');
     }
 
     comparePasswords(normalizedValue, confirmationPassword);
