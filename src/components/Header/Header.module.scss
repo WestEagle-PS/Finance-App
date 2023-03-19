@@ -1,5 +1,24 @@
 @import '/src/shared/styles/variables';
 
+.header__container {
+  max-width: 320px;
+  min-height: 60px;
+  padding: 15px 20px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  max-width: 320px;
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    min-height: 80px;
+    padding: 20px 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
 .containerInner {
   height: 30px;
   display: flex;
@@ -109,7 +128,7 @@
   line-height: 24px;
   font-style: normal;
   font-weight: 400;
-  
+
   background-color: getColor('primary-color');
   box-shadow: rgba(0, 0, 0, 0.2) 0px 30px 20px 7px, 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
@@ -131,24 +150,4 @@
   margin-bottom: 90px;
   padding: 10px;
   color: getColor('text-color');
-}
-
-.header__container {
-  outline: 2px solid red;
-  outline-offset: -2px;
-  max-width: 320px;
-  min-height: 60px;
-  padding: 15px 20px;
-  margin: 0 auto;
-  max-width: 320px;
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-    min-height: 80px;
-    padding: 20px 32px;
-  }
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-    padding-right: 16px;
-    padding-left: 16px;
-  }
 }
