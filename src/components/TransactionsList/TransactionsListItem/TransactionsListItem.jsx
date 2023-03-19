@@ -24,21 +24,22 @@ import styles from './TransactionsListItem.module.scss';
 // export default TransactionsListItem;
 
 const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
-const newSum = sum.toFixed(2)
-const typeOfTrans = type === 'INCOME' ? '+' : '-';
-const Newdate = new Date(date);
-const day = Newdate.getDate().toString().padStart(2, '0');
-const month = (Newdate.getMonth() + 1).toString().padStart(2, '0'); 
-const year = Newdate.getFullYear().toString().slice(-2); 
-const formattedDate = `${day}.${month}.${year}`;
+  const newSum = sum.toFixed(2);
+  const typeOfTrans = type === 'INCOME' ? '+' : '-';
+  const Newdate = new Date(date);
+  const day = Newdate.getDate().toString().padStart(2, '0');
+  const month = (Newdate.getMonth() + 1).toString().padStart(2, '0');
+  const year = Newdate.getFullYear().toString().slice(-2);
+  const formattedDate = `${day}.${month}.${year}`;
   return (
     <li className={styles.item}>
       <div className={styles.leftBox}>
         <p className={styles.date}>{formattedDate}</p>
         <p className={styles.type}>{typeOfTrans}</p>
-        <p className={styles.category}>{category}</p>
+        <p className={styles.category}> {category?.name ? category.name : 'Unknown'}</p>
+
         <span className={styles.comment}>{comment}</span>
-        <span className={typeOfTrans==='+'?styles.greenSum:styles.redSum}>{newSum}</span>
+        <span className={typeOfTrans === '+' ? styles.greenSum : styles.redSum}>{newSum}</span>
       </div>
       <div className={styles.rightBox}>
         <EditButton onClick={() => onEditBtnClick(id)} />
