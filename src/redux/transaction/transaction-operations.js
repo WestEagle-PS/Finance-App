@@ -33,10 +33,10 @@ export const addTransaction = createAsyncThunk('transaction/add', async (data, {
   }
 });
 
-export const deleteTransaction = createAsyncThunk('transaction/del', async (id, { rejectWithValue }) => {
+export const deleteTransaction = createAsyncThunk('transaction/del', async ( data, { rejectWithValue }) => {
   try {
-    await api.deleteTransaction(id);
-    return id;
+    await api.deleteTransaction(data.id);
+    return data;
   } catch ({ response }) {
     return rejectWithValue(response);
   }
@@ -59,7 +59,7 @@ export const updateTranscation = createAsyncThunk('transaction/update', async (t
     if (result.amount < 0) {
       result.amount = result.amount * -1;
     }
-    return result;
+    return {...result, oldAmount: transaction.oldAmount};
   } catch ({ response }) {
     return rejectWithValue(response);
   }

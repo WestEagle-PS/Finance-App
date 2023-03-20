@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
-import { selectPeriodTotal } from 'redux/summary/summary-selectors';
+import { selectBalance } from 'redux/transaction/transaction-selectors';
+// import { selectPeriodTotal } from 'redux/summary/summary-selectors';
 // import { selectAllTransactions } from 'redux/transaction/transaction-selectors';
 import s from './Balance.module.scss';
 
 const Balance = () => {
-  const totalBalance = useSelector(selectPeriodTotal)
+  const totalBalance = useSelector(selectBalance);
+  // const totalBalance = useSelector(selectPeriodTotal)
 //   const data = useSelector(selectAllTransactions);
 //   const totalBalance = data.reduce((_, el) => el.balanceAfter, 0);
 

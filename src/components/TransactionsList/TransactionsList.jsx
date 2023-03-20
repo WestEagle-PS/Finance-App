@@ -45,7 +45,7 @@ import 'simplebar-react/dist/simplebar.min.css';
 
 const TransactionsList = () => {
   const [isEdit, setIsEdit] = useState(false);
-  const [transaction, setTransaction] = useState('');
+  const [transaction, setTransaction] = useState({});
   const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
@@ -55,12 +55,19 @@ const TransactionsList = () => {
   const handleEditBtnClick = id => {
     setIsEdit(true);
     const transaction = transactions && transactions.find(item => item.id === id);
-    setTransaction(transaction);
+    console.log("transaction", transaction)
+    // if (transaction?.amount < 0) {
+    //   setTransaction({ ...transaction, amount: (transaction.amount *= -1) });
+    // } else {
+      setTransaction(transaction);
+    // }
     setShowModal(true);
   };
 
   const handleDeleteBtnClick = id => {
-    dispatch(deleteTransaction(id));
+    const data = transactions.find(item => item.id === id);
+    console.log('data', data);
+    dispatch(deleteTransaction(data));
   };
 
   const onCloseModal = () => {
@@ -68,7 +75,8 @@ const TransactionsList = () => {
   };
 
   const onAddFormSubmit = data => {
-    dispatch(updateTranscation(data));
+    const value = { ...data, oldAmount: transaction.amount };
+    dispatch(updateTranscation(value));
     setShowModal(false);
   };
   const transactionsCopy = [...transactions];
@@ -83,7 +91,9 @@ const TransactionsList = () => {
     transactionsCopy &&
     transactionsCopy.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
       const categoryName = categories && categories.find(item => item.id === categoryId);
-
+      if (amount && amount < 0) {
+        amount = amount * -1;
+      }
       return (
         <TransactionsListItem
           key={id}
