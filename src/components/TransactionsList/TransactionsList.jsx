@@ -46,6 +46,7 @@ import 'simplebar-react/dist/simplebar.min.css';
 const TransactionsList = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [transaction, setTransaction] = useState({});
+  const [oldAmount, setOldAmount] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
@@ -55,12 +56,13 @@ const TransactionsList = () => {
   const handleEditBtnClick = id => {
     setIsEdit(true);
     const transaction = transactions && transactions.find(item => item.id === id);
-    console.log("transaction", transaction)
-    // if (transaction?.amount < 0) {
-    //   setTransaction({ ...transaction, amount: (transaction.amount *= -1) });
-    // } else {
+    setOldAmount(transaction.amount);
+    if (transaction?.amount < 0) {
+      setTransaction(() => {
+        setTransaction({...transaction, amount: transaction.amount * -1})});
+    } else {
       setTransaction(transaction);
-    // }
+    }
     setShowModal(true);
   };
 
@@ -74,7 +76,7 @@ const TransactionsList = () => {
   };
 
   const onAddFormSubmit = data => {
-    const value = { ...data, oldAmount: transaction.amount };
+    const value = { ...data, oldAmount };
     dispatch(updateTranscation(value));
     setShowModal(false);
   };
