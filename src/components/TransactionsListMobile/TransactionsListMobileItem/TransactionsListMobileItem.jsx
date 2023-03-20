@@ -27,7 +27,7 @@ const formattedDate = `${day}.${month}.${year}`;
           </tr>
           <tr className={typeOfTrans==='+'?styles.green:styles.red}>
             <td className={styles.head}>Category</td>
-            <td className={styles.body}>{category}</td>
+            <td className={styles.body}>{category?.name?category.name:'unknown'}</td>
           </tr>
           <tr className={typeOfTrans==='+'?styles.green:styles.red}>
             <td className={styles.head}>Comment</td>
@@ -45,7 +45,7 @@ const formattedDate = `${day}.${month}.${year}`;
             <td className={styles.body}>
               <div className={styles.editBox}>
                 <EditButton onClick={() => onEditBtnClick(id)} />
-                <span onClick={() => onEditBtnClick(id)} className={styles.edit}>Edit</span>
+                {/* <span onClick={() => onEditBtnClick(id)} className={styles.edit}>Edit</span> */}
               </div>
             </td>
           </tr>

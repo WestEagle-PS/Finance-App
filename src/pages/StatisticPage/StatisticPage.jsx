@@ -77,7 +77,7 @@ const StatisticPage = () => {
           <PieChartComponent data={data} totalSum={periodTotal} expense={expenseSummary} />
           <div className={css.box}>
             <div className={css.innerBox}>
-              <MonthCalendar onChange={onMonthChange}/>
+             <div className={css.month}> <MonthCalendar onChange={onMonthChange}/></div>
               <YearsCalendar onChange={onYearChange}/>
             </div>
             <ExpensesList data={data} incomeSum={incomeSummary} expenseSum={expenseSummary} />

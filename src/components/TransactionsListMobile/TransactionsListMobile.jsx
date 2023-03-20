@@ -37,14 +37,14 @@ const TransactionListMobile = () => {
     setShowModal(false);
   };
 
-  const element = transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
+  const element =transactions&& transactions.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
     const categoryName = categories.find(item => item.id === categoryId);
 
     return (
       <TransactionsListMobileItem
         key={id}
         id={id}
-        category={categoryName.name}
+        category={categoryName}
         sum={amount}
         date={transactionDate}
         type={type}
