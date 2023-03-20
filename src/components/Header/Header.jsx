@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getUser } from '../../redux/auth/auth-selectors';
 import { useState } from 'react';
 import { logout } from '../../redux/auth/auth-operations';
@@ -26,10 +27,10 @@ const Header = () => {
     <header className={styles.header__container}>
       <div className="container">
         <div className={styles.containerInner}>
-          <div className={styles.logoBox}>
+          <Link to="/home" className={styles.logoBox}>
             <img className={styles.img__wallet} src={logo} width="30" height="30" alt="" />
             <p className={styles.text__wallet}>Wallet</p>
-          </div>
+          </Link>
           <div className={styles.exitBox}>
             <p className={styles.name}>{user.username}</p>
             <img className={styles.vector} src={vector} height="30" alt="" />
