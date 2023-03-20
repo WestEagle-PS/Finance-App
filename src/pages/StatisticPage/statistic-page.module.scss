@@ -5,9 +5,9 @@
     margin-left: 69px;
   }
 }
-.innerBox {
-  display: flex;
-}
+// .innerBox {
+//   display: flex;
+// }
 .titleStats {
   margin-left: 15px;
   margin-bottom: 20px;
@@ -24,20 +24,28 @@
 .box {
   @media screen and (min-width: 320px) {
     max-width: 280px;
+    margin-top: 32px;
   }
 
   @media screen and (min-width: 768px) {
     min-width: 336px;
+    margin-top: 0;
   }
 
   @media screen and (min-width: 1280px) {
     min-width: 395px;
+    margin-top: 0;
   }
 }
 
 .innerBox {
-  display: flex;
-  gap: 32px;
+  display: block;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+
+  // gap: 32px;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
