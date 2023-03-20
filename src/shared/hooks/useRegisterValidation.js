@@ -96,7 +96,7 @@ function useRegisterValidation() {
   const setUsername = value => {
     const normalizedValue = value.trim();
 
-    if (!normalizedValue.length) {
+    if (normalizedValue.length < 1 || normalizedValue.length > 12) {
       _setLocalUsernameError(requiredErrorMessage);
     } else {
       _setLocalUsernameError(null);

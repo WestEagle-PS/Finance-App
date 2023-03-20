@@ -17,7 +17,7 @@
 
 .formGroup svg * {
   fill: #e0e0e0;
-  transition: fill 400ms;
+  transition: fill 200ms;
 }
 
 .field {
@@ -34,7 +34,7 @@
   border-bottom: 1px solid #e0e0e0;
   outline: none;
 
-  transition: border-color 400ms;
+  transition: border-color 200ms;
 }
 
 .field:focus {
@@ -63,16 +63,16 @@
 
 .filled {
   color: #000000;
-  border-color: #000000;
+  border-color: #187705;
 }
 
 .filled + svg * {
-  fill: #000000;
+  fill: #187705;
 }
 
 .hint {
   position: absolute;
-  top: -8px;
+  top: -15px;
   left: 0;
   width: 100%;
   font-family: CirceRegular;
