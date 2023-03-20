@@ -3,11 +3,13 @@ import EditButton from 'shared/components/EditButton/EditButton';
 import DeleteButton from 'shared/components/DeleteButton/DeleteButton';
 
 import styles from './TransactionsListItem.module.scss';
+import numeral from 'numeral';
 
 
 const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
 
-  const formattedNumber = Number(sum.toFixed(2)).toLocaleString().replaceAll(",",".")
+  
+const formattedNumber = numeral(sum).format('0,00.00').replaceAll(",","\u00A0")
   
     
   const typeOfTrans = type === 'INCOME' ? '+' : '-';

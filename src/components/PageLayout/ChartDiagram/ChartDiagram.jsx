@@ -3,7 +3,7 @@ import React from 'react';
 import { PieChart, Pie, Cell, Tooltip, Label } from 'recharts';
 import wallet from 'images/wallett.png';
 import styles from './chart-diagram.module.scss';
-
+import numeral from 'numeral';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 
@@ -71,7 +71,7 @@ const getSize = (isDesktop, isTablet) => {
             <Cell key={`cell-${index}`} fill={item.color} />
           ))}
 
-          <Label className={styles.label} fill="#000000" value={`₴${Number(totalSum).toLocaleString().replaceAll(",",".")}`} position="center" />
+          <Label className={styles.label} fill="#000000" value={`₴${numeral(totalSum).format('0,00.00').replaceAll(",","\u00A0")}`} position="center" />
 
         </Pie>
         <Tooltip />

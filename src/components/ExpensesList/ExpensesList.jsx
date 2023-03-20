@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import ExpensesListItem from './ExpensesListItem/ExpensesListItem';
+import numeral from 'numeral';
 
 import styles from './ExpensesList.module.scss';
 
@@ -18,11 +19,11 @@ const ExpensesList = ({ data = [], incomeSum = 0, expenseSum = 0 }) => {
         <ul className={styles.list}>{element}</ul>
         <div className={styles.expenses}>
           <p className={styles.textE}>Expenses:</p>
-          <span className={styles.expensesText}>{expenseSum.toLocaleString().replaceAll(",",".")}</span>
+          <span className={styles.expensesText}>{numeral(expenseSum).format('0,00.00').replaceAll(",","\u00A0")}</span>
         </div>
         <div className={styles.income}>
           <p className={styles.textI}>Income:</p>
-          <span className={styles.incomeText}>{incomeSum.toLocaleString().replaceAll(",",".")}</span>
+          <span className={styles.incomeText}>{numeral(incomeSum).format('0,00.00').replaceAll(",","\u00A0")}</span>
         </div>
       </div>
     </div>
