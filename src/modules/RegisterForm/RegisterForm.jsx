@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import TextField from '../../shared/components/TextField/TextField';
 import fields from './fields';
 
@@ -84,3 +85,7 @@ const RegisterForm = ({ onSubmit }) => {
 };
 
 export default RegisterForm;
+
+RegisterForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+}

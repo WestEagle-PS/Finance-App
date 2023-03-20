@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './add-button.module.scss';
 
 const AddButton = ({ onBtnClick, props }) => {
@@ -5,3 +6,8 @@ const AddButton = ({ onBtnClick, props }) => {
 };
 
 export default AddButton;
+
+AddButton.propTypes = {
+  onBtnClick: PropTypes.func.isRequired,
+  props: PropTypes.object,
+}

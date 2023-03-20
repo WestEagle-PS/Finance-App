@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { components } from 'react-select';
 
 const DropdownIndicator = props => {
@@ -11,3 +12,7 @@ const DropdownIndicator = props => {
 };
 
 export default DropdownIndicator;
+
+DropdownIndicator.propTypes = {
+  props: PropTypes.object,
+}

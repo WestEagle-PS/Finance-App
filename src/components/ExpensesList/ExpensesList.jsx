@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import ExpensesListItem from './ExpensesListItem/ExpensesListItem';
 
 import styles from './ExpensesList.module.scss';
 
-const ExpensesList = ({data = [], incomeSum = 0, expenseSum = 0 }) => {
+const ExpensesList = ({ data = [], incomeSum = 0, expenseSum = 0 }) => {
   const element = data.map(item => (
     <ExpensesListItem key={item.id} category={item.name} sum={item.value} color={item.color} />
   ));
@@ -25,7 +26,13 @@ const ExpensesList = ({data = [], incomeSum = 0, expenseSum = 0 }) => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default ExpensesList;
+
+ExpensesList.propTypes = {
+  data: PropTypes.array.isRequired,
+  incomeSum: PropTypes.number,
+  expenseSum: PropTypes.number,
+};

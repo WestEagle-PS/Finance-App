@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './delete-button.module.scss';
 
 const DeleteButton = ({ id, onClick }) => {
@@ -14,6 +15,11 @@ const DeleteButton = ({ id, onClick }) => {
 };
 
 export default DeleteButton;
+
+DeleteButton.propTypes = {
+  id: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+}
 
 // Приклад використання
 // const handleDelete = id => {

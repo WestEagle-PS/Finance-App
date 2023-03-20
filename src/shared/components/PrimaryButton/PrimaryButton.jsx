@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './primary-button.module.scss';
 
 const PrimaryButton = ({ children, ...props }) => {
@@ -9,6 +10,11 @@ const PrimaryButton = ({ children, ...props }) => {
 };
 
 export default PrimaryButton;
+
+PrimaryButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  props: PropTypes.object,
+}
 
 // Приклад використання
 // const handleClick = () => {

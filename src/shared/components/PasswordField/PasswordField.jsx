@@ -1,5 +1,6 @@
-import css from './password-field.module.scss';
+import PropTypes from 'prop-types';
 import TextField from '../TextField/TextField';
+import css from './password-field.module.scss';
 
 const PasswordField = ({ passwordReliability = [], ...props }) => {
   const sum = passwordReliability.reduce((accum, value) => {
@@ -19,3 +20,8 @@ const PasswordField = ({ passwordReliability = [], ...props }) => {
 };
 
 export default PasswordField;
+
+PasswordField.propTypes = {
+  passwordReliability: PropTypes.array,
+  props: PropTypes.object,
+}

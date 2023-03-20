@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { useState } from 'react';
 import DropdownIndicator from '../DropdownIndicator/DropdownIndicator';
@@ -95,6 +96,12 @@ const DropdownCalendar = ({ options = [], startValue, onChange }) => {
 };
 
 export default DropdownCalendar;
+
+DropdownCalendar.propTypes = {
+  options: PropTypes.array.isRequired,
+  startValue: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+}
 
 // Приклад використання
 // const [value, setValue] = useState({ label: 'One', value: 'one' });

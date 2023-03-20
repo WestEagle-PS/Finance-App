@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react';
 
 const useMediaQuery = query => {
@@ -17,6 +18,10 @@ const useMediaQuery = query => {
 };
 
 export default useMediaQuery;
+
+useMediaQuery.propTypes = {
+  query: PropTypes.bool.isRequired,
+}
 
 // Приклад використання
 // function App() {

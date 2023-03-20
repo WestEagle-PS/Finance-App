@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import EditButton from 'shared/components/EditButton/EditButton';
 import DeleteButton from 'shared/components/DeleteButton/DeleteButton';
 
@@ -5,7 +6,6 @@ import styles from './TransactionsListMobileItem.module.scss';
 
 
 const TransactionsListMobileItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
-  // console.log(type)
   const newSum = sum.toFixed(2)
   const Newdate = new Date(date);
 const day = Newdate.getDate().toString().padStart(2, '0');
@@ -57,5 +57,13 @@ const formattedDate = `${day}.${month}.${year}`;
 
 export default TransactionsListMobileItem;
 
-
-
+TransactionsListMobileItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  sum: PropTypes.number.isRequired,
+  date: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  comment: PropTypes.string.isRequired,
+  onEditBtnClick: PropTypes.func.isRequired,
+  onDeleteBtnClick: PropTypes.func.isRequired,
+}

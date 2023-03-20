@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from './toggle-button.module.scss';
 
@@ -30,3 +31,8 @@ const ToggleButton = ({ getChecked, onClick }) => {
 };
 
 export default ToggleButton;
+
+ToggleButton.propTypes = {
+  getChecked: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+}
