@@ -9,6 +9,9 @@
 //   display: flex;
 // }
 .titleStats {
+  @media screen and (max-width: 767px) {
+    margin-top: 40px;
+  }
   margin-left: 15px;
   margin-bottom: 20px;
   font-family: PoppinsRegular;
@@ -37,7 +40,11 @@
     margin-top: 0;
   }
 }
-
+.month {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+}
 .innerBox {
   display: block;
   @media screen and (min-width: 768px) {

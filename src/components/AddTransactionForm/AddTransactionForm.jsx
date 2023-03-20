@@ -12,7 +12,7 @@ import INITIAL_STATE from './initialState';
 import calendarIcon from 'images/svg/calendary.svg';
 import styles from './add-transaction-form.module.scss';
 
-const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSubmit, setShowModal }) => {
+const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSubmit, setShowModal, titleEdit }) => {
   const [checked, setChecked] = useState(true);
   const { state, handleChange, handleDataChange, handleSubmit } = useForm({ initialState, onSubmit });
   const categories = useSelector(selectCategories);
@@ -33,7 +33,7 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
 
   return (
     <>
-      <p className={styles.title}>Add transaction</p>
+      <p className={styles.title}>{titleEdit || 'Add transaction'}</p>
       <form onSubmit={handleSubmit} className={styles.form}>
         {isEdit ? (
           <>

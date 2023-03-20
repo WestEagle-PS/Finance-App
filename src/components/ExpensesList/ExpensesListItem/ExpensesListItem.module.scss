@@ -13,6 +13,7 @@
 .box {
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 
 .block {
@@ -21,6 +22,22 @@
 }
 
 .category {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 18px;
+  /* identical to box height, or 112% */
+
+  color: #000000;
+}
+.sum {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height, or 112% */
+
+  color: #000000;
 }

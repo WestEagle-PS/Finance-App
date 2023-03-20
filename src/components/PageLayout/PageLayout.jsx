@@ -9,7 +9,7 @@ const PageLayout = ({ children }) => {
     <div className={s.pageLayoutWrapper}>
       <Header />
       <div className={s.pageLayoutWrapperInner}>
-        <div className="container">
+        <div className={`container ${s.pageLayoutContainer}`}>
           <div className={s.wrapper}>
             <SideBar />
             {children}
