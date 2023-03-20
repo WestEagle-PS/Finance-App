@@ -97,7 +97,7 @@ const TransactionsList = () => {
           <p>Comment</p>
           <p>Sum</p>
         </div>
-        <SimpleBar style={{ maxHeight: 450 }}>
+        <SimpleBar style={{ maxHeight: "50vh" }}>
           {' '}
           <div className={styles.list_box}>
             <ul className={styles.list}>{element}</ul>
