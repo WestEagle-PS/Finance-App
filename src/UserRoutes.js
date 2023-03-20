@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+
 import LoaderPage from 'pages/LoaderPage/LoaderPage';
 import PrivateRoute from './modules/PrivateRoute/PrivateRoute';
 import PublicRoute from './modules/PublicRoute/PublicRoute';
@@ -14,7 +15,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 const UserRoutes = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
   // useEffect(() => {
   //   if (!isMobile) {

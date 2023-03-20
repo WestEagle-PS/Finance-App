@@ -1,9 +1,29 @@
+.pageLayoutWrapperInner {
+  min-height: calc(100vh - 80px);
+  backdrop-filter: blur(50px);
+  background: hsla(0, 0%, 100%, 0.4);
+}
+
 .wrapper {
-  // position: relative;
   display: flex;
+
   @media screen and (max-width: 1279px) {
     flex-direction: column;
   }
 
-  padding-top: 32px;
+  padding-top: 12px;
+
+  @media (min-width: 768px) {
+    padding-top: 32px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: 40px;
+  }
+}
+
+.pageLayoutContainer {
+  @media (min-width: 768px) {
+    height: calc(100vh - 80px);
+  }
 }

@@ -13,4 +13,4 @@ export const getTransactionCategories = async () => {
   return data.data;
 };
 
-export const getTransactionSummary = () => instanceAuth.get('/transactions-summary');
+export const getTransactionSummary = ({month, year}) => instanceAuth.get(`/transactions-summary?month=${month}&year=${year}`);

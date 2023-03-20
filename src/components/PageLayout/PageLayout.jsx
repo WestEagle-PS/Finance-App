@@ -5,15 +5,17 @@ import s from './page-layout.module.scss';
 
 const PageLayout = ({ children }) => {
   return (
-    <>
+    <div className={s.pageLayoutWrapper}>
       <Header />
-      <div className="container">
-        <div className={s.wrapper}>
-          <SideBar />
-          {children}
+      <div className={s.pageLayoutWrapperInner}>
+        <div className={`container ${s.pageLayoutContainer}`}>
+          <div className={s.wrapper}>
+            <SideBar />
+            {children}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

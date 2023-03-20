@@ -46,13 +46,13 @@ const TransactionListMobile = () => {
   });
 
   const element = transactionsCopy.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
-    const categoryName = categories.find(item => item.id === categoryId);
+  const categoryName = categories.find(item => item.id === categoryId);
 
     return (
       <TransactionsListMobileItem
         key={id}
         id={id}
-        category={categoryName.name}
+        category={categoryName}
         sum={amount}
         date={transactionDate}
         type={type}

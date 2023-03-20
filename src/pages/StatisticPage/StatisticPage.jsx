@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-// import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCategories } from 'redux/transaction/transaction-operations';
+import { getAllCategories, getAllTransactions } from 'redux/transaction/transaction-operations';
 import { getTransactionSummary } from 'redux/summary/summary-operations';
 import { selectCategories } from 'redux/transaction/transaction-selectors';
 import {
@@ -10,8 +9,8 @@ import {
   selectExpenseSummary,
   selectPeriodTotal,
 } from 'redux/summary/summary-selectors';
-import { month } from 'components/MonthCalendar/MonthCalendar';
-import { year } from 'components/YearsCalendar/YearsCalendar';
+// import { month } from 'components/MonthCalendar/MonthCalendar';
+// import { year } from 'components/YearsCalendar/YearsCalendar';
 import { COLORS } from 'shared/data/colors';
 import PieChartComponent from 'components/PageLayout/ChartDiagram/ChartDiagram';
 import MonthCalendar from 'components/MonthCalendar/MonthCalendar';
@@ -23,7 +22,8 @@ import css from './statistic-page.module.scss';
 
 const StatisticPage = () => {
   const dispatch = useDispatch();
-  // const [isLoading, setIsLoading] = useState(true);
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [year, setYear] = useState(new Date().getFullYear())
 
   const categories = useSelector(selectCategories);
   const categoriesSummary = useSelector(selectCategoriesSummary);
@@ -38,6 +38,21 @@ const StatisticPage = () => {
 
   if (!categories) {
     return <Loader />;
+  }
+    dispatch(getAllTransactions());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getTransactionSummary({ month, year }));
+  }, [dispatch, month, year]);
+
+  const onMonthChange = (value) => {
+    console.log("value in setMonth", value);
+    setMonth(value);
+  }
+
+  const onYearChange = (value) => {
+    setYear(value);
   }
 
   const categoriesWhithoutIncome = categories && categories.filter(item => item.name !== 'Income');
@@ -57,21 +72,27 @@ const StatisticPage = () => {
       return { ...item, value: 0 };
     });
 
-  return (
-    // <>
-    //   {!isLoading && (
-    <div className={css.wrapper}>
-      <PieChartComponent data={data} totalSum={periodTotal} />
-      <div className={css.box}>
+  return ( <>
+    {!isLoading && (
+      <div className={css.wrapper}>
+        <h2 className={css.titleStats}>Statistics</h2>
+
         <div className={css.innerBox}>
-          <MonthCalendar />
-          <YearsCalendar />
+          <PieChartComponent data={data} totalSum={periodTotal} expense={expenseSummary} />
+          <div className={css.box}>
+            <div className={css.innerBox}>
+              <div className={css.month}>
+                {' '}
+                <MonthCalendar onChange={onMonthChange} />
+              </div>
+              <YearsCalendar onChange={onYearChange} />
+            </div>
+            <ExpensesList data={data} incomeSum={incomeSummary} expenseSum={expenseSummary} />
+          </div>
         </div>
-        <ExpensesList data={data} incomeSum={incomeSummary} expenseSum={expenseSummary} />
       </div>
-    </div>
-    //   )}
-    // </>
+    )}
+  </>
   );
 };
 

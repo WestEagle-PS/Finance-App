@@ -9,10 +9,10 @@
   .item {
     &:not(:last-child) {
       margin-right: 33px;
-      margin-bottom: 16px;
     }
 
     @media (min-width: 768px) {
+      margin-bottom: 16px;
       &:nth-child(2) {
         margin-bottom: 0;
       }
@@ -23,15 +23,17 @@
     display: flex;
     align-items: center;
     text-decoration: none;
+    font-family: PoppinsRegular;
 
     &:global(.active) {
       font-family: PoppinsBold;
-      font-weight: bold;
+      svg {
+        fill: #4a56e2;
+      }
     }
 
     span {
       display: none;
-      font-family: PoppinsRegular;
       color: #000000;
       font-size: 18px;
       line-height: 1.5;
@@ -48,6 +50,7 @@
     height: 38px;
     box-shadow: (0px 3px 10px rgba(74, 86, 226, 0.5));
     border-radius: 6px;
+    fill: #6e78e8;
 
     @media (min-width: 768px) {
       width: 18px;

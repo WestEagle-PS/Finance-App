@@ -15,15 +15,17 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={`container ${css.box}`}>
-      <div className={css.leftSide}>
-        <img className={css.imgLeft} src={imgMan} alt="man" width="435" height="420" />
-        <p className={css.text}>Finance App</p>
-      </div>
+    <div className={css.wrapper}>
+      <div className={`container ${css.box}`}>
+        <div className={css.leftSide}>
+          <img className={css.imgLeft} src={imgMan} alt="man" />
+          <p className={css.text}>Finance App</p>
+        </div>
 
-      <div className={css.rightSide}>
-        <span className={css.ellipse}></span>
-        <LoginForm onSubmit={onLogin} />
+        <div className={css.rightSide}>
+          <span className={css.ellipse}></span>
+          <LoginForm onSubmit={onLogin} />
+        </div>
       </div>
     </div>
   );

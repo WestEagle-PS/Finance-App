@@ -1,10 +1,21 @@
 .title {
-  border: 1px solid rgb(228, 171, 171);
+  // border: 1px solid rgb(228, 171, 171);
+
   display: flex;
   padding: 15px 20px;
   justify-content: space-between;
   background-color: #ffffff;
   border-radius: 30px;
+}
+.heading {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+  color: #000000;
 }
 
 .list {
@@ -26,12 +37,42 @@
   justify-content: space-between;
   align-items: center;
 }
-.text {
+.textE {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #000000;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.textI {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height */
+
+  color: #000000;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
 }
 .expensesText {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
@@ -39,6 +80,13 @@
 }
 
 .incomeText {
+  font-family: CirceRegular;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
