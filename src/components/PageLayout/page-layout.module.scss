@@ -1,6 +1,12 @@
+.pageLayoutWrapperInner {
+  min-height: calc(100vh - 80px);
+  backdrop-filter: blur(50px);
+  background: hsla(0, 0%, 100%, 0.4);
+}
+
 .wrapper {
-  // position: relative;
   display: flex;
+
   @media screen and (max-width: 1279px) {
     flex-direction: column;
   }

@@ -24,35 +24,37 @@ const Header = () => {
 
   return (
     <header className={styles.header__container}>
-      <div className={styles.containerInner}>
-        <div className={styles.logoBox}>
-          <img className={styles.img__wallet} src={logo} width="30" height="30" alt="" />
-          <p className={styles.text__wallet}>Wallet</p>
-        </div>
-        <div className={styles.exitBox}>
-          <p className={styles.name}>{user.username}</p>
-          <img className={styles.vector} src={vector} height="30" alt="" />
-          <img onClick={toggleModal} className={styles.exit} src={exit} alt="" />
-          <button onClick={toggleModal} className={styles.button} type="button">
-            Exit
-          </button>
-        </div>
-        {showModal && (
-          <Modal onClose={toggleModal}>
-            <div className={styles.modal__wrapper}>
-              <p className={styles.question}> Are you sure you want to exit ?</p>
-              <div className={styles.button__wrapper}>
-                <button className={styles.button__question} onClick={onLogout}>
-                  yes
-                </button>
+      <div className="container">
+        <div className={styles.containerInner}>
+          <div className={styles.logoBox}>
+            <img className={styles.img__wallet} src={logo} width="30" height="30" alt="" />
+            <p className={styles.text__wallet}>Wallet</p>
+          </div>
+          <div className={styles.exitBox}>
+            <p className={styles.name}>{user.username}</p>
+            <img className={styles.vector} src={vector} height="30" alt="" />
+            <img onClick={toggleModal} className={styles.exit} src={exit} alt="" />
+            <button onClick={toggleModal} className={styles.button} type="button">
+              Exit
+            </button>
+          </div>
+          {showModal && (
+            <Modal onClose={toggleModal}>
+              <div className={styles.modal__wrapper}>
+                <p className={styles.question}> Are you sure you want to exit ?</p>
+                <div className={styles.button__wrapper}>
+                  <button className={styles.button__question} onClick={onLogout}>
+                    yes
+                  </button>
 
-                <button className={styles.button__question} onClick={toggleModal}>
-                  no
-                </button>
+                  <button className={styles.button__question} onClick={toggleModal}>
+                    no
+                  </button>
+                </div>
               </div>
-            </div>
-          </Modal>
-        )}
+            </Modal>
+          )}
+        </div>
       </div>
     </header>
   );
