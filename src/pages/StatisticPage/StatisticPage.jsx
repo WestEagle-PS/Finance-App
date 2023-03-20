@@ -9,8 +9,6 @@ import {
   selectExpenseSummary,
   selectPeriodTotal,
 } from 'redux/summary/summary-selectors';
-// import { month } from 'components/MonthCalendar/MonthCalendar';
-// import { year } from 'components/YearsCalendar/YearsCalendar';
 import { COLORS } from 'shared/data/colors';
 import PieChartComponent from 'components/PageLayout/ChartDiagram/ChartDiagram';
 import MonthCalendar from 'components/MonthCalendar/MonthCalendar';
@@ -40,7 +38,6 @@ const StatisticPage = () => {
   }, [dispatch, month, year]);
 
   const onMonthChange = (value) => {
-    console.log("value in setMonth", value);
     setMonth(value);
   }
 

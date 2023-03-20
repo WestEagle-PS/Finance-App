@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import DropdownCalendar from 'shared/components/DropdownCalendar/DropdownCalendar';
 import { options } from './options';
 
@@ -14,3 +15,7 @@ const YearsCalendar = ({onChange}) => {
 };
 
 export default YearsCalendar;
+
+YearsCalendar.propTypes = {
+  onChange: PropTypes.func.isRequired,
+}

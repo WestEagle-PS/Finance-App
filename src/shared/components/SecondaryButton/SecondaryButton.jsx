@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './secondary-button.module.scss';
 
 const SecondaryButton = ({ children, onBtnClick, ...props }) => {
@@ -9,6 +10,12 @@ const SecondaryButton = ({ children, onBtnClick, ...props }) => {
 };
 
 export default SecondaryButton;
+
+SecondaryButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  onBtnClick: PropTypes.func.isRequired,
+  props: PropTypes.object,
+}
 
 // Приклад використання
 // const handleClick = () => {

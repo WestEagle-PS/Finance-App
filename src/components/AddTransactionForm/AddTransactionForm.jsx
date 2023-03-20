@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories } from 'redux/transaction/transaction-selectors';
@@ -86,3 +87,10 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
 };
 
 export default AddTransactionForm;
+
+AddTransactionForm.propTypes = {
+  initialState: PropTypes.object,
+  isEdit:PropTypes.bool,
+  onSubmit:PropTypes.func.isRequired,
+  setShowModal: PropTypes.func.isRequired,
+}

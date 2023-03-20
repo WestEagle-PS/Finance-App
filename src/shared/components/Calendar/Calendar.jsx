@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
@@ -35,3 +36,8 @@ const AddTransactionCalendar = ({ stateDate, onChange }) => {
 };
 
 export default AddTransactionCalendar;
+
+AddTransactionCalendar.propTypes = {
+  stateDate: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

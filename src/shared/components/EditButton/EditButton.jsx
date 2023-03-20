@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './edit-button.module.scss';
 
 const EditButton = ({ id, onClick }) => {
@@ -14,3 +15,8 @@ const EditButton = ({ id, onClick }) => {
 };
 
 export default EditButton;
+
+EditButton.propTypes = {
+  id: PropTypes.number,
+  onClick: PropTypes.func.isRequired,
+}

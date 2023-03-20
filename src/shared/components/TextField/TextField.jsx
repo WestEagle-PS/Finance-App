@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './text-field.module.scss';
 
 const TextField = ({ value = '', label = '', icon = null, error = null, ...props }) => {
@@ -25,3 +26,11 @@ const TextField = ({ value = '', label = '', icon = null, error = null, ...props
 };
 
 export default TextField;
+
+TextField.propTypes = {
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  icon: PropTypes.node.isRequired,
+  error: PropTypes.string,
+  props: PropTypes.object,
+}

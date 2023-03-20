@@ -13,7 +13,7 @@ const Balance = () => {
   return (
     <div className={s.balance}>
       <div className={s.balanceTitle}>Your balance</div>
-      <div className={s.balanceValue}>&#8372; {totalBalance || 0}</div>
+      <div className={s.balanceValue}>&#8372; {totalBalance.toFixed(2) || 0}</div>
     </div>
   );
 };

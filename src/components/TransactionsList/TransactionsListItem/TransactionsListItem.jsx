@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import EditButton from 'shared/components/EditButton/EditButton';
 import DeleteButton from 'shared/components/DeleteButton/DeleteButton';
 
@@ -50,3 +51,14 @@ const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBt
 };
 
 export default TransactionsListItem;
+
+TransactionsListItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  category: PropTypes.object.isRequired,
+  sum: PropTypes.number.isRequired,
+  date: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  comment: PropTypes.string.isRequired,
+  onEditBtnClick: PropTypes.func.isRequired,
+  onDeleteBtnClick: PropTypes.func.isRequired,
+}

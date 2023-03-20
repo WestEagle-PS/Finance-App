@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './custom-link.module.scss';
 import { Link } from 'react-router-dom';
 
@@ -10,3 +11,9 @@ const CustomLink = ({ children, to = '/', ...props }) => {
 };
 
 export default CustomLink;
+
+CustomLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  to: PropTypes.string.isRequired,
+  props: PropTypes.object,
+}

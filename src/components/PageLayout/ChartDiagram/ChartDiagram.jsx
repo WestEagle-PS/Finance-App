@@ -1,17 +1,17 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Label } from 'recharts';
 import wallet from 'images/wallett.png';
 import styles from './chart-diagram.module.scss';
 
-
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 
-const PieChartComponent = ({ data = [], totalSum = '', expense }) => {
+const PieChartComponent = ({ data = [], totalSum = 0, expense }) => {
   const isMobile = useMediaQuery('(min-width: 320px)');
   const isTablet = useMediaQuery('(min-width: 768px)');
   const isDesktop = useMediaQuery('(min-width: 1280px)');
-  
+
  const size = {
     mobile: {
       cx: 135,
@@ -55,7 +55,7 @@ const getSize = (isDesktop, isTablet) => {
     isTablet,
     isMobile
   );
-  
+
 
   return (
    <>
@@ -71,9 +71,9 @@ const getSize = (isDesktop, isTablet) => {
           {data.map((item, index) => (
             <Cell key={`cell-${index}`} fill={item.color} />
           ))}
-          
+
           <Label className={styles.label} fill="#000000" value={`₴${Number(totalSum).toFixed(2)}`} position="center" />
-          
+
         </Pie>
         <Tooltip />
       </PieChart>
@@ -84,3 +84,9 @@ const getSize = (isDesktop, isTablet) => {
 };
 
 export default PieChartComponent;
+
+PieChartComponent.propTypes = {
+  data: PropTypes.array.isRequired,
+  totalSum: PropTypes.number,
+  expense: PropTypes.number,
+}

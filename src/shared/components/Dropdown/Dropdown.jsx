@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { useState } from 'react';
 import DropdownIndicator from '../DropdownIndicator/DropdownIndicator';
@@ -89,6 +90,11 @@ const Dropdown = ({ options = [], onChange }) => {
 };
 
 export default Dropdown;
+
+Dropdown.propTypes = {
+  options: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 // Приклад використання
 // const [value, setValue] = useState({ label: 'One', value: 'one' });
