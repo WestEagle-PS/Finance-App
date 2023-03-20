@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { RotatingLines } from 'react-loader-spinner';
 
 const Loader = ({ width }) => {
@@ -5,3 +6,7 @@ const Loader = ({ width }) => {
 };
 
 export default Loader;
+
+Loader.propTypes = {
+  width: PropTypes.string,
+}
