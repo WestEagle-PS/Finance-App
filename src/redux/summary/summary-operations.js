@@ -3,9 +3,9 @@ import * as api from 'shared/api/transactions';
 
 export const getTransactionSummary = createAsyncThunk(
     'summary/get',
-    async (_, { rejectWithValue }) => {
+    async ({month, year}, { rejectWithValue }) => {
       try {
-        const { data } = await api.getTransactionSummary();
+        const { data } = await api.getTransactionSummary({month, year});
         if(data.expenseSummary < 0) {
             data.expenseSummary = data.expenseSummary * -1;
         }

@@ -66,7 +66,6 @@ const TransactionsList = () => {
 
   const handleDeleteBtnClick = id => {
     const data = transactions.find(item => item.id === id);
-    console.log('data', data);
     dispatch(deleteTransaction(data));
   };
 
