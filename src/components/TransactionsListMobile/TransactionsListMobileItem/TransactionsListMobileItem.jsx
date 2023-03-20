@@ -59,7 +59,7 @@ export default TransactionsListMobileItem;
 
 TransactionsListMobileItem.propTypes = {
   id: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
+  category: PropTypes.object.isRequired,
   sum: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
