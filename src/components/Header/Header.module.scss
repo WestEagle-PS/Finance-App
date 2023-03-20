@@ -8,11 +8,11 @@
 
   @media screen and (min-width: 768px) {
     min-height: 80px;
-    padding: 20px 32px;
+    padding: 20px 0;
   }
   @media screen and (min-width: 1280px) {
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -24,21 +24,25 @@
     height: 40px;
   }
 }
+
 .logoBox {
   display: flex;
+  gap: 20px;
   min-width: 120px;
+  text-decoration: none;
+
   @media screen and (min-width: 768px) {
     min-width: 180px;
   }
 }
+
 .img__wallet {
-  margin-right: 15px;
   @media screen and (min-width: 768px) {
     width: 40px;
     height: 40px;
-    margin-right: 20px;
   }
 }
+
 .text__wallet {
   display: flex;
   align-items: center;
@@ -58,6 +62,8 @@
   display: flex;
   min-width: 106px;
   align-items: center;
+  justify-content: flex-end;
+
   @media screen and (min-width: 768px) {
     min-width: 160px;
   }
