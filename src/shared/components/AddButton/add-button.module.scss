@@ -10,9 +10,13 @@
   border-radius: 1000px;
   cursor: pointer;
   transition: transform 400ms;
-  position: absolute;
+  position: fixed;
   right: 24px;
   bottom: 24px;
+
+  @media (min-width: 768px){
+    position: absolute;
+  }
 }
 
 .button:hover,
