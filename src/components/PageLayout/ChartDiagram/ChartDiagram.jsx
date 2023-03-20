@@ -4,7 +4,6 @@ import wallet from 'images/wallett.png';
 import styles from './chart-diagram.module.scss';
 
 const PieChartComponent = ({ data = [], totalSum = '', expense }) => {
-  console.log("data", data);
   return (
     <>
       {expense === 0 ? (

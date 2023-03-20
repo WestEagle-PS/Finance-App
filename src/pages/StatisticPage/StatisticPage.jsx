@@ -36,7 +36,6 @@ const StatisticPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log("change")
     dispatch(getTransactionSummary({ month, year }));
   }, [dispatch, month, year]);
 

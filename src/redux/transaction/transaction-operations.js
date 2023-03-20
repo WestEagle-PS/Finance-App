@@ -56,9 +56,9 @@ export const updateTranscation = createAsyncThunk('transaction/update', async (t
       data.amount = Number('-' + data.amount);
     }
     const { data: result } = await api.updateTranscation(id, data);
-    if (result.amount < 0) {
-      result.amount = result.amount * -1;
-    }
+    // if (result.amount < 0) {
+    //   result.amount = result.amount * -1;
+    // }
     return {...result, oldAmount: transaction.oldAmount};
   } catch ({ response }) {
     return rejectWithValue(response);
