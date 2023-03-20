@@ -34,11 +34,14 @@ const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBt
   return (
     <li className={styles.item}>
       <div className={styles.leftBox}>
-        <p className={styles.date}>{formattedDate}</p>
-        <p className={styles.type}>{typeOfTrans}</p>
-        <p className={styles.category}> {category?.name ? category.name : 'Unknown'}</p>
-
-        <span className={styles.comment}>{comment}</span>
+        <div><p className={styles.date}>{formattedDate}</p></div>
+        <div><p className={styles.type}>{typeOfTrans}</p></div>
+       <div> <p className={styles.category}> {category?.name ? category.name : 'Unknown'}</p>
+</div>
+        <div><p className={styles.comment}>{comment}</p>
+        </div>
+      </div>
+      <div className={styles.sum}>
         <span className={typeOfTrans === '+' ? styles.greenSum : styles.redSum}>{newSum}</span>
       </div>
       <div className={styles.rightBox}>
