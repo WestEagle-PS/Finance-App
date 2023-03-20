@@ -59,7 +59,8 @@ const TransactionsList = () => {
     setOldAmount(transaction.amount);
     if (transaction?.amount < 0) {
       setTransaction(() => {
-        setTransaction({...transaction, amount: transaction.amount * -1})});
+        setTransaction({ ...transaction, amount: transaction.amount * -1 });
+      });
     } else {
       setTransaction(transaction);
     }
@@ -135,6 +136,7 @@ const TransactionsList = () => {
             {showModal && (
               <Modal onClose={onCloseModal}>
                 <AddTransactionForm
+                  titleEdit="Edit transaction"
                   initialState={transaction}
                   isEdit={isEdit}
                   onSubmit={onAddFormSubmit}
