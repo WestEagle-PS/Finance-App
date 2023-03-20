@@ -1,8 +1,24 @@
 .wrapper {
   @media screen and (min-width: 1280px) {
     width: 800px;
-    display: flex;
+    // display: flex;
+    margin-left: 69px;
   }
+}
+.innerBox {
+  display: flex;
+}
+.titleStats {
+  margin-left: 15px;
+  margin-bottom: 20px;
+  font-family: PoppinsRegular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 45px;
+  /* identical to box height */
+
+  color: #000000;
 }
 
 .box {

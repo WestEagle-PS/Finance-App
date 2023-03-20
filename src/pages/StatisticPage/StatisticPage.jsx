@@ -56,9 +56,12 @@ const StatisticPage = () => {
   });
 
   return (
-    // <>
-    //   {!isLoading && (
-        <div className={css.wrapper}>
+    <>
+    
+    <div className={css.wrapper}>
+      <h2 className={css.titleStats}>Statistics</h2>
+      
+        <div className={css.innerBox}>
           <PieChartComponent data={data} totalSum={periodTotal} />
           <div className={css.box}>
             <div className={css.innerBox}>
@@ -67,9 +70,11 @@ const StatisticPage = () => {
             </div>
             <ExpensesList data={data} incomeSum={incomeSummary} expenseSum={expenseSummary} />
           </div>
-        </div>
-    //   )}
-    // </>
+         </div>
+         </div>
+        
+    
+    </>
   );
 };
 

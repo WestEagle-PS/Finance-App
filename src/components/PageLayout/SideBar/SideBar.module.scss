@@ -8,7 +8,7 @@
     flex-direction: column;
   }
 
-  width: 480px;
+  // width: 480px;
   @media screen and (max-width: 1279px) {
     width: 100%;
   }
@@ -27,5 +27,11 @@
   }
   @media screen and (min-width: 1280px) {
     display: block;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    min-width: 480px;
   }
 }
