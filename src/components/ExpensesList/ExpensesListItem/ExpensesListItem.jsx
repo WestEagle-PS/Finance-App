@@ -8,7 +8,7 @@ const ExpensesListItem = ({ category, sum, color }) => {
         <span className={styles.block} style={{ backgroundColor: color }}></span>
         <p className={styles.category}>{category}</p>
       </div>
-      <span className={styles.sum}>{sum.toFixed(2)}</span>
+      <span className={styles.sum}>{sum.toLocaleString().replaceAll(",",".")}</span>
     </li>
   );
 };

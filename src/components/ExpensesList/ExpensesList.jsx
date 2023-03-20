@@ -18,11 +18,11 @@ const ExpensesList = ({ data = [], incomeSum = 0, expenseSum = 0 }) => {
         <ul className={styles.list}>{element}</ul>
         <div className={styles.expenses}>
           <p className={styles.textE}>Expenses:</p>
-          <span className={styles.expensesText}>{expenseSum.toFixed(2)}</span>
+          <span className={styles.expensesText}>{expenseSum.toLocaleString().replaceAll(",",".")}</span>
         </div>
         <div className={styles.income}>
           <p className={styles.textI}>Income:</p>
-          <span className={styles.incomeText}>{incomeSum.toFixed(2)}</span>
+          <span className={styles.incomeText}>{incomeSum.toLocaleString().replaceAll(",",".")}</span>
         </div>
       </div>
     </div>
