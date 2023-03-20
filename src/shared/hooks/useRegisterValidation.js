@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function useRegisterValidation() {
-  const requiredErrorMessage = '*';
+  const requiredErrorMessage = 'This field is required';
   const [emailError, _setEmailError] = useState(null);
   const [passwordError, _setPasswordError] = useState(null);
   const [confirmationPasswordError, _setConfirmationPasswordError] = useState(null);
@@ -14,7 +14,7 @@ function useRegisterValidation() {
   const [password, _setPassword] = useState('');
   const [confirmationPassword, _setConfirmationPassword] = useState('');
   const [username, _setUsername] = useState('');
-  const [passwordReliability, _setPasswordReliability] = useState([0, 0, 0]);
+  const [passwordReliability, _setPasswordReliability] = useState([0, 0, 0, 0]);
 
   const increasePasswordReliability = index => {
     _setPasswordReliability(state => {
@@ -63,6 +63,12 @@ function useRegisterValidation() {
       increasePasswordReliability(2);
     } else {
       decreasePasswordReliability(2);
+    }
+
+    if (/(?=.*[!@#$&*%])/.test(normalizedValue)) {
+      increasePasswordReliability(3);
+    } else {
+      decreasePasswordReliability(3);
     }
 
     if (normalizedValue.length < 6 || normalizedValue.length > 12) {

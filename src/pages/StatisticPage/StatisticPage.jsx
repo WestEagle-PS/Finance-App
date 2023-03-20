@@ -16,6 +16,7 @@ import PieChartComponent from 'components/PageLayout/ChartDiagram/ChartDiagram';
 import MonthCalendar from 'components/MonthCalendar/MonthCalendar';
 import YearsCalendar from 'components/YearsCalendar/YearsCalendar';
 import ExpensesList from 'components/ExpensesList/ExpensesList';
+import Loader from 'shared/components/Loader/Loader';
 
 import css from './statistic-page.module.scss';
 
@@ -39,6 +40,10 @@ const StatisticPage = () => {
     dispatch(getTransactionSummary({ month, year }));
   }, [dispatch, month, year]);
 
+  if (!categories) {
+    return <Loader />;
+  }
+
   const onMonthChange = (value) => {
     console.log("value in setMonth", value);
     setMonth(value);
@@ -48,45 +53,42 @@ const StatisticPage = () => {
     setYear(value);
   }
 
- if (!categories) {
-  return <div>Loading...</div>;
-}
-
-   const categoriesWhithoutIncome = categories && categories.filter(item => item.name !== 'Income');
+  const categoriesWhithoutIncome = categories && categories.filter(item => item.name !== 'Income');
   const categoriesColors = categoriesWhithoutIncome.map((elem, index) => ({
     id: elem.id,
     name: elem.name,
     color: COLORS[index],
   }));
-  const filteredCategoriesSummary =categoriesSummary && categoriesSummary.filter(item => item.type !== 'INCOME');
-  const data = categoriesColors&& categoriesColors.map(item => {
-    const value = filteredCategoriesSummary&& filteredCategoriesSummary.find(elem => elem.name === item.name);
-    if (value) {
-      return { ...item, value: value.total * -1 };
-    }
-    return { ...item, value: 0 };
-  });
+  const filteredCategoriesSummary = categoriesSummary && categoriesSummary.filter(item => item.type !== 'INCOME');
+  const data =
+    categoriesColors &&
+    categoriesColors.map(item => {
+      const value = filteredCategoriesSummary && filteredCategoriesSummary.find(elem => elem.name === item.name);
+      if (value) {
+        return { ...item, value: value.total * -1 };
+      }
+      return { ...item, value: 0 };
+    });
 
-  return (
-    <>
-
-    <div className={css.wrapper}>
-      <h2 className={css.titleStats}>Statistics</h2>
+  return ( <>
+      <div className={css.wrapper}>
+        <h2 className={css.titleStats}>Statistics</h2>
 
         <div className={css.innerBox}>
           <PieChartComponent data={data} totalSum={periodTotal} expense={expenseSummary} />
           <div className={css.box}>
             <div className={css.innerBox}>
-             <div className={css.month}> <MonthCalendar onChange={onMonthChange}/></div>
-              <YearsCalendar onChange={onYearChange}/>
+              <div className={css.month}>
+                {' '}
+                <MonthCalendar onChange={onMonthChange} />
+              </div>
+              <YearsCalendar onChange={onYearChange} />
             </div>
             <ExpensesList data={data} incomeSum={incomeSummary} expenseSum={expenseSummary} />
           </div>
-         </div>
-         </div>
-
-
-    </>
+        </div>
+      </div>
+  </>
   );
 };
 

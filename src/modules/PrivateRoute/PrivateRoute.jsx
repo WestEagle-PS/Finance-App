@@ -7,10 +7,6 @@ import PageLayout from 'components/PageLayout/PageLayout';
 const PrivateRouter = () => {
   const { isLogin, token } = useSelector(getAuth);
 
-  if (!isLogin && token) {
-    return <p>... Loading</p>;
-  }
-
   if (!isLogin && !token) {
     return <Navigate to="/login" />;
   }
