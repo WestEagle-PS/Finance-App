@@ -4,6 +4,7 @@
   border: none;
   border-bottom: 1px solid #e0e0e0;
   outline: none;
+  cursor: pointer;
   background-color: transparent;
   font-family: CirceRegular;
   font-size: 18px;
@@ -25,4 +26,5 @@
   position: absolute;
   right: 8px;
   bottom: 4px;
+  pointer-events: none;
 }

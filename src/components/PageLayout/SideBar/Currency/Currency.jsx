@@ -16,6 +16,8 @@ const Currency = () => {
         setLoading('pending');
         const { data } = await getMoney();
         const newArr = data.slice(0, 2);
+        console.log('newArr', newArr);
+        await localStorage.set('currency', JSON.stringify(newArr));
         setState({ newArr });
         setLoading('loaded');
       } catch (response) {
@@ -27,6 +29,7 @@ const Currency = () => {
     fetchData();
   }, []);
 
+  // localStorage.set('currency', JSON.stringify(state));
   const elements = state.newArr?.map(item => {
     return (
       <li className={styles.item} key={item.currencyCodeA}>
