@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Loader from './shared/components/Loader/Loader';
-
+import LoaderPage from 'pages/LoaderPage/LoaderPage';
 import PrivateRoute from './modules/PrivateRoute/PrivateRoute';
 import PublicRoute from './modules/PublicRoute/PublicRoute';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
@@ -21,12 +20,12 @@ const UserRoutes = () => {
   //   if (!isMobile) {
   //     navigate('/home');
   //   }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [isMobile]);
 
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<LoaderPage />}>
         <Routes>
           <Route element={<PublicRoute />}>
             <Route path="/" element={<LoginPage />} />
