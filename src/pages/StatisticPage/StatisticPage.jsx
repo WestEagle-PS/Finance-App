@@ -29,16 +29,11 @@ const StatisticPage = () => {
   const incomeSummary = useSelector(selectIncomeSummary);
   const expenseSummary = useSelector(selectExpenseSummary);
   const periodTotal = useSelector(selectPeriodTotal);
-  
-
-  
-  
- 
 
   useEffect(() => {
     dispatch(getAllCategories());
     dispatch(getTransactionSummary({ month, year }));
-   
+
   }, [dispatch]);
 
  if (!categories) {
