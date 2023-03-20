@@ -1,5 +1,13 @@
 .box {
   width: 100%;
+  position: relative;
+  height: 331px;
+  border-radius: 30px;
+  background-image: linear-gradient(#6e78e8 60px, #4a56e2 60px);
+
+  @media screen and (max-width: 767px) {
+    margin-top: 28px;
+  }
   @media screen and (max-width: 1279px) {
     height: 182px;
   }
@@ -7,10 +15,6 @@
     width: 393px;
     height: 331px;
   }
-  position: relative;
-  height: 331px;
-  border-radius: 30px;
-  background-image: linear-gradient(#6e78e8 60px, #4a56e2 60px);
 }
 
 .upperBox {
@@ -40,7 +44,7 @@
   display: flex;
   justify-content: space-between;
   padding: 12px 0 12px 0;
-  
+
   @media screen and (min-width: 1280px) {
     padding: 20px 0 24px 0;
   }
