@@ -1,5 +1,7 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+// import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 import LoaderPage from 'pages/LoaderPage/LoaderPage';
 import PrivateRoute from './modules/PrivateRoute/PrivateRoute';
