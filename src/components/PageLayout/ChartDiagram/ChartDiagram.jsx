@@ -7,7 +7,7 @@ import styles from './chart-diagram.module.scss';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 
-const PieChartComponent = ({ data = [], totalSum = '' }) => {
+const PieChartComponent = ({ data = [], totalSum = '', expense }) => {
   const isMobile = useMediaQuery('(min-width: 320px)');
   const isTablet = useMediaQuery('(min-width: 768px)');
   const isDesktop = useMediaQuery('(min-width: 1280px)');
