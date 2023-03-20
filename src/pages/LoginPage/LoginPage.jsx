@@ -18,7 +18,7 @@ const LoginPage = () => {
     <div className={css.wrapper}>
       <div className={`container ${css.box}`}>
         <div className={css.leftSide}>
-          <img className={css.imgLeft} src={imgMan} alt="man" width="435" height="420" />
+          <img className={css.imgLeft} src={imgMan} alt="man" />
           <p className={css.text}>Finance App</p>
         </div>
 
