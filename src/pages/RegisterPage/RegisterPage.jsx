@@ -18,7 +18,7 @@ const RegisterPage = () => {
     <div className={css.wrapper}>
       <div className={`container ${css.box}`}>
         <div className={css.leftSide}>
-          <img className={css.imgLeft} src={imgWoman} alt="man" width="452" height="413" />
+          <img className={css.imgLeft} src={imgWoman} alt="man" />
           <p className={css.text}>Finance App</p>
         </div>
 

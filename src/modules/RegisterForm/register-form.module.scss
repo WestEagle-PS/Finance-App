@@ -1,20 +1,20 @@
 .form {
   width: 100%;
-  padding: 107px 20px;
+  padding: 32px 20px 36px;
 
   background-color: #ffffff;
   border-radius: 20px;
 
   @media screen and (min-width: 768px) {
     width: 533px;
-    padding: 40px 65px 66px 65px;
+    padding: 40px 58.5px 66px 65px;
+    margin-bottom: 48px;
   }
 }
 
 .logoBox {
   display: flex;
   gap: 15.5px;
-  padding-top: 40px;
   margin-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
@@ -23,21 +23,18 @@
 }
 
 .wallet {
+  display: flex;
+  align-items: center;
   font-family: PoppinsBold;
   font-size: 30px;
   line-height: 45px;
-  display: flex;
-  align-items: center;
   color: #000000;
-  display: flex;
 }
 
 .fieldsWrapper {
-  margin-top: 60px;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin-bottom: 40px;
 }
 
 .buttonsWrapper {
