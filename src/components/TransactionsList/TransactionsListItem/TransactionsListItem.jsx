@@ -4,28 +4,12 @@ import DeleteButton from 'shared/components/DeleteButton/DeleteButton';
 
 import styles from './TransactionsListItem.module.scss';
 
-// const TransactionsListItem = ({ category, sum, date, type, comment }) => {
-//   const typeOfTrans = type === 'income' ? '+' : '-';
-//   return (
-//     <tr>
-//       <td>{date}</td>
-//       <td>{typeOfTrans}</td>
-//       <td>{category}</td>
-//       <td className={styles.tdComment}>{comment}</td>
-//       <td>{sum}</td>
-//       <td>
-//         <img src={svg} alt="Edit" className={styles.svg} />
-
-//         <button className={styles.btn}>Delete</button>
-//       </td>
-//     </tr>
-//   );
-// };
-
-// export default TransactionsListItem;
 
 const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
-  const newSum = sum.toFixed(2);
+
+  const formattedNumber = Number(sum.toFixed(2)).toLocaleString().replaceAll(",",".")
+  
+    
   const typeOfTrans = type === 'INCOME' ? '+' : '-';
   const Newdate = new Date(date);
   const day = Newdate.getDate().toString().padStart(2, '0');
@@ -43,7 +27,7 @@ const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBt
         </div>
       </div>
       <div className={styles.sum}>
-        <span className={typeOfTrans === '+' ? styles.greenSum : styles.redSum}>{newSum}</span>
+        <span className={typeOfTrans === '+' ? styles.greenSum : styles.redSum}>{formattedNumber}</span>
       </div>
       <div className={styles.rightBox}>
         <EditButton onClick={() => onEditBtnClick(id)} />
