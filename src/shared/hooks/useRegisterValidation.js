@@ -102,8 +102,8 @@ function useRegisterValidation() {
   const setUsername = value => {
     const normalizedValue = value.trim();
 
-    if (normalizedValue.length < 1 || normalizedValue.length > 12) {
-      _setLocalUsernameError(requiredErrorMessage);
+    if (normalizedValue.length > 12) {
+      _setLocalUsernameError('The name cannot exceed 12 characters');
     } else {
       _setLocalUsernameError(null);
     }
