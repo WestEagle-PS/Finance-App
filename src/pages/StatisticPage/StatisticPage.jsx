@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-// import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCategories } from 'redux/transaction/transaction-operations';
+import { getAllCategories, getAllTransactions } from 'redux/transaction/transaction-operations';
 import { getTransactionSummary } from 'redux/summary/summary-operations';
 import { selectCategories } from 'redux/transaction/transaction-selectors';
 import {
@@ -10,8 +9,8 @@ import {
   selectExpenseSummary,
   selectPeriodTotal,
 } from 'redux/summary/summary-selectors';
-import { month } from 'components/MonthCalendar/MonthCalendar';
-import { year } from 'components/YearsCalendar/YearsCalendar';
+// import { month } from 'components/MonthCalendar/MonthCalendar';
+// import { year } from 'components/YearsCalendar/YearsCalendar';
 import { COLORS } from 'shared/data/colors';
 import PieChartComponent from 'components/PageLayout/ChartDiagram/ChartDiagram';
 import MonthCalendar from 'components/MonthCalendar/MonthCalendar';
@@ -22,24 +21,32 @@ import css from './statistic-page.module.scss';
 
 const StatisticPage = () => {
   const dispatch = useDispatch();
-  // const [isLoading, setIsLoading] = useState(true);
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [year, setYear] = useState(new Date().getFullYear())
 
   const categories = useSelector(selectCategories);
   const categoriesSummary = useSelector(selectCategoriesSummary);
   const incomeSummary = useSelector(selectIncomeSummary);
   const expenseSummary = useSelector(selectExpenseSummary);
   const periodTotal = useSelector(selectPeriodTotal);
-  
-
-  
-  
- 
 
   useEffect(() => {
     dispatch(getAllCategories());
-    dispatch(getTransactionSummary({ month, year }));
-   
+    dispatch(getAllTransactions());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getTransactionSummary({ month, year }));
+  }, [dispatch, month, year]);
+
+  const onMonthChange = (value) => {
+    console.log("value in setMonth", value);
+    setMonth(value);
+  }
+
+  const onYearChange = (value) => {
+    setYear(value);
+  }
 
  if (!categories) {
   return <div>Loading...</div>;
@@ -62,23 +69,23 @@ const StatisticPage = () => {
 
   return (
     <>
-    
+
     <div className={css.wrapper}>
       <h2 className={css.titleStats}>Statistics</h2>
-      
+
         <div className={css.innerBox}>
-          <PieChartComponent data={data} totalSum={periodTotal} />
+          <PieChartComponent data={data} totalSum={periodTotal} expense={expenseSummary} />
           <div className={css.box}>
             <div className={css.innerBox}>
-              <MonthCalendar />
-              <YearsCalendar />
+              <MonthCalendar onChange={onMonthChange}/>
+              <YearsCalendar onChange={onYearChange}/>
             </div>
             <ExpensesList data={data} incomeSum={incomeSummary} expenseSum={expenseSummary} />
           </div>
          </div>
          </div>
-        
-    
+
+
     </>
   );
 };

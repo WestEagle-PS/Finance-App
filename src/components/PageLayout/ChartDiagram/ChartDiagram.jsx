@@ -1,6 +1,8 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Label } from 'recharts';
+import wallet from 'images/wallett.png';
 import styles from './chart-diagram.module.scss';
+
 
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
@@ -56,6 +58,13 @@ const getSize = (isDesktop, isTablet) => {
   
 
   return (
+   <>
+      {expense === 0 ? (
+        <div className={styles.box}>
+        <img className={styles.img} src={wallet} alt="There is no transaction" />
+        <p className={styles.descr}>There are no transactions during this period</p>
+        </div>
+      ) : (
     <ResponsiveContainer width={width} height={height}>
       <PieChart >
         <Pie  data={data}  cx={cx} cy={cy} innerRadius={innerR} outerRadius={outerR} fill="#8884d8" dataKey="value">
@@ -69,6 +78,8 @@ const getSize = (isDesktop, isTablet) => {
         <Tooltip />
       </PieChart>
     </ResponsiveContainer>
+     )}
+    </>
 )
 };
 

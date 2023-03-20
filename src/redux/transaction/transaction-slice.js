@@ -14,6 +14,7 @@ const initialState = {
   error: null,
   summary: {},
   categories: [],
+  balance: 0,
 };
 
 const handlePending = state => {
@@ -35,6 +36,9 @@ const transactionSlice = createSlice({
       .addCase(getAllTransactions.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items = payload;
+        state.balance = payload.reduce((total, elem) => {
+          return total += elem.amount;
+        }, 0)
       })
       .addCase(getAllTransactions.rejected, handleRejected)
 
@@ -42,13 +46,15 @@ const transactionSlice = createSlice({
       .addCase(addTransaction.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.items.push(payload);
+        state.balance = state.balance + payload.amount;
       })
       .addCase(addTransaction.rejected, handleRejected)
 
       .addCase(deleteTransaction.pending, handlePending)
       .addCase(deleteTransaction.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.items = state.items.filter(({ id }) => id !== payload);
+        state.items = state.items.filter(({ id }) => id !== payload.id);
+        state.balance = state.balance - payload.amount;
       })
       .addCase(deleteTransaction.rejected, handleRejected)
 
@@ -57,6 +63,8 @@ const transactionSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.items = state.items.map(transaction => (transaction.id === payload.id ? payload : transaction));
+        state.balance = state.balance - payload.oldAmount;
+        state.balance = state.balance + payload.amount;
       })
       .addCase(updateTranscation.rejected, handleRejected)
 
