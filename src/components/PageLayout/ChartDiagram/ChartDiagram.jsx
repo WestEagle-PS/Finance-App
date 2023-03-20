@@ -71,7 +71,7 @@ const getSize = (isDesktop, isTablet) => {
             <Cell key={`cell-${index}`} fill={item.color} />
           ))}
 
-          <Label className={styles.label} fill="#000000" value={`₴${Number(totalSum).toFixed(2)}`} position="center" />
+          <Label className={styles.label} fill="#000000" value={`₴${Number(totalSum).toLocaleString().replaceAll(",",".")}`} position="center" />
 
         </Pie>
         <Tooltip />
