@@ -5,43 +5,11 @@ import { selectAllTransactions, selectCategories } from 'redux/transaction/trans
 import TransactionsListItem from './TransactionsListItem/TransactionsListItem';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
-// import data from '../TransactionsList/data.json';
+
 import wallet from '../../images/wallett.png';
 import styles from './TransactionsList.module.scss';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
-
-// const TransactionList = () => {
-//   const element = data.map(item => (
-//     <TransactionsListItem
-//       key={item.id}
-//       category={item.category}
-//       sum={item.sum}
-//       date={item.date}
-//       type={item.type}
-//       comment={item.comment}
-//     />
-//   ));
-//   return (
-//     <div className={styles.box}>
-//       <table className={styles.table}>
-//         <thead className={styles.thead}>
-//           <tr>
-//             <th className={styles.date}>Date</th>
-//             <th className={styles.type}>Type</th>
-//             <th className={styles.category}>Category</th>
-//             <th className={styles.comment}>Comment</th>
-//             <th className={styles.sum}>Sum</th>
-
-//           </tr>
-//         </thead>
-//         <tbody className={styles.tbody}>{element}</tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default TransactionList;
 
 const TransactionsList = () => {
   const [isEdit, setIsEdit] = useState(false);
