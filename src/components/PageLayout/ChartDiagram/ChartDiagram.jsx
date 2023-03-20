@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Label } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, Label } from 'recharts';
 import wallet from 'images/wallett.png';
 import styles from './chart-diagram.module.scss';
 
@@ -7,7 +7,11 @@ import styles from './chart-diagram.module.scss';
 import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 
+
+
+
 const PieChartComponent = ({ data = [], totalSum = '', expense }) => {
+
   const isMobile = useMediaQuery('(min-width: 320px)');
   const isTablet = useMediaQuery('(min-width: 768px)');
   const isDesktop = useMediaQuery('(min-width: 1280px)');
@@ -42,7 +46,6 @@ const PieChartComponent = ({ data = [], totalSum = '', expense }) => {
 const getSize = (isDesktop, isTablet) => {
   switch (true) {
     case isDesktop:
-      console.log(size.desktop)
       return size.desktop;
     case isTablet:
       return size.tablet;
@@ -65,8 +68,8 @@ const getSize = (isDesktop, isTablet) => {
         <p className={styles.descr}>There are no transactions during this period</p>
         </div>
       ) : (
-    <ResponsiveContainer width={width} height={height}>
-      <PieChart >
+    
+      <PieChart width={width} height={height}>
         <Pie  data={data}  cx={cx} cy={cy} innerRadius={innerR} outerRadius={outerR} fill="#8884d8" dataKey="value">
           {data.map((item, index) => (
             <Cell key={`cell-${index}`} fill={item.color} />
@@ -77,7 +80,7 @@ const getSize = (isDesktop, isTablet) => {
         </Pie>
         <Tooltip />
       </PieChart>
-    </ResponsiveContainer>
+    
      )}
     </>
 )
