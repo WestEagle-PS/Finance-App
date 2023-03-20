@@ -33,18 +33,16 @@ const StatisticPage = () => {
 
   useEffect(() => {
     dispatch(getAllCategories());
-    dispatch(getTransactionSummary({ month, year }));
-  }, [dispatch]);
-
-  if (!categories) {
-    return <Loader />;
-  }
     dispatch(getAllTransactions());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(getTransactionSummary({ month, year }));
   }, [dispatch, month, year]);
+
+  if (!categories) {
+    return <Loader />;
+  }
 
   const onMonthChange = (value) => {
     console.log("value in setMonth", value);
