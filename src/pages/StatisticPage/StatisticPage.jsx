@@ -71,7 +71,6 @@ const StatisticPage = () => {
     });
 
   return ( <>
-    {!isLoading && (
       <div className={css.wrapper}>
         <h2 className={css.titleStats}>Statistics</h2>
 
@@ -89,7 +88,6 @@ const StatisticPage = () => {
           </div>
         </div>
       </div>
-    )}
   </>
   );
 };
