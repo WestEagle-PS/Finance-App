@@ -34,6 +34,7 @@ const Dropdown = ({ options = [], onChange }) => {
           backgroundColor: 'transparent',
           '&:hover': null,
           boxShadow: 'none',
+          marginBottom: '40px',
         }),
         indicatorSeparator: () => ({
           display: 'none',
