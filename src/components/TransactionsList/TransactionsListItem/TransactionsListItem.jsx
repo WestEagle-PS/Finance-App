@@ -45,7 +45,7 @@ export default TransactionsListItem;
 
 TransactionsListItem.propTypes = {
   id: PropTypes.string.isRequired,
-  category: PropTypes.object.isRequired,
+  category: PropTypes.object,
   sum: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
