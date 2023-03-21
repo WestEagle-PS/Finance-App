@@ -24,7 +24,6 @@ const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBt
           <p className={styles.type}>{typeOfTrans}</p>
         </div>
         <div>
-          {' '}
           <p className={styles.category}> {category?.name ? category.name : 'Unknown'}</p>
         </div>
         <div>

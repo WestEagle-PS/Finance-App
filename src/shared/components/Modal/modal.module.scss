@@ -1,42 +1,59 @@
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 1200;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1200;
+}
 
-  .modal {
-    width: 540px;
-    min-height: 508px;
-    padding: 40px 73px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background-color: #ffffff;
-    position: relative;
-  }
+.modal {
+  width: 540px;
+  min-height: 508px;
+  padding: 40px 73px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #ffffff;
+  position: relative;
+}
 
-  .button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 16px;
-    height: 16px;
-    border: 1px solid transparent;
-    background-color: transparent;
-    cursor: pointer;
-  }
+.button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 11px;
+  right: 11px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 400ms;
+}
 
-  .icon {
-    width: 16px;
-    height: 16px;
-  }
+.button:hover,
+.button:focus {
+  background-color: #ececec;
+}
+
+.button:hover .icon,
+.button:focus .icon {
+  stroke: #ff6596;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  stroke: #000000;
+  transition: stroke 400ms;
+}

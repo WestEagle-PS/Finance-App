@@ -31,6 +31,7 @@ const RegisterForm = ({ onSubmit }) => {
     setUsername,
     validate,
   } = useRegisterValidation();
+
   const handleSubmit = event => {
     event.preventDefault();
     if (validate()) {
@@ -88,4 +89,4 @@ export default RegisterForm;
 
 RegisterForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-}
+};

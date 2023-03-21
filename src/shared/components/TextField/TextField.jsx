@@ -33,4 +33,4 @@ TextField.propTypes = {
   icon: PropTypes.node.isRequired,
   error: PropTypes.string,
   props: PropTypes.object,
-}
+};

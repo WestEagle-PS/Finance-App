@@ -5,6 +5,7 @@ import { selectCategories } from 'redux/transaction/transaction-selectors';
 import useForm from 'shared/hooks/useForm';
 import ToggleButton from 'shared/components/ToggleButton/ToggleButton';
 import Dropdown from 'shared/components/Dropdown/Dropdown';
+import SimpleField from 'shared/components/SimpleField/SimpleField';
 import AddTransactionCalendar from 'shared/components/Calendar/Calendar';
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
 import SecondaryButton from 'shared/components/SecondaryButton/SecondaryButton';
@@ -51,32 +52,27 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
           </>
         )}
         <div className={styles.wrapper}>
-          <input
-            className={`${styles.field} ${styles.fieldChange}`}
+          <SimpleField
+            className={styles.field}
+         //  ${styles.fieldChange}`}
             name="amount"
-            type="text"
+            type="number"
             value={amount}
             placeholder="0.00"
+            centered
             required
             onChange={handleChange}
           />
           {isEdit ? (
             <div className={styles.inputBox}>
               <img className={styles.icon} src={calendarIcon} alt="Calendar icon" />
-              <input className={styles.field} name="transactionDate" type="text" value={transactionDate} disabled />
+              <SimpleField name="transactionDate" type="text" value={transactionDate} disabled />
             </div>
           ) : (
             <AddTransactionCalendar stateDate={transactionDate} onChange={handleDataChange} />
           )}
         </div>
-        <input
-          className={styles.field}
-          name="comment"
-          type="text"
-          value={comment}
-          placeholder="Comment"
-          onChange={handleChange}
-        />
+        <SimpleField name="comment" type="text" value={comment} placeholder="Comment" onChange={handleChange} />
         <div className={styles.box}>
           <PrimaryButton>{isEdit ? 'Save' : 'Add'}</PrimaryButton>
           <SecondaryButton onBtnClick={handleCancelBtnClick}>Cancel</SecondaryButton>
