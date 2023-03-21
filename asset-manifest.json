@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/wallet/static/css/main.b64dba2b.css",
-    "main.js": "/wallet/static/js/main.673b9fa1.js",
-    "static/css/245.4f225716.chunk.css": "/wallet/static/css/245.4f225716.chunk.css",
+    "main.css": "/wallet/static/css/main.e3731185.css",
+    "main.js": "/wallet/static/js/main.f95970d7.js",
+    "static/css/245.a2e77050.chunk.css": "/wallet/static/css/245.a2e77050.chunk.css",
     "static/js/245.edff2e59.chunk.js": "/wallet/static/js/245.edff2e59.chunk.js",
     "static/css/376.9428f43e.chunk.css": "/wallet/static/css/376.9428f43e.chunk.css",
     "static/js/376.74dfbdd7.chunk.js": "/wallet/static/js/376.74dfbdd7.chunk.js",
@@ -23,7 +23,7 @@
     "static/media/desktop-man.png": "/wallet/static/media/desktop-man.428cdb7a24d012dae811.png",
     "static/media/desktop-woman.png": "/wallet/static/media/desktop-woman.d928456f07e27eb76aab.png",
     "static/media/wallett.png": "/wallet/static/media/wallett.efcc2a8f028fbcc6331e.png",
-    "static/media/diagrama.svg": "/wallet/static/media/diagrama.ddccdde551674270b2f124b0dde7fa48.svg",
+    "static/media/diagrama.svg": "/wallet/static/media/diagrama.3c91a8f1ce31eba48512d12eba0222b5.svg",
     "static/media/Vector7-768px.svg": "/wallet/static/media/Vector7-768px.fae4a9c7f98c64fc6f39.svg",
     "static/media/Vector7.svg": "/wallet/static/media/Vector7.2965f3691046b64b7ba2.svg",
     "static/media/Vector7-320px.svg": "/wallet/static/media/Vector7-320px.340c22a500ab5a21cd92.svg",
@@ -32,14 +32,14 @@
     "static/media/exit.svg": "/wallet/static/media/exit.a6d43e7324bb992a08fee9626088c055.svg",
     "static/media/password.svg": "/wallet/static/media/password.cb2bf41ecf2655171804450b24014607.svg",
     "static/media/user.svg": "/wallet/static/media/user.f1e05e99f50d21e51a361d7733032eb3.svg",
-    "static/media/home.svg": "/wallet/static/media/home.89278e7524f9eea79fe3e0f21e229b32.svg",
     "static/media/calendary.svg": "/wallet/static/media/calendary.30bf32a7a4348ede2ce910569aedc915.svg",
+    "static/media/home.svg": "/wallet/static/media/home.531d2f285390634f1505c669240c9b6e.svg",
     "static/media/email.svg": "/wallet/static/media/email.b98c8bcbc969547a44a84df00810a290.svg",
     "static/media/close.svg": "/wallet/static/media/close.2177d4870f862ac6d59599f65693330b.svg",
     "static/media/Vector.svg": "/wallet/static/media/Vector.4197971255a4c6a047f2d568d14b817e.svg",
-    "main.b64dba2b.css.map": "/wallet/static/css/main.b64dba2b.css.map",
-    "main.673b9fa1.js.map": "/wallet/static/js/main.673b9fa1.js.map",
-    "245.4f225716.chunk.css.map": "/wallet/static/css/245.4f225716.chunk.css.map",
+    "main.e3731185.css.map": "/wallet/static/css/main.e3731185.css.map",
+    "main.f95970d7.js.map": "/wallet/static/js/main.f95970d7.js.map",
+    "245.a2e77050.chunk.css.map": "/wallet/static/css/245.a2e77050.chunk.css.map",
     "245.edff2e59.chunk.js.map": "/wallet/static/js/245.edff2e59.chunk.js.map",
     "376.9428f43e.chunk.css.map": "/wallet/static/css/376.9428f43e.chunk.css.map",
     "376.74dfbdd7.chunk.js.map": "/wallet/static/js/376.74dfbdd7.chunk.js.map",
@@ -55,7 +55,7 @@
     "40.693936b6.chunk.js.map": "/wallet/static/js/40.693936b6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b64dba2b.css",
-    "static/js/main.673b9fa1.js"
+    "static/css/main.e3731185.css",
+    "static/js/main.f95970d7.js"
   ]
 }
