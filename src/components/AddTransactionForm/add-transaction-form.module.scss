@@ -27,6 +27,11 @@
   outline: none;
 }
 
+.fieldChange {
+  text-align: center;
+  font-weight: bold;
+}
+
 .wrapper {
   display: flex;
   gap: 32px;
@@ -49,6 +54,7 @@
   font-family: CirceBold;
   font-size: 16px;
   line-height: calc(24 / 16);
+  text-align: center;
 }
 
 .income {

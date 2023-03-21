@@ -52,7 +52,7 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
         )}
         <div className={styles.wrapper}>
           <input
-            className={styles.field}
+            className={`${styles.field} ${styles.fieldChange}`}
             name="amount"
             type="text"
             value={amount}
@@ -90,7 +90,7 @@ export default AddTransactionForm;
 
 AddTransactionForm.propTypes = {
   initialState: PropTypes.object,
-  isEdit:PropTypes.bool,
-  onSubmit:PropTypes.func.isRequired,
+  isEdit: PropTypes.bool,
+  onSubmit: PropTypes.func.isRequired,
   setShowModal: PropTypes.func.isRequired,
-}
+};
