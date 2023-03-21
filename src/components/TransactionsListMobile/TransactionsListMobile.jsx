@@ -11,6 +11,7 @@ import TransactionsListMobileItem from './TransactionsListMobileItem/Transaction
 const TransactionListMobile = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
+  const [oldAmount, setOldAmount] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
@@ -19,13 +20,21 @@ const TransactionListMobile = () => {
 
   const handleEditBtnClick = id => {
     setIsEdit(true);
-    const transaction = transactions.find(item => item.id === id);
-    setTransaction(transaction);
+    const transaction = transactions && transactions.find(item => item.id === id);
+    setOldAmount(transaction.amount);
+    if (transaction?.amount < 0) {
+      setTransaction(() => {
+        setTransaction({ ...transaction, amount: transaction.amount * -1 });
+      });
+    } else {
+      setTransaction(transaction);
+    }
     setShowModal(true);
   };
 
   const handleDeleteBtnClick = id => {
-    dispatch(deleteTransaction(id));
+    const data = transactions.find(item => item.id === id);
+    dispatch(deleteTransaction(data));
   };
 
   const onCloseModal = () => {
@@ -33,7 +42,8 @@ const TransactionListMobile = () => {
   };
 
   const onAddFormSubmit = data => {
-    dispatch(updateTranscation(data));
+    const value = { ...data, oldAmount };
+    dispatch(updateTranscation(value));
     setShowModal(false);
   };
 
