@@ -30,6 +30,7 @@ const TransactionListMobile = () => {
       setTransaction(transaction);
     }
     setShowModal(true);
+    document.body.classList.add('activeBody');
   };
 
   const handleDeleteBtnClick = id => {
@@ -39,12 +40,14 @@ const TransactionListMobile = () => {
 
   const onCloseModal = () => {
     setShowModal(false);
+    document.body.classList.remove('activeBody');
   };
 
   const onAddFormSubmit = data => {
     const value = { ...data, oldAmount };
     dispatch(updateTranscation(value));
     setShowModal(false);
+    document.body.classList.remove('activeBody');
   };
 
   const transactionsCopy = [...transactions];
@@ -56,7 +59,7 @@ const TransactionListMobile = () => {
   });
 
   const element = transactionsCopy.map(({ id, transactionDate, type, categoryId, comment, amount }) => {
-  const categoryName = categories.find(item => item.id === categoryId);
+    const categoryName = categories.find(item => item.id === categoryId);
 
     return (
       <TransactionsListMobileItem
