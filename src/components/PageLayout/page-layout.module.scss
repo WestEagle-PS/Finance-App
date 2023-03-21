@@ -1,7 +1,10 @@
 .pageLayoutWrapperInner {
   min-height: calc(100vh - 80px);
-  backdrop-filter: blur(25px);
   background: hsla(0, 0%, 100%, 0.4);
+
+  @media screen and (min-width: 768px) {
+    backdrop-filter: blur(25px);
+  }
 }
 
 .wrapper {

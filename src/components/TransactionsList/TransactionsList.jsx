@@ -5,6 +5,7 @@ import { selectAllTransactions, selectCategories } from 'redux/transaction/trans
 import TransactionsListItem from './TransactionsListItem/TransactionsListItem';
 import Modal from 'shared/components/Modal/Modal';
 import AddTransactionForm from 'components/AddTransactionForm/AddTransactionForm';
+import useMediaQuery from 'shared/hooks/useMediaQuery';
 
 import wallet from '../../images/wallett.png';
 import styles from './TransactionsList.module.scss';
@@ -20,6 +21,9 @@ const TransactionsList = () => {
   const dispatch = useDispatch();
   const transactions = useSelector(selectAllTransactions);
   const categories = useSelector(selectCategories);
+
+  const isTablet = useMediaQuery('(max-width: 1279px)');
+  const isDesktop = useMediaQuery('(min-width: 1280px)');
 
   const handleEditBtnClick = id => {
     setIsEdit(true);
@@ -97,23 +101,50 @@ const TransactionsList = () => {
           <p>Comment</p>
           <p>Sum</p>
         </div>
-        <SimpleBar style={{ maxHeight: '60vh' }}>
-          {' '}
-          <div className={styles.list_box}>
-            <ul className={styles.list}>{element}</ul>
-            {showModal && (
-              <Modal onClose={onCloseModal}>
-                <AddTransactionForm
-                  titleEdit="Edit transaction"
-                  initialState={transaction}
-                  isEdit={isEdit}
-                  onSubmit={onAddFormSubmit}
-                  setShowModal={setShowModal}
-                />
-              </Modal>
-            )}
-          </div>
-        </SimpleBar>
+
+        {isTablet && (
+          <SimpleBar style={{ maxHeight: '51vh' }}>
+            {' '}
+            <div className={styles.list_box}>
+              <ul className={styles.list}>{element}</ul>
+              {showModal && (
+                <Modal onClose={onCloseModal}>
+                  <AddTransactionForm
+                    titleEdit="Edit transaction"
+                    initialState={transaction}
+                    isEdit={isEdit}
+                    onSubmit={onAddFormSubmit}
+                    setShowModal={setShowModal}
+                  />
+                </Modal>
+              )}
+            </div>
+          </SimpleBar>
+        )}
+
+        {isDesktop && (
+          <SimpleBar
+            style={{
+              maxHeight: '460px',
+            }}
+          >
+            {' '}
+            <div className={styles.list_box}>
+              <ul className={styles.list}>{element}</ul>
+              {showModal && (
+                <Modal onClose={onCloseModal}>
+                  <AddTransactionForm
+                    titleEdit="Edit transaction"
+                    initialState={transaction}
+                    isEdit={isEdit}
+                    onSubmit={onAddFormSubmit}
+                    setShowModal={setShowModal}
+                  />
+                </Modal>
+              )}
+            </div>
+          </SimpleBar>
+        )}
       </div>
     );
   return <> {whatToShow}</>;
