@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 
 import { getMoney } from 'shared/api/currency';
-import { ProgressBar } from 'react-loader-spinner';
+import Loader from 'shared/components/Loader/Loader';
+// import { ProgressBar } from 'react-loader-spinner';
 import { ReactComponent as Icon } from 'images/svg/Vector 7.svg';
 import styles from './Currency.module.scss';
 
 const Currency = () => {
-  const [state, setState] = useState([]);
+  const [state, setState] = useState(JSON.parse(localStorage.getItem('currency')) ?? []);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState('pending');
+  const fetchDate = localStorage.getItem('fetchDate') ? JSON.parse(localStorage.getItem('fetchDate')) : null;
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,20 +19,40 @@ const Currency = () => {
         const { data } = await getMoney();
         const newArr = data.slice(0, 2);
         console.log('newArr', newArr);
-        await localStorage.set('currency', JSON.stringify(newArr));
-        setState({ newArr });
+        localStorage.setItem('currency', JSON.stringify(newArr));
+        setState(newArr);
         setLoading('loaded');
       } catch (response) {
         setError(`Can't get data from server. Please try again later.` || response.message);
         setLoading('reject');
       }
     };
+    // const currencyFromLocal = JSON.parse(localStorage.getItem('currency'));
+    const timeNow = new Date().getTime();
 
-    fetchData();
-  }, []);
+    if (state.length === 0) {
+      fetchData();
+      localStorage.setItem('fetchDate', JSON.stringify(new Date().getTime()));
+      return;
+    }
+    // console.log('state', state.length !== 0);
+    // console.log('timeNow', timeNow);
+    // console.log('fetchDate', fetchDate);
+    // console.log(fetchDate + 3600000 > timeNow);
 
-  // localStorage.set('currency', JSON.stringify(state));
-  const elements = state.newArr?.map(item => {
+    if (state.length !== 0 && timeNow < fetchDate + 3600000) {
+      console.log('година ще не пройшла');
+      return;
+    }
+
+    if (timeNow > fetchDate + 3600000) {
+      console.log('година вже пройшла');
+      fetchData();
+      localStorage.setItem('fetchDate', JSON.stringify(new Date().getTime()));
+    }
+  }, [state, fetchDate]);
+
+  const elements = state?.map(item => {
     return (
       <li className={styles.item} key={item.currencyCodeA}>
         <p className={styles.heading}>{item.currencyCodeA === 840 ? 'USD' : 'EUR'}</p>
@@ -49,7 +71,8 @@ const Currency = () => {
             <p className={styles.text}>Purchase</p>
             <p className={styles.text}>Sale</p>
           </div>
-          <ProgressBar
+          <Loader/>
+          {/* <ProgressBar
             height="150px"
             width="300px"
             position="absolute"
@@ -59,7 +82,7 @@ const Currency = () => {
             wrapperClass={styles.bar}
             borderColor="#F4442E"
             barColor="blue"
-          />
+          /> */}
           <Icon style={{ position: 'absolute', bottom: '0' }} />
         </div>
       ) : (
