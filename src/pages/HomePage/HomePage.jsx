@@ -36,17 +36,20 @@ const HomePage = () => {
   const isMobile = useMediaQuery('(max-width: 767px)');
 
   return (
-    <div className={css.wrapper}>
-      {isMobile && <Balance />}
+    <div className={css.wrap}>
+      {isMobile && <AddButton type="button" onBtnClick={handleAddBtnClick} />}
+      <div className={css.wrapper}>
+        {isTablet && <AddButton type="button" onBtnClick={handleAddBtnClick} />}
+        {isMobile && <Balance />}
 
-      {isTablet && <TransactionsList setShowModal={setShowModal} />}
-      {isMobile && <TransactionListMobile />}
-      <AddButton type="button" onBtnClick={handleAddBtnClick} />
-      {showModal && (
-        <Modal onClose={onCloseModal}>
-          <AddTransactionForm onSubmit={onAddFormSubmit} setShowModal={setShowModal} />
-        </Modal>
-      )}
+        {isTablet && <TransactionsList setShowModal={setShowModal} />}
+        {isMobile && <TransactionListMobile />}
+        {showModal && (
+          <Modal onClose={onCloseModal}>
+            <AddTransactionForm onSubmit={onAddFormSubmit} setShowModal={setShowModal} />
+          </Modal>
+        )}
+      </div>
     </div>
   );
 };
