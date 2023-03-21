@@ -10,3 +10,9 @@
   text-align: center;
   text-decoration-line: underline;
 }
+
+.wrap {
+  @media (max-width: 767px) {
+    min-height: calc(100vh - 80px - 44px);
+  }
+}
