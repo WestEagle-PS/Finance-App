@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import { getMoney } from 'shared/api/currency';
 import Loader from 'shared/components/Loader/Loader';
-import { ReactComponent as Icon } from 'images/svg/Vector 7.svg';
 import styles from './Currency.module.scss';
 
 const hour = 3600000;
@@ -61,8 +60,7 @@ const Currency = () => {
             <p className={styles.text}>Purchase</p>
             <p className={styles.text}>Sale</p>
           </div>
-          <Loader/>
-          <Icon style={{ position: 'absolute', bottom: '0' }} />
+          <Loader />
         </div>
       ) : (
         <div className={styles.box}>
@@ -76,7 +74,6 @@ const Currency = () => {
           ) : (
             <>{error && <p className={styles.currencyError}>{error}</p>}</>
           )}
-          <Icon style={{ position: 'absolute', bottom: '0' }} />
         </div>
       )}
     </>
