@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 
 import { getMoney } from 'shared/api/currency';
 import Loader from 'shared/components/Loader/Loader';
-// import { ProgressBar } from 'react-loader-spinner';
 import { ReactComponent as Icon } from 'images/svg/Vector 7.svg';
 import styles from './Currency.module.scss';
+
+const hour = 3600000;
 
 const Currency = () => {
   const [state, setState] = useState(JSON.parse(localStorage.getItem('currency')) ?? []);
@@ -18,7 +19,6 @@ const Currency = () => {
         setLoading('pending');
         const { data } = await getMoney();
         const newArr = data.slice(0, 2);
-        console.log('newArr', newArr);
         localStorage.setItem('currency', JSON.stringify(newArr));
         setState(newArr);
         setLoading('loaded');
@@ -27,7 +27,7 @@ const Currency = () => {
         setLoading('reject');
       }
     };
-    // const currencyFromLocal = JSON.parse(localStorage.getItem('currency'));
+
     const timeNow = new Date().getTime();
 
     if (state.length === 0) {
@@ -35,18 +35,8 @@ const Currency = () => {
       localStorage.setItem('fetchDate', JSON.stringify(new Date().getTime()));
       return;
     }
-    // console.log('state', state.length !== 0);
-    // console.log('timeNow', timeNow);
-    // console.log('fetchDate', fetchDate);
-    // console.log(fetchDate + 3600000 > timeNow);
 
-    if (state.length !== 0 && timeNow < fetchDate + 3600000) {
-      console.log('година ще не пройшла');
-      return;
-    }
-
-    if (timeNow > fetchDate + 3600000) {
-      console.log('година вже пройшла');
+    if (timeNow > fetchDate + hour) {
       fetchData();
       localStorage.setItem('fetchDate', JSON.stringify(new Date().getTime()));
     }
@@ -72,17 +62,6 @@ const Currency = () => {
             <p className={styles.text}>Sale</p>
           </div>
           <Loader/>
-          {/* <ProgressBar
-            height="150px"
-            width="300px"
-            position="absolute"
-            bottom="0"
-            ariaLabel="progress-bar-loading"
-            wrapperStyle={{}}
-            wrapperClass={styles.bar}
-            borderColor="#F4442E"
-            barColor="blue"
-          /> */}
           <Icon style={{ position: 'absolute', bottom: '0' }} />
         </div>
       ) : (
