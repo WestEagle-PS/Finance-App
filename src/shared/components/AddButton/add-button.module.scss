@@ -10,12 +10,21 @@
   border-radius: 1000px;
   cursor: pointer;
   transition: transform 200ms;
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
+
+  position: sticky;
+  top: 90%;
+  margin-left: calc(100% - 44px);
 
   @media (min-width: 768px) {
     position: absolute;
+    right: 24px;
+    bottom: 24px;
+    z-index: 100;
+  }
+
+  @media (min-width: 1280px) {
+    right: 20px;
+    bottom: 40px;
   }
 }
 
