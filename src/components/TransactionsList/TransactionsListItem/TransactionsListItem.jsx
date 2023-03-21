@@ -5,13 +5,9 @@ import DeleteButton from 'shared/components/DeleteButton/DeleteButton';
 import styles from './TransactionsListItem.module.scss';
 import numeral from 'numeral';
 
-
 const TransactionsListItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
+  const formattedNumber = numeral(sum).format('0,00.00').replaceAll(',', '\u00A0');
 
-  
-const formattedNumber = numeral(sum).format('0,00.00').replaceAll(",","\u00A0")
-  
-    
   const typeOfTrans = type === 'INCOME' ? '+' : '-';
   const Newdate = new Date(date);
   const day = Newdate.getDate().toString().padStart(2, '0');
@@ -21,11 +17,17 @@ const formattedNumber = numeral(sum).format('0,00.00').replaceAll(",","\u00A0")
   return (
     <li className={styles.item}>
       <div className={styles.leftBox}>
-        <div><p className={styles.date}>{formattedDate}</p></div>
-        <div><p className={styles.type}>{typeOfTrans}</p></div>
-       <div> <p className={styles.category}> {category?.name ? category.name : 'Unknown'}</p>
-</div>
-        <div><p className={styles.comment}>{comment}</p>
+        <div>
+          <p className={styles.date}>{formattedDate}</p>
+        </div>
+        <div>
+          <p className={styles.type}>{typeOfTrans}</p>
+        </div>
+        <div>
+          <p className={styles.category}> {category?.name ? category.name : 'Unknown'}</p>
+        </div>
+        <div>
+          <p className={styles.comment}>{comment}</p>
         </div>
       </div>
       <div className={styles.sum}>
@@ -50,4 +52,4 @@ TransactionsListItem.propTypes = {
   comment: PropTypes.string.isRequired,
   onEditBtnClick: PropTypes.func.isRequired,
   onDeleteBtnClick: PropTypes.func.isRequired,
-}
+};
