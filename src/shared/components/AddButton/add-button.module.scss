@@ -15,6 +15,10 @@
   top: 90%;
   margin-left: calc(100% - 44px);
 
+  @media (max-width: 767px) {
+    margin-top: -44px;
+  }
+
   @media (min-width: 768px) {
     position: absolute;
     right: 24px;
