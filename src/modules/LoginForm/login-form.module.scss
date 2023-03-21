@@ -1,14 +1,12 @@
 .form {
   width: 100%;
-  padding: 107px 20px;
-
-  background-color: #ffffff;
   border-radius: 20px;
 
   @media screen and (min-width: 768px) {
     width: 533px;
     padding: 40px 65px 62px 65px;
     margin-bottom: 196px;
+    background-color: #fff;
   }
 
   @media screen and (min-width: 1280px) {
