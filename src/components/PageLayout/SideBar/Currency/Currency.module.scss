@@ -7,18 +7,16 @@
   background-repeat: no-repeat;
   background-position: 100% 100%;
 
-  @media screen and (max-width: 767px) {
-    margin-top: 28px;
-  }
   @media screen and (max-width: 1279px) {
     height: 182px;
   }
+
   @media (min-width: 768px) {
-    margin-top: 28px;
     background: url(../../../../images/svg/Vector7-768px.svg), linear-gradient(#6e78e8 50px, #4a56e2 50px);
     background-repeat: no-repeat;
     background-position: 100% 115%;
   }
+
   @media (min-width: 1280px) {
     width: 393px;
     height: 331px;
