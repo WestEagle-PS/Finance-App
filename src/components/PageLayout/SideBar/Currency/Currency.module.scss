@@ -69,12 +69,26 @@
 
 .currencyError {
   position: absolute;
-  top: 50%;
   transform: translateY(-50%);
   padding: 0 44px;
+
+  font-family: CirceBold;
   color: red;
   font-size: 20px;
-  font-family: CirceBold;
+
+  @media screen and (min-width: 320px) and (max-width: 767.9px) {
+    top: 62%;
+    padding: 0 35px;
+    color: red;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 60%;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 40%;
+  }
 }
 
 .bar {
