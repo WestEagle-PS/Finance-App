@@ -2,9 +2,7 @@ import PropTypes from 'prop-types';
 import TextField from '../../shared/components/TextField/TextField';
 import PrimaryButton from 'shared/components/PrimaryButton/PrimaryButton';
 import CustomLink from 'shared/components/CustomLink/CustomLink';
-import useForm from '../../shared/hooks/useForm';
 import useRegisterValidation from 'shared/hooks/useRegisterValidation';
-import initialState from './initialState';
 import fields from './fields';
 
 import logo from '../../images/svg/Group.png';
