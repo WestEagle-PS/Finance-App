@@ -1,4 +1,10 @@
 .overlay {
+  @media screen and (min-width: 320px) and (max-width: 767.9px) {
+    top: 60px;
+    height: 97vh;
+    background-color: #fff;
+  }
+
   position: fixed;
   top: 0;
   left: 0;
@@ -7,11 +13,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1200;
 }
 
 .modal {
+  @media screen and (min-width: 320px) and (max-width: 767.9px) {
+    position: relative;
+    display: block;
+    width: 320px;
+    border-radius: 0px;
+    padding: 20px 20px 37px 20px;
+  }
+
   width: 540px;
   min-height: 508px;
   padding: 40px 73px;
@@ -26,6 +40,10 @@
 }
 
 .button {
+  @media screen and (min-width: 320px) and (max-width: 767.9px) {
+    display: none;
+  }
+
   position: absolute;
   display: flex;
   align-items: center;
@@ -38,12 +56,12 @@
   border-radius: 50%;
   background-color: transparent;
   cursor: pointer;
-  transition: background-color 400ms;
-}
+  transition: background-color 200ms;
 
-.button:hover,
-.button:focus {
-  background-color: #ececec;
+  &:hover,
+  &:focus {
+    background-color: #ececec;
+  }
 }
 
 .button:hover .icon,
@@ -55,5 +73,5 @@
   width: 16px;
   height: 16px;
   stroke: #000000;
-  transition: stroke 400ms;
+  transition: stroke 200ms;
 }

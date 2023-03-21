@@ -53,8 +53,7 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
         )}
         <div className={styles.wrapper}>
           <SimpleField
-            className={styles.field}
-         //  ${styles.fieldChange}`}
+            // className={styles.field}
             name="amount"
             type="number"
             value={amount}
