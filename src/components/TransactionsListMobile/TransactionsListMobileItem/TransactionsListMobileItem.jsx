@@ -3,10 +3,11 @@ import EditButton from 'shared/components/EditButton/EditButton';
 import DeleteButton from 'shared/components/DeleteButton/DeleteButton';
 
 import styles from './TransactionsListMobileItem.module.scss';
+import numeral from 'numeral';
 
 
 const TransactionsListMobileItem = ({ id, category, sum, date, type, comment, onEditBtnClick, onDeleteBtnClick }) => {
-  const newSum = sum.toFixed(2)
+  const newSum = numeral(sum).format('0,00.00').replaceAll(",","\u00A0")
   const Newdate = new Date(date);
 const day = Newdate.getDate().toString().padStart(2, '0');
 const month = (Newdate.getMonth() + 1).toString().padStart(2, '0');
