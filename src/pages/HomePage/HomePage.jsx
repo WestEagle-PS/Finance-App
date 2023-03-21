@@ -21,15 +21,18 @@ const HomePage = () => {
 
   const handleAddBtnClick = () => {
     setShowModal(true);
+    document.body.classList.add('activeBody');
   };
 
   const onCloseModal = () => {
     setShowModal(false);
+    document.body.classList.remove('activeBody');
   };
 
   const onAddFormSubmit = data => {
     dispatch(addTransaction(data));
     setShowModal(false);
+    document.body.classList.remove('activeBody');
   };
 
   const isTablet = useMediaQuery('(min-width: 768px)');

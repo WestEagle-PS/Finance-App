@@ -30,6 +30,7 @@ const AddTransactionForm = ({ initialState = INITIAL_STATE, isEdit = false, onSu
 
   const handleCancelBtnClick = () => {
     setShowModal(false);
+    document.body.classList.remove('activeBody');
   };
 
   return (
