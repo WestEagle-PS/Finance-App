@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import LoginForm from '../../modules/LoginForm/LoginForm';
 import { login } from '../../redux/auth/auth-operations';
@@ -9,9 +10,18 @@ import css from './login-page.module.scss';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const [loginError, setLoginError] = useState('');
+
+  const resetLoginError = () => setLoginError('');
 
   const onLogin = data => {
-    dispatch(login(data));
+    dispatch(login(data)).then(data => {
+      if (data.payload.statusCode !== 200) {
+        setLoginError('Wrong email or password');
+      } else {
+        resetLoginError();
+      }
+    });
   };
 
   return (
@@ -24,7 +34,7 @@ const LoginPage = () => {
 
         <div className={css.rightSide}>
           <span className={css.ellipse}></span>
-          <LoginForm onSubmit={onLogin} />
+          <LoginForm onSubmit={onLogin} loginError={loginError} resetLoginError={resetLoginError} />
         </div>
       </div>
     </div>

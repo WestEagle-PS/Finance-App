@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import close from 'images/svg/close.svg';
+import { ReactComponent as CloseIcon } from 'images/svg/close.svg';
 import styles from './modal.module.scss';
 
 const modalRootEl = document.getElementById('modal-root');
@@ -23,7 +23,7 @@ const Modal = ({ children, onClose }) => {
     <div onClick={handleClose} className={styles.overlay}>
       <div className={styles.modal}>
         <button className={styles.button} type="button" onClick={onClose}>
-          <img className={styles.icon} src={close} alt="Close icon" />
+          <CloseIcon className={styles.icon} />
         </button>
         {children}
       </div>
