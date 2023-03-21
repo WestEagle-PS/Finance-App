@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from 'shared/api/transactions';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const getTransactionSummary = createAsyncThunk(
     'summary/get',
@@ -11,6 +12,7 @@ export const getTransactionSummary = createAsyncThunk(
         }
         return data;
       } catch ({ response }) {
+        Notify.failure(`Something went wrong, please refresh the page and try again`);
         return rejectWithValue(response);
       }
     }
