@@ -27,6 +27,10 @@
 }
 
 .field {
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
   width: 394px;
   padding: 8px, 12px;
   border: none;
